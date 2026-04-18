@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dv0do0uo2yue7"]
+
+[ext_resource type="Material" uid="uid://dgl5t7rqj52hx" path="res://Materials/gray_color.material" id="1_rqjsg"]
+[ext_resource type="Script" uid="uid://yx1k3c74um6j" path="res://Code/tower.gd" id="2_d6h38"]
+[ext_resource type="PackedScene" uid="uid://dsuytuswkva87" path="res://Scenes/Towers/range_indicator.tscn" id="3_uwg1x"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_344ge"]
+material = ExtResource("1_rqjsg")
+size = Vector3(0.2, 0.7, 0.2)
+
+[sub_resource type="BoxMesh" id="BoxMesh_6iyac"]
+material = ExtResource("1_rqjsg")
+size = Vector3(0.4, 0.4, 0.4)
+
+[node name="Tower" type="MeshInstance3D" unique_id=945097428]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.55, 0.5)
+mesh = SubResource("BoxMesh_344ge")
+script = ExtResource("2_d6h38")
+
+[node name="Top" type="MeshInstance3D" parent="." unique_id=382770996]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+mesh = SubResource("BoxMesh_6iyac")
+
+[node name="RangeIndicator" parent="." unique_id=1794438554 instance=ExtResource("3_uwg1x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 0)
+range = 3.0
