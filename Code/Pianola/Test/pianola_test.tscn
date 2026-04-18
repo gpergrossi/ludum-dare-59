@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://wwsjquulp8jj"]
+
+[ext_resource type="Script" uid="uid://cpcrx2w01mv73" path="res://Code/Pianola/Test/pianola_test.gd" id="1_onkan"]
+[ext_resource type="Resource" uid="uid://d06aisvlcbhyl" path="res://Code/Pianola/Test/kicks_resource.tres" id="2_onkan"]
+[ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="4_boxny"]
+[ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="5_njifn"]
+[ext_resource type="Resource" uid="uid://dvl8m5d58x6yf" path="res://Code/Pianola/Test/hihats_resource.tres" id="6_7mxhb"]
+
+[node name="PianolaTest" type="Node3D" unique_id=525543952]
+script = ExtResource("1_onkan")
+
+[node name="Pianola" type="Node" parent="." unique_id=1670130869]
+script = ExtResource("5_njifn")
+metadata/_custom_type_script = "uid://b0yi0y43su4ie"
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=101434336]
+
+[node name="Kickstrument" type="AudioStreamPlayer3D" parent="." unique_id=1771322554]
+script = ExtResource("4_boxny")
+part = ExtResource("2_onkan")
+metadata/_custom_type_script = "uid://cui06kk8rhakp"
+
+[node name="Hihatstrument" type="AudioStreamPlayer3D" parent="." unique_id=1964019263]
+script = ExtResource("4_boxny")
+part = ExtResource("6_7mxhb")
+metadata/_custom_type_script = "uid://cui06kk8rhakp"
