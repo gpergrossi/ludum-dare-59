@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://decggobjsm5ft"]
+
+[ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_613su"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_d1ilt"]
+material = ExtResource("1_613su")
+size = Vector3(0.5, 0.5, 0.5)
+
+[node name="Enemy" type="Node3D" unique_id=2052101982]
+
+[node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("BoxMesh_d1ilt")

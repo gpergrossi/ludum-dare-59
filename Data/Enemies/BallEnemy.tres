@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://qwgaql0qkex7"]
+
+[ext_resource type="PackedScene" uid="uid://nn6ab1wohyn3" path="res://Scenes/Enemies/ball_enemy.tscn" id="1_isk1y"]
+[ext_resource type="Script" uid="uid://n6rwtpbsmqjy" path="res://Code/enemy_type.gd" id="2_l2vqn"]
+
+[resource]
+script = ExtResource("2_l2vqn")
+name = "BallEnemy"
+scene_uid = ExtResource("1_isk1y")
+metadata/_custom_type_script = "uid://n6rwtpbsmqjy"

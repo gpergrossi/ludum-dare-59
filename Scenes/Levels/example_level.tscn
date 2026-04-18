@@ -1,0 +1,152 @@
+[gd_scene format=3 uid="uid://ckc08wsniw05u"]
+
+[ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_veeq1"]
+[ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
+[ext_resource type="Script" uid="uid://n6rwtpbsmqjy" path="res://Code/enemy_type.gd" id="2_sd5y2"]
+[ext_resource type="PackedScene" uid="uid://decggobjsm5ft" path="res://Scenes/Enemies/box_enemy.tscn" id="3_fauja"]
+[ext_resource type="Resource" uid="uid://cu0wpgs523t41" path="res://Data/Enemies/BoxEnemy.tres" id="3_sd5y2"]
+[ext_resource type="Resource" uid="uid://qwgaql0qkex7" path="res://Data/Enemies/BallEnemy.tres" id="4_u5lri"]
+[ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
+[ext_resource type="Resource" uid="uid://c4q6grb7mpt0" path="res://Data/Enemies/ConeEnemy.tres" id="5_u27mm"]
+[ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_u27mm"]
+[ext_resource type="Script" uid="uid://dy7slr1pqyadi" path="res://Code/wave_info.gd" id="6_v550q"]
+[ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
+[ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
+[ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="9_fauja"]
+
+[sub_resource type="Resource" id="Resource_xox26"]
+script = ExtResource("6_v550q")
+spawn_counts = Dictionary[String, int]({
+"BoxEnemy": 5
+})
+spawn_duration = 10.0
+expected_kill_duration = 20.0
+metadata/_custom_type_script = "uid://dy7slr1pqyadi"
+
+[sub_resource type="Curve3D" id="Curve3D_fauja"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0, -3, 0, 0, 0, 0, 0, 0, -6, 0, 2, 0, 0, 0, 0, 0, 0, -2, 0, 2, 0, 0, 0, 0, 0, 0, -2, 0.5, -3, 0, 0, 0, 0, 0, 0, 2, 0.5, -3, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_u5lri"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0, -3, 0, 0, 0, 0, 0, 0, -6, 0, 1.5, 0, 0, 0, 0, 0, 0, -5.9903927, 0, 1.5975451, 0, 0, 0, 0, 0, 0, -5.96194, 0, 1.6913418, 0, 0, 0, 0, 0, 0, -5.915735, 0, 1.7777851, 0, 0, 0, 0, 0, 0, -5.8535533, 0, 1.8535534, 0, 0, 0, 0, 0, 0, -5.7777853, 0, 1.9157348, 0, 0, 0, 0, 0, 0, -5.691342, 0, 1.9619398, 0, 0, 0, 0, 0, 0, -5.597545, 0, 1.9903927, 0, 0, 0, 0, 0, 0, -5.5, 0, 2, 0, 0, 0, 0, 0, 0, -2.5, 0, 2, 0, 0, 0, 0, 0, 0, -2.4024549, 0.0009559691, 1.9904404, 0, 0, 0, 0, 0, 0, -2.3086584, 0.0037871301, 1.9621286, 0, 0, 0, 0, 0, 0, -2.222215, 0.008384705, 1.916153, 0, 0, 0, 0, 0, 0, -2.1464467, 0.01457198, 1.8542802, 0, 0, 0, 0, 0, 0, -2.0842652, 0.022111207, 1.778888, 0, 0, 0, 0, 0, 0, -2.0380602, 0.030712647, 1.6928736, 0, 0, 0, 0, 0, 0, -2.0096073, 0.04004575, 1.5995425, 0, 0, 0, 0, 0, 0, -2, 0.04975185, 1.5024815, 0, 0, 0, 0, 0, 0, -2, 0.45024815, -2.5024815, 0, 0, 0, 0, 0, 0, -1.9903927, 0.45995426, -2.5995426, 0, 0, 0, 0, 0, 0, -1.9619398, 0.46928737, -2.6928735, 0, 0, 0, 0, 0, 0, -1.9157348, 0.4778888, -2.778888, 0, 0, 0, 0, 0, 0, -1.8535534, 0.48542804, -2.8542802, 0, 0, 0, 0, 0, 0, -1.7777851, 0.49161533, -2.916153, 0, 0, 0, 0, 0, 0, -1.6913418, 0.49621287, -2.9621286, 0, 0, 0, 0, 0, 0, -1.5975451, 0.49904406, -2.9904404, 0, 0, 0, 0, 0, 0, -1.5, 0.5, -3, 0, 0, 0, 0, 0, 0, 1.5, 0.5, -3, 0, 0, 0, 0, 0, 0, 1.5975451, 0.49904403, -2.9904404, 0, 0, 0, 0, 0, 0, 1.6913416, 0.49621287, -2.9621286, 0, 0, 0, 0, 0, 0, 1.7777851, 0.4916153, -2.916153, 0, 0, 0, 0, 0, 0, 1.8535533, 0.48542804, -2.8542802, 0, 0, 0, 0, 0, 0, 1.9157348, 0.4778888, -2.778888, 0, 0, 0, 0, 0, 0, 1.9619397, 0.46928737, -2.6928735, 0, 0, 0, 0, 0, 0, 1.9903926, 0.45995426, -2.5995426, 0, 0, 0, 0, 0, 0, 2, 0.45024815, -2.5024815, 0, 0, 0, 0, 0, 0, 2, 0.04975186, 1.5024815, 0, 0, 0, 0, 0, 0, 1.9903927, 0.040045753, 1.5995425, 0, 0, 0, 0, 0, 0, 1.9619398, 0.030712646, 1.6928736, 0, 0, 0, 0, 0, 0, 1.9157348, 0.022111205, 1.778888, 0, 0, 0, 0, 0, 0, 1.8535534, 0.01457198, 1.8542802, 0, 0, 0, 0, 0, 0, 1.7777851, 0.008384697, 1.9161531, 0, 0, 0, 0, 0, 0, 1.6913418, 0.0037871338, 1.9621286, 0, 0, 0, 0, 0, 0, 1.5975451, 0.00095596537, 1.9904404, 0, 0, 0, 0, 0, 0, 1.5, -3.7252903e-09, 2, 0, 0, 0, 0, 0, 0, 0.49999997, 0, 2, 0, 0, 0, 0, 0, 0, 0.40245482, 0, 1.9903927, 0, 0, 0, 0, 0, 0, 0.30865824, 0, 1.9619398, 0, 0, 0, 0, 0, 0, 0.22221485, 0, 1.9157348, 0, 0, 0, 0, 0, 0, 0.14644659, 0, 1.8535534, 0, 0, 0, 0, 0, 0, 0.08426517, 0, 1.7777851, 0, 0, 0, 0, 0, 0, 0.038060218, 0, 1.6913418, 0, 0, 0, 0, 0, 0, 0.009607345, 0, 1.5975451, 0, 0, 0, 0, 0, 0, -2.9802322e-08, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 56
+
+[node name="Level" type="Node3D" unique_id=1504116293]
+script = ExtResource("1_veeq1")
+enemies = Array[ExtResource("2_sd5y2")]([ExtResource("3_sd5y2"), ExtResource("4_u5lri"), ExtResource("5_u27mm")])
+wave_info = Array[ExtResource("6_v550q")]([SubResource("Resource_xox26")])
+
+[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="Enemy" parent="." unique_id=3273144 instance=ExtResource("3_fauja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, -0.5)
+
+[node name="Enemy2" parent="." unique_id=2052101982 instance=ExtResource("3_fauja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, 1.5)
+
+[node name="Path" parent="." unique_id=2081608055 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, -1.5)
+
+[node name="Path2" parent="." unique_id=749324752 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, -0.5)
+
+[node name="Path3" parent="." unique_id=929375996 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 0.5)
+
+[node name="Path5" parent="." unique_id=951830891 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 1.5)
+
+[node name="Path6" parent="." unique_id=1751724085 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 2.5)
+
+[node name="Path7" parent="." unique_id=287154181 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.025, 2.5)
+
+[node name="Path8" parent="." unique_id=919745412 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.025, 2.5)
+
+[node name="Path10" parent="." unique_id=143647152 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.025, 2.5)
+
+[node name="Path11" parent="." unique_id=678971056 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.025, 2.5)
+
+[node name="Path12" parent="." unique_id=1505564872 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.125, 1.5)
+
+[node name="Path13" parent="." unique_id=1313813375 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.22500001, 0.5)
+
+[node name="Path14" parent="." unique_id=175931352 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.32500002, -0.5)
+
+[node name="Path15" parent="." unique_id=103207357 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.425, -1.5)
+
+[node name="Path16" parent="." unique_id=710403651 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.525, -2.5)
+
+[node name="Path17" parent="." unique_id=292841160 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.525, -2.5)
+
+[node name="Path18" parent="." unique_id=577214590 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.525, -2.5)
+
+[node name="Path20" parent="." unique_id=1954112430 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.525, -2.5)
+
+[node name="Path21" parent="." unique_id=1079266268 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.525, -2.5)
+
+[node name="Path22" parent="." unique_id=1021515576 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.425, -1.5)
+
+[node name="Path24" parent="." unique_id=2086533788 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.32500002, -0.5)
+
+[node name="Path25" parent="." unique_id=1546649573 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.22500001, 0.5)
+
+[node name="Path26" parent="." unique_id=1312683886 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.125, 1.5)
+
+[node name="Path27" parent="." unique_id=307150405 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.025, 2.5)
+
+[node name="Path28" parent="." unique_id=265334973 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.025, 2.5)
+
+[node name="Path29" parent="." unique_id=427574430 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 2.5)
+
+[node name="Path30" parent="." unique_id=2050442066 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 1.5)
+
+[node name="TowerBase" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, 0.5)
+
+[node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_u27mm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, -1.5)
+
+[node name="HomeBase2" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+
+[node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.55, -1.5)
+
+[node name="LaneA" type="Path3D" parent="." unique_id=96203357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("9_fauja")
+
+[node name="Curved" type="Path3D" parent="LaneA" unique_id=1096756300]
+curve = SubResource("Curve3D_u5lri")
+script = ExtResource("9_fauja")

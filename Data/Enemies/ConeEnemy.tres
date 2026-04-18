@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="EnemyType" format=3 uid="uid://c4q6grb7mpt0"]
+
+[ext_resource type="PackedScene" uid="uid://drwootlick5f1" path="res://Scenes/Enemies/cone_enemy.tscn" id="1_mg3le"]
+[ext_resource type="Script" uid="uid://n6rwtpbsmqjy" path="res://Code/enemy_type.gd" id="2_v6ipr"]
+
+[resource]
+script = ExtResource("2_v6ipr")
+name = "ConeEnemy"
+scene_uid = ExtResource("1_mg3le")
+metadata/_custom_type_script = "uid://n6rwtpbsmqjy"

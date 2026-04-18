@@ -1,6 +1,25 @@
 [gd_scene format=3 uid="uid://2jvdbcfox71t"]
 
 [ext_resource type="Script" uid="uid://cdexlvgjxmmyv" path="res://Code/main.gd" id="1_jjgbg"]
+[ext_resource type="PackedScene" uid="uid://ckc08wsniw05u" path="res://Scenes/Levels/example_level.tscn" id="2_bo1nx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_344ge"]
+sky_top_color = Color(0.28346398, 0.5040741, 0.39693835, 1)
+sky_horizon_color = Color(0.68882906, 0.65414774, 0.5486239, 1)
+ground_bottom_color = Color(0.10559999, 0.10559999, 0.16, 1)
+ground_horizon_color = Color(0.43839562, 0.43907267, 0.58032006, 1)
+
+[sub_resource type="Sky" id="Sky_ynf5e"]
+sky_material = SubResource("ProceduralSkyMaterial_344ge")
+
+[sub_resource type="Environment" id="Environment_hptm8"]
+background_mode = 2
+sky = SubResource("Sky_ynf5e")
 
 [node name="Main" type="Node3D" unique_id=1096836237]
 script = ExtResource("1_jjgbg")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1410501586]
+environment = SubResource("Environment_hptm8")
+
+[node name="Level" parent="." unique_id=1504116293 instance=ExtResource("2_bo1nx")]

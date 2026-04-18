@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://nn6ab1wohyn3"]
+
+[ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_fknkv"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_fknkv"]
+material = ExtResource("1_fknkv")
+radius = 0.25
+height = 0.5
+
+[node name="Enemy" type="Node3D" unique_id=2052101982]
+
+[node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+mesh = SubResource("SphereMesh_fknkv")

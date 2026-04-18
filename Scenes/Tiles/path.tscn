@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://7vkybgfa1vtx"]
+
+[ext_resource type="Material" uid="uid://5wux4j53sngq" path="res://Materials/black_color.material" id="1_xsk3e"]
+[ext_resource type="Script" uid="uid://b3aw7syivt7kp" path="res://Code/tile.gd" id="2_2eeij"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_hptm8"]
+material = ExtResource("1_xsk3e")
+size = Vector3(1, 0.05, 1)
+
+[node name="Path" type="MeshInstance3D" unique_id=2081608055]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 0.5)
+mesh = SubResource("BoxMesh_hptm8")
+script = ExtResource("2_2eeij")
+walkable = true

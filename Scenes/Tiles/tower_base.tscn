@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dwypv0vesggk0"]
+
+[ext_resource type="Material" uid="uid://dgl5t7rqj52hx" path="res://Materials/gray_color.material" id="1_5v1iw"]
+[ext_resource type="Script" uid="uid://b3aw7syivt7kp" path="res://Code/tile.gd" id="2_nelge"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
+material = ExtResource("1_5v1iw")
+size = Vector3(1, 0.2, 1)
+
+[node name="TowerBase" type="MeshInstance3D" unique_id=1116541907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0.5)
+mesh = SubResource("BoxMesh_6bp64")
+script = ExtResource("2_nelge")
