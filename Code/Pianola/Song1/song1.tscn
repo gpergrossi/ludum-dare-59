@@ -11,6 +11,7 @@
 script = ExtResource("1_v077h")
 
 [node name="Pianola" type="Node" parent="." unique_id=1670130869]
+unique_name_in_owner = true
 script = ExtResource("2_1iwsg")
 metadata/_custom_type_script = "uid://b0yi0y43su4ie"
 

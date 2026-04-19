@@ -2,7 +2,6 @@
 
 extends Node
 
-@onready var pianola: Pianola = $Pianola;
 @onready var kickstrument: Instrument = $Kickstrument;
 @onready var hihatstrument: Instrument = $Hihatstrument;
 @onready var synthstrument: Instrument = $Synthstrument;
@@ -47,13 +46,7 @@ const s29: AudioStream = preload("res://Audio/Synth0/C6.wav");
 
 func _ready():
 	var song := makeSong1();
-	initPianola();
-	pianola.song = song;
-
-func initPianola():
-	pianola.instruments.append(kickstrument);
-	pianola.instruments.append(hihatstrument);
-	pianola.instruments.append(synthstrument);
+	%Pianola.song = song;
 
 func makeSong1() -> Song:
 	var song = Song.new();
