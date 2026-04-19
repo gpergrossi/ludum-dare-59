@@ -42,10 +42,10 @@ def midi_to_freq(midi):
 
 def generate_notes():
     notes = []
-    for octave in range(2, 6):  # C2 to B5
+    for octave in range(1, 7):  # C1 to B5
         for n in NOTE_NAMES:
             notes.append((n, octave))
-    notes.append(('C', 6))  # final key
+    notes.append(('C', 8))  # final key
     return notes
 
 # =========================

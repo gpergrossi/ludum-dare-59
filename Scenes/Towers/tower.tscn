@@ -45,6 +45,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
 
 [node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
+visible = false
 
 [node name="Active_Tower_Base1x1" parent="DeactivatedTower" unique_id=2103241637 instance=ExtResource("6_xiwfb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -80,7 +81,6 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="ActiveTower_YELLOW" type="Node3D" parent="." unique_id=1636264838]
-visible = false
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_YELLOW" unique_id=1644681991 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

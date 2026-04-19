@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c24y28qa66nnh"]
+
+[ext_resource type="PackedScene" uid="uid://du7c0okduqb7q" path="res://Models/LevelDesign/SourceMeshes/Tile_Base3x3_01.fbx" id="1_iihrs"]
+[ext_resource type="Material" uid="uid://gaavv81ei6bd" path="res://Materials/ImportedMats/BlueSource.tres" id="2_iihrs"]
+
+[node name="Tile_Base3x3_01" unique_id=811469491 instance=ExtResource("1_iihrs")]
+
+[node name="Tile_3x3" parent="." index="0" unique_id=1823276800]
+surface_material_override/0 = ExtResource("2_iihrs")

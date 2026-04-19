@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1mxb1d1jjfhe" path="res://Code/enemy.gd" id="1_1c1ei"]
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_tvkrt"]
+[ext_resource type="PackedScene" uid="uid://cj8cfvdnh8lc3" path="res://Models/Enemies/EnemyScenes/yellow_eni_01.tscn" id="3_7564p"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tvkrt"]
 material = ExtResource("1_tvkrt")
@@ -11,7 +12,12 @@ height = 0.5
 
 [node name="Enemy" type="Node3D" unique_id=2052101982 groups=["Enemies"]]
 script = ExtResource("1_1c1ei")
+velocity = 1.5
 
 [node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.25, -0.1)
+visible = false
 mesh = SubResource("CylinderMesh_tvkrt")
+
+[node name="Yellow_eni_01" parent="." unique_id=1571918081 instance=ExtResource("3_7564p")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

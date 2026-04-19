@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://cj8cfvdnh8lc3"]
+
+[ext_resource type="PackedScene" uid="uid://dgblaejt3o612" path="res://Models/Enemies/Source_Meshes/Yellow_eni_01.glb" id="1_e5m1x"]
+
+[node name="Yellow_eni_01" unique_id=1571918081 instance=ExtResource("1_e5m1x")]
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1242747236]
+autoplay = &"Yellow_eni"
