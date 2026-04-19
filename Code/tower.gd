@@ -39,7 +39,7 @@ func _closest_in_range_enemy() -> Enemy:
 	var closest_enemy : Enemy = null
 	var closest_enemy_distance_sqr := INF  # give me FLOAT_MAX please gdscript
 	# TODO O(n*m) - potential performance issue for lots of enemies.
-	for enemy : Enemy in get_tree().get_nodes_in_group(&"enemies"):  
+	for enemy : Enemy in get_tree().get_nodes_in_group(&"Enemies"):  
 		var distance_sqr = enemy.global_position.distance_squared_to(global_position)
 		if distance_sqr < min_range * min_range or max_range * max_range < distance_sqr:
 			continue

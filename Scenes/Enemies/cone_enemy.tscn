@@ -9,7 +9,7 @@ top_radius = 0.0
 bottom_radius = 0.25
 height = 0.5
 
-[node name="Enemy" type="Node3D" unique_id=2052101982 groups=["enemies"]]
+[node name="Enemy" type="Node3D" unique_id=2052101982 groups=["Enemies"]]
 script = ExtResource("1_1c1ei")
 
 [node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
