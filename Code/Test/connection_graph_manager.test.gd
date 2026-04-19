@@ -1,3 +1,5 @@
+@author Vivian
+
 class_name ConnectionGraphManagerTest extends Node
 
 func _ready():
