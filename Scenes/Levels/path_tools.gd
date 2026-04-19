@@ -75,7 +75,6 @@ func on_click_reverse() -> void:
 
 
 func on_click_curve_corners() -> void:
-	var curve: Curve3D = get_curve()
 	var point_count: int = curve.point_count
 	
 	if point_count < 3:

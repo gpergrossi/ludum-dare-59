@@ -5,7 +5,7 @@ const GRID_SIZE = 1.0
 
 @export var lanes: Array[Lane] = []
 
-@export var tower_bases: Array[TowerBase] = []
+@export var towers: Array[Tower] = []
 
 @export var max_health : float = 100.0
 @export var current_health : float

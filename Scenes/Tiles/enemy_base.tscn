@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://u6qt80cdu6pm" path="res://Code/enemy_base.gd" id="1_j6dty"]
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_qar88"]
-[ext_resource type="Script" uid="uid://dl2cta14ts3tj" path="res://Code/clickable_body.gd" id="3_dcv6j"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jkdf5"]
 material = ExtResource("1_qar88")
@@ -23,7 +22,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 collision_layer = 16
 collision_mask = 16
 input_capture_on_drag = true
-script = ExtResource("3_dcv6j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableBody" unique_id=1884836907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)

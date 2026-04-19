@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://njjdmnmr3ma2"]
+
+[ext_resource type="Script" uid="uid://ceac3pccl2r2w" path="res://Code/Test/connection_graph_manager.test.gd" id="1_lsw6q"]
+
+[node name="TestRunner" type="Node" unique_id=696531262]
+script = ExtResource("1_lsw6q")
