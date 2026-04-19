@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://epnew3qiqa51"]
+
+[ext_resource type="PackedScene" uid="uid://d2jnplfxn5ow6" path="res://Models/Blair/wave_V01.tscn" id="1_rnygb"]
+[ext_resource type="PackedScene" uid="uid://m4gjd6ne71iv" path="res://Models/Blair/aura_V01.tscn" id="2_0wten"]
+[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Models/Blair/exploding_enemy_v_01.tscn" id="2_bth6n"]
+[ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/exploding_enemy_v_02.tscn" id="2_jaxfx"]
+
+[node name="Particles" type="Node3D" unique_id=885463375]
+
+[node name="Wave_V01" parent="." unique_id=293711996 instance=ExtResource("1_rnygb")]
+visible = false
+
+[node name="Aura_V01" parent="." unique_id=256386473 instance=ExtResource("2_0wten")]
+visible = false
+
+[node name="Exploding_Enemy_v01" parent="." unique_id=1303959735 instance=ExtResource("2_bth6n")]
+visible = false
+
+[node name="Exploding_Enemy_v02" parent="." unique_id=233097901 instance=ExtResource("2_jaxfx")]
+visible = false

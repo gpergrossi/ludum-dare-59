@@ -1,0 +1,209 @@
+[gd_scene format=3 uid="uid://dgxojo74rrf4h"]
+
+[ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_51b2r"]
+[ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="2_2sxju"]
+[ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="3_51j0e"]
+[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Song1/synth_resource.tres" id="4_n8mod"]
+[ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="5_b5yrm"]
+[ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_ertfi"]
+[ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_kkkvx"]
+[ext_resource type="PackedScene" uid="uid://c75cur2kcnxxg" path="res://Scenes/Levels/lane_spawn_instrument.tscn" id="8_jtpw3"]
+[ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/lane1_spawn_instrument.tres" id="9_wh1ob"]
+[ext_resource type="Resource" uid="uid://tf55e001gar5" path="res://Data/Instruments/lane2_spawn_instrument.tres" id="10_364mw"]
+[ext_resource type="Resource" uid="uid://ctvecbluw3187" path="res://Data/Instruments/lane3_spawn_instrument.tres" id="11_e7q1b"]
+[ext_resource type="Script" uid="uid://w1k8rp32fvu4" path="res://Code/lane.gd" id="12_66wev"]
+[ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="13_1x8j5"]
+[ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="14_aesoo"]
+[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Song1/song1.gd" id="15_mmfe2"]
+[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Song1/kicks_resource.tres" id="16_0l2a3"]
+[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Song1/hihats_resource.tres" id="17_umsk2"]
+
+[sub_resource type="Curve3D" id="Curve3D_fauja"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
+}
+point_count = 2
+
+[sub_resource type="Curve3D" id="Curve3D_u5lri"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0, -3, 0, 0, 0, 0, 0, 0, -6, 0, 1.5, 0, 0, 0, 0, 0, 0, -5.9903927, 0, 1.5975451, 0, 0, 0, 0, 0, 0, -5.96194, 0, 1.6913418, 0, 0, 0, 0, 0, 0, -5.915735, 0, 1.7777851, 0, 0, 0, 0, 0, 0, -5.8535533, 0, 1.8535534, 0, 0, 0, 0, 0, 0, -5.7777853, 0, 1.9157348, 0, 0, 0, 0, 0, 0, -5.691342, 0, 1.9619398, 0, 0, 0, 0, 0, 0, -5.597545, 0, 1.9903927, 0, 0, 0, 0, 0, 0, -5.5, 0, 2, 0, 0, 0, 0, 0, 0, -2.5, 0, 2, 0, 0, 0, 0, 0, 0, -2.4024549, 0.0009559691, 1.9904404, 0, 0, 0, 0, 0, 0, -2.3086584, 0.0037871301, 1.9621286, 0, 0, 0, 0, 0, 0, -2.222215, 0.008384705, 1.916153, 0, 0, 0, 0, 0, 0, -2.1464467, 0.01457198, 1.8542802, 0, 0, 0, 0, 0, 0, -2.0842652, 0.022111207, 1.778888, 0, 0, 0, 0, 0, 0, -2.0380602, 0.030712647, 1.6928736, 0, 0, 0, 0, 0, 0, -2.0096073, 0.04004575, 1.5995425, 0, 0, 0, 0, 0, 0, -2, 0.04975185, 1.5024815, 0, 0, 0, 0, 0, 0, -2, 0.45024815, -2.5024815, 0, 0, 0, 0, 0, 0, -1.9903927, 0.45995426, -2.5995426, 0, 0, 0, 0, 0, 0, -1.9619398, 0.46928737, -2.6928735, 0, 0, 0, 0, 0, 0, -1.9157348, 0.4778888, -2.778888, 0, 0, 0, 0, 0, 0, -1.8535534, 0.48542804, -2.8542802, 0, 0, 0, 0, 0, 0, -1.7777851, 0.49161533, -2.916153, 0, 0, 0, 0, 0, 0, -1.6913418, 0.49621287, -2.9621286, 0, 0, 0, 0, 0, 0, -1.5975451, 0.49904406, -2.9904404, 0, 0, 0, 0, 0, 0, -1.5, 0.5, -3, 0, 0, 0, 0, 0, 0, 1.5, 0.5, -3, 0, 0, 0, 0, 0, 0, 1.5975451, 0.49904403, -2.9904404, 0, 0, 0, 0, 0, 0, 1.6913416, 0.49621287, -2.9621286, 0, 0, 0, 0, 0, 0, 1.7777851, 0.4916153, -2.916153, 0, 0, 0, 0, 0, 0, 1.8535533, 0.48542804, -2.8542802, 0, 0, 0, 0, 0, 0, 1.9157348, 0.4778888, -2.778888, 0, 0, 0, 0, 0, 0, 1.9619397, 0.46928737, -2.6928735, 0, 0, 0, 0, 0, 0, 1.9903926, 0.45995426, -2.5995426, 0, 0, 0, 0, 0, 0, 2, 0.45024815, -2.5024815, 0, 0, 0, 0, 0, 0, 2, 0.04975186, 1.5024815, 0, 0, 0, 0, 0, 0, 1.9903927, 0.040045753, 1.5995425, 0, 0, 0, 0, 0, 0, 1.9619398, 0.030712646, 1.6928736, 0, 0, 0, 0, 0, 0, 1.9157348, 0.022111205, 1.778888, 0, 0, 0, 0, 0, 0, 1.8535534, 0.01457198, 1.8542802, 0, 0, 0, 0, 0, 0, 1.7777851, 0.008384697, 1.9161531, 0, 0, 0, 0, 0, 0, 1.6913418, 0.0037871338, 1.9621286, 0, 0, 0, 0, 0, 0, 1.5975451, 0.00095596537, 1.9904404, 0, 0, 0, 0, 0, 0, 1.5, -3.7252903e-09, 2, 0, 0, 0, 0, 0, 0, 0.49999997, 0, 2, 0, 0, 0, 0, 0, 0, 0.40245482, 0, 1.9903927, 0, 0, 0, 0, 0, 0, 0.30865824, 0, 1.9619398, 0, 0, 0, 0, 0, 0, 0.22221485, 0, 1.9157348, 0, 0, 0, 0, 0, 0, 0.14644659, 0, 1.8535534, 0, 0, 0, 0, 0, 0, 0.08426517, 0, 1.7777851, 0, 0, 0, 0, 0, 0, 0.038060218, 0, 1.6913418, 0, 0, 0, 0, 0, 0, 0.009607345, 0, 1.5975451, 0, 0, 0, 0, 0, 0, -2.9802322e-08, 0, 1.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 56
+
+[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "tower_bases")]
+script = ExtResource("1_51b2r")
+lanes = [NodePath("Lane1")]
+tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
+
+[node name="Pianola" type="Node" parent="." unique_id=1958729676]
+unique_name_in_owner = true
+script = ExtResource("2_2sxju")
+metadata/_custom_type_script = "uid://b0yi0y43su4ie"
+
+[node name="Tower" parent="." unique_id=945097428 instance=ExtResource("3_51j0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
+
+[node name="Instrument" parent="Tower" index="4" unique_id=914717014]
+part = ExtResource("4_n8mod")
+
+[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("5_b5yrm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+
+[node name="TowerBase1" parent="." unique_id=1116541907 instance=ExtResource("6_ertfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+
+[node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_ertfi")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+
+[node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_kkkvx")]
+
+[node name="Lane1SpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("8_jtpw3")]
+part = ExtResource("9_wh1ob")
+lane = NodePath("../Lane1")
+
+[node name="Lane2SpawnInstrument" parent="." unique_id=772355483 node_paths=PackedStringArray("lane") instance=ExtResource("8_jtpw3")]
+part = ExtResource("10_364mw")
+lane = NodePath("../Lane2")
+
+[node name="Lane3SpawnInstrument" parent="." unique_id=947303992 node_paths=PackedStringArray("lane") instance=ExtResource("8_jtpw3")]
+part = ExtResource("11_e7q1b")
+lane = NodePath("../Lane3")
+
+[node name="Lane1" type="Node3D" parent="." unique_id=366671561 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+script = ExtResource("12_66wev")
+path = NodePath("InputCurve1/Curved")
+enemy_base = NodePath("../EnemyBase")
+home_base = NodePath("../HomeBase")
+
+[node name="InputCurve1" type="Path3D" parent="Lane1" unique_id=96203357]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("13_1x8j5")
+
+[node name="Curved" type="Path3D" parent="Lane1/InputCurve1" unique_id=1096756300]
+curve = SubResource("Curve3D_u5lri")
+script = ExtResource("13_1x8j5")
+
+[node name="Path" parent="Lane1" unique_id=2081608055 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, -2)
+
+[node name="Path2" parent="Lane1" unique_id=749324752 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, -1)
+
+[node name="Path3" parent="Lane1" unique_id=929375996 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 0)
+
+[node name="Path5" parent="Lane1" unique_id=951830891 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 1)
+
+[node name="Path6" parent="Lane1" unique_id=1751724085 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 2)
+
+[node name="Path7" parent="Lane1" unique_id=287154181 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.025, 2)
+
+[node name="Path8" parent="Lane1" unique_id=919745412 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.025, 2)
+
+[node name="Path10" parent="Lane1" unique_id=143647152 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.025, 2)
+
+[node name="Path11" parent="Lane1" unique_id=678971056 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.025, 2)
+
+[node name="Path12" parent="Lane1" unique_id=1505564872 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.125, 1)
+
+[node name="Path13" parent="Lane1" unique_id=1313813375 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.22500001, 0)
+
+[node name="Path14" parent="Lane1" unique_id=175931352 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.32500002, -1)
+
+[node name="Path15" parent="Lane1" unique_id=103207357 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.425, -2)
+
+[node name="Path16" parent="Lane1" unique_id=710403651 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.525, -3)
+
+[node name="Path17" parent="Lane1" unique_id=292841160 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.525, -3)
+
+[node name="Path18" parent="Lane1" unique_id=577214590 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, -3)
+
+[node name="Path20" parent="Lane1" unique_id=1954112430 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.525, -3)
+
+[node name="Path21" parent="Lane1" unique_id=1079266268 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.525, -3)
+
+[node name="Path22" parent="Lane1" unique_id=1021515576 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.425, -2)
+
+[node name="Path24" parent="Lane1" unique_id=2086533788 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.32500002, -1)
+
+[node name="Path25" parent="Lane1" unique_id=1546649573 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.22500001, 0)
+
+[node name="Path26" parent="Lane1" unique_id=1312683886 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.125, 1)
+
+[node name="Path27" parent="Lane1" unique_id=307150405 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.025, 2)
+
+[node name="Path28" parent="Lane1" unique_id=265334973 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.025, 2)
+
+[node name="Path29" parent="Lane1" unique_id=427574430 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 2)
+
+[node name="Path30" parent="Lane1" unique_id=2050442066 instance=ExtResource("14_aesoo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 1)
+
+[node name="Lane2" type="Node3D" parent="." unique_id=441314712 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+script = ExtResource("12_66wev")
+path = NodePath("InputCurve2")
+enemy_base = NodePath("../EnemyBase")
+home_base = NodePath("../HomeBase")
+
+[node name="InputCurve2" type="Path3D" parent="Lane2" unique_id=1022993139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("13_1x8j5")
+
+[node name="Lane3" type="Node3D" parent="." unique_id=603596210 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+script = ExtResource("12_66wev")
+path = NodePath("InputCurve3")
+enemy_base = NodePath("../EnemyBase")
+home_base = NodePath("../HomeBase")
+
+[node name="InputCurve3" type="Path3D" parent="Lane3" unique_id=621456685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("13_1x8j5")
+
+[node name="SongGenerator" type="Node" parent="." unique_id=977955754]
+unique_name_in_owner = true
+script = ExtResource("15_mmfe2")
+metadata/_custom_type_script = "uid://d3fwkxp4gauwr"
+
+[node name="Tower2" parent="." unique_id=1918667656 instance=ExtResource("3_51j0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8042359, 0.2, 3.7545137)
+
+[node name="Instrument" parent="Tower2" index="4" unique_id=914717014]
+part = ExtResource("16_0l2a3")
+
+[node name="Tower3" parent="." unique_id=144730068 instance=ExtResource("3_51j0e")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30425787, 0.2, -1.1383162)
+
+[node name="Instrument" parent="Tower3" index="4" unique_id=914717014]
+part = ExtResource("17_umsk2")
+
+[editable path="Tower"]
+[editable path="Tower2"]
+[editable path="Tower3"]

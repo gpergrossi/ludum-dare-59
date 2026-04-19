@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://d2jnplfxn5ow6"]
+
+[ext_resource type="ArrayMesh" uid="uid://cee8c8wdktvno" path="res://Models/Blair/Wave_Note.tres" id="1_4rohk"]
+
+[sub_resource type="Curve" id="Curve_bth6n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.65944874, 1), 0.0, 0.0, 0, 0, Vector2(0.9999999, 0.009552717), -9.078193, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rnygb"]
+curve = SubResource("Curve_bth6n")
+
+[sub_resource type="Curve" id="Curve_jaxfx"]
+_data = [Vector2(0, 0), 0.0, 0.9109476, 0, 0, Vector2(1, 1), 0.5048783, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bth6n"]
+curve = SubResource("Curve_jaxfx")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65s3f"]
+direction = Vector3(1, 0, 20)
+gravity = Vector3(0, 0, 0.1)
+scale_min = 10.0
+scale_max = 10.0
+scale_curve = SubResource("CurveTexture_bth6n")
+alpha_curve = SubResource("CurveTexture_rnygb")
+
+[node name="Wave_V01" type="Node3D" unique_id=293711996]
+
+[node name="Aura_V01" type="GPUParticles3D" parent="." unique_id=1266630666]
+amount = 2
+lifetime = 1.5
+process_material = SubResource("ParticleProcessMaterial_65s3f")
+draw_pass_1 = ExtResource("1_4rohk")
