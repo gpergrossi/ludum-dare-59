@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://c75cur2kcnxxg"]
+
+[ext_resource type="Script" uid="uid://1trkdweam6xf" path="res://Code/lane_spawn_instrument.gd" id="1_a8585"]
+[ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="2_olofg"]
+[ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/spawner_instrument_part.tres" id="3_polvw"]
+
+[node name="LaneSpawnInstrument" type="Node3D" unique_id=180430757]
+script = ExtResource("1_a8585")
+part = ExtResource("3_polvw")
+
+[node name="Instrument" type="AudioStreamPlayer3D" parent="." unique_id=458174556]
+script = ExtResource("2_olofg")
+part = ExtResource("3_polvw")
+metadata/_custom_type_script = "uid://cui06kk8rhakp"
+
+[connection signal="on_play_note" from="Instrument" to="." method="_on_instrument_on_play_note"]

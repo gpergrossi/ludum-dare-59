@@ -11,13 +11,17 @@ config_version=5
 [application]
 
 config/name="ludum-dare-59"
-run/main_scene="uid://b63vuflvhpvkk"
+run/main_scene="uid://2jvdbcfox71t"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://Images/icon.svg"
 
 [audio]
 
 buses/default_bus_layout="uid://clu1nde471ioy"
+
+[global_group]
+
+Enemies=""
 
 [physics]
 
