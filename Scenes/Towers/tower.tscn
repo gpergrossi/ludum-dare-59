@@ -1,6 +1,5 @@
 [gd_scene format=3 uid="uid://dv0do0uo2yue7"]
 
-[ext_resource type="Material" uid="uid://dgl5t7rqj52hx" path="res://Materials/gray_color.material" id="1_rqjsg"]
 [ext_resource type="Script" uid="uid://yx1k3c74um6j" path="res://Code/tower.gd" id="2_d6h38"]
 [ext_resource type="PackedScene" uid="uid://dsuytuswkva87" path="res://Scenes/Towers/range_indicator.tscn" id="3_uwg1x"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="4_plphn"]
@@ -13,28 +12,13 @@
 [ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
 [ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
 [ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
+[ext_resource type="Script" uid="uid://cgrxa438kg0n6" path="res://Code/wirebox.gd" id="14_apkep"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_344ge"]
-material = ExtResource("1_rqjsg")
-size = Vector3(0.2, 0.7, 0.2)
-
-[sub_resource type="BoxMesh" id="BoxMesh_6iyac"]
-material = ExtResource("1_rqjsg")
-size = Vector3(0.4, 0.4, 0.4)
+[sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
 
 [node name="Tower" type="Node3D" unique_id=1918667656]
 script = ExtResource("2_d6h38")
 max_range = 5.0
-
-[node name="Tower" type="MeshInstance3D" parent="." unique_id=945097428]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.35000002, 0.5)
-visible = false
-mesh = SubResource("BoxMesh_344ge")
-
-[node name="Top" type="MeshInstance3D" parent="." unique_id=382770996]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.65000004, 0.5)
-visible = false
-mesh = SubResource("BoxMesh_6iyac")
 
 [node name="MinRangeIndicator" parent="." unique_id=1794438554 instance=ExtResource("3_uwg1x")]
 unique_name_in_owner = true
@@ -54,13 +38,13 @@ metadata/_custom_type_script = "uid://cui06kk8rhakp"
 
 [node name="LaserBeam" parent="." unique_id=1687362048 instance=ExtResource("5_gd21c")]
 unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
 [node name="LaserEmitPosition" type="Node3D" parent="." unique_id=312950146]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.7, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
 
 [node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
-visible = false
 
 [node name="Active_Tower_Base1x1" parent="DeactivatedTower" unique_id=2103241637 instance=ExtResource("6_xiwfb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -72,6 +56,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
 [node name="ActiveTower_RED" type="Node3D" parent="." unique_id=530234063]
+visible = false
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_RED" unique_id=133128032 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -105,3 +90,26 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="Tower_Part2_01" parent="ActiveTower_YELLOW" unique_id=865693910 instance=ExtResource("12_852ym")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("jack_positions")]
+unique_name_in_owner = true
+script = ExtResource("14_apkep")
+jack_positions = [NodePath("JackPositionA"), NodePath("JackPositionB"), NodePath("JackPositionC")]
+
+[node name="ClickableBody" type="StaticBody3D" parent="Wirebox" unique_id=1489930333]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+collision_layer = 16
+collision_mask = 16
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Wirebox/ClickableBody" unique_id=1599184868]
+shape = SubResource("BoxShape3D_x5f2w")
+
+[node name="JackPositionA" type="Node3D" parent="Wirebox" unique_id=1652820246]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.78, 0.571, 0.777405)
+
+[node name="JackPositionB" type="Node3D" parent="Wirebox" unique_id=1708304039]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.78, 0.571, 0.49087197)
+
+[node name="JackPositionC" type="Node3D" parent="Wirebox" unique_id=180578401]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0.78, 0.571, 0.20562375)

@@ -106,9 +106,11 @@ func makeSong() -> Song:
 		s7, s7, s10, null, null, null, null, null,
 		null, null, s4s, null, s5, null, s6, null,
 	], 4.0);
-	addPatternSpawns(song, PARTS.spawn1, 0, 120, [
-		spawnBox, spawnBall, spawnCone, spawnNone,
-	], 0.125);
+	
+	addPatternSpawns(song, PARTS.spawn1, 0, 80, [
+		spawnBox, spawnBall, spawnCone, spawnNone, spawnBox, spawnBall, spawnCone, spawnNone, spawnNone, spawnNone,
+	], 0.5);
+	
 	return song;
 
 static func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[AudioStream], rate: float = 1, offset: float = 0):

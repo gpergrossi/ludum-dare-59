@@ -4,6 +4,9 @@ signal hover_changed(hovered: bool)
 signal select_changed(selected: bool)
 
 @export var jack_count: int = 3
+@export var jack_positions: Array[Node3D] = []
+
+var jacks_filled: int = 0
 
 var selected := false:
 	set(s):
@@ -16,5 +19,3 @@ var hovered := false:
 		if hovered != h:
 			hovered = h
 			hover_changed.emit(hovered)
-
-@onready var jack_position: Node3D = $JackPosition

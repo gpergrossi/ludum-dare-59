@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
 [ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Song1/synth_resource.tres" id="4_xox26"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
-[ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_u27mm"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
 [ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="9_fauja"]
@@ -38,10 +37,9 @@ size = Vector2(11, 8)
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_p0yi4"]
 
-[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "tower_bases")]
+[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_veeq1")
 lanes = [NodePath("Lane1")]
-tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
 
 [node name="Pianola" type="Node" parent="." unique_id=1958729676]
 unique_name_in_owner = true
@@ -51,17 +49,23 @@ metadata/_custom_type_script = "uid://b0yi0y43su4ie"
 [node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
 
-[node name="Instrument" parent="Tower" index="4" unique_id=914717014]
+[node name="Instrument" parent="Tower" index="2" unique_id=914717014]
 part = ExtResource("4_xox26")
+
+[node name="Tower2" parent="." unique_id=1918667656 instance=ExtResource("8_xox26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8042359, 0.2, 3.7545137)
+
+[node name="Instrument" parent="Tower2" index="2" unique_id=914717014]
+part = ExtResource("16_p0yi4")
+
+[node name="Tower3" parent="." unique_id=144730068 instance=ExtResource("8_xox26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30425787, 0.2, -1.1383162)
+
+[node name="Instrument" parent="Tower3" index="2" unique_id=914717014]
+part = ExtResource("17_se8dm")
 
 [node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
-
-[node name="TowerBase1" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.4, 0)
-
-[node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_u27mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
 [node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
 
@@ -196,18 +200,6 @@ script = ExtResource("9_fauja")
 unique_name_in_owner = true
 script = ExtResource("14_v550q")
 metadata/_custom_type_script = "uid://d3fwkxp4gauwr"
-
-[node name="Tower2" parent="." unique_id=1918667656 instance=ExtResource("8_xox26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8042359, 0.2, 3.7545137)
-
-[node name="Instrument" parent="Tower2" index="4" unique_id=914717014]
-part = ExtResource("16_p0yi4")
-
-[node name="Tower3" parent="." unique_id=144730068 instance=ExtResource("8_xox26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30425787, 0.2, -1.1383162)
-
-[node name="Instrument" parent="Tower3" index="4" unique_id=914717014]
-part = ExtResource("17_se8dm")
 
 [node name="Under Plane" type="Node3D" parent="." unique_id=993072046]
 

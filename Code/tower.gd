@@ -38,11 +38,7 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-func _fire(note : Note) -> void:
+func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:
