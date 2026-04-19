@@ -21,7 +21,7 @@ var song : Song :
 func _ready() -> void:
 	# Instruments look this up as %Pianola.
 	assert(unique_name_in_owner)
-	assert(name == &"Pianola")
+	#assert(name == &"Pianola")   #Disabled so the SongTest scene can use a separate instance
 	if (INSTANCE != null): assert(false)
 	INSTANCE = self;
 
