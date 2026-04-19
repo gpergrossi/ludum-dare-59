@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dxc7p0ttvyx5k"]
+
+[resource]
+resource_name = "Tile_Base"
+vertex_color_use_as_albedo = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 0.0

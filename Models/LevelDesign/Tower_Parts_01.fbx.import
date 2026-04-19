@@ -1,0 +1,67 @@
+[remap]
+
+importer="scene"
+importer_version=1
+type="PackedScene"
+uid="uid://dgeaj0a4xnf4l"
+path="res://.godot/imported/Tower_Parts_01.fbx-65132657d80811086116186294baaf94.scn"
+
+[deps]
+
+source_file="res://Models/LevelDesign/Tower_Parts_01.fbx"
+dest_files=["res://.godot/imported/Tower_Parts_01.fbx-65132657d80811086116186294baaf94.scn"]
+
+[params]
+
+nodes/root_type=""
+nodes/root_name=""
+nodes/root_script=null
+nodes/apply_root_scale=true
+nodes/root_scale=1.0
+nodes/import_as_skeleton_bones=false
+nodes/use_name_suffixes=true
+nodes/use_node_type_suffixes=true
+meshes/ensure_tangents=true
+meshes/generate_lods=true
+meshes/create_shadow_meshes=true
+meshes/light_baking=1
+meshes/lightmap_texel_size=0.2
+meshes/force_disable_compression=false
+skins/use_named_skins=true
+animation/import=true
+animation/fps=30
+animation/trimming=true
+animation/remove_immutable_tracks=true
+animation/import_rest_as_RESET=false
+import_script/path=""
+materials/extract=0
+materials/extract_format=0
+materials/extract_path=""
+_subresources={
+"materials": {
+"Blackout": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/ImportedMats/Blackout.tres",
+"use_external/path": "uid://07gyqj1h172y"
+},
+"Metal_Ring": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/ImportedMats/Metal_Ring.tres",
+"use_external/path": "uid://dmtyr7bioa7t7"
+},
+"Tower_Glow": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/ImportedMats/Tower_Glow.tres",
+"use_external/path": "uid://bw70uecv7c4yr"
+},
+"Uninitialized": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/ImportedMats/Uninitialized.tres",
+"use_external/path": "uid://c6gqmtuwmc2qq"
+}
+}
+}
+fbx/importer=0
+fbx/allow_geometry_helper_nodes=false
+fbx/embedded_image_handling=1
+fbx/naming_version=2
