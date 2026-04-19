@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://pgmm6awkk5wu"
-path="res://.godot/imported/Tile_Base1x1_01.fbx-774fc589e6305cd4fa00ec4370cde0ad.scn"
+uid="uid://du7c0okduqb7q"
+path="res://.godot/imported/Tile_Base3x3_01.fbx-4f3bd58ffc6d98b47b176676db3124ba.scn"
 
 [deps]
 
-source_file="res://Models/LevelDesign/Tile_Base1x1_01.fbx"
-dest_files=["res://.godot/imported/Tile_Base1x1_01.fbx-774fc589e6305cd4fa00ec4370cde0ad.scn"]
+source_file="res://Models/LevelDesign/SourceMeshes/Tile_Base3x3_01.fbx"
+dest_files=["res://.godot/imported/Tile_Base3x3_01.fbx-4f3bd58ffc6d98b47b176676db3124ba.scn"]
 
 [params]
 

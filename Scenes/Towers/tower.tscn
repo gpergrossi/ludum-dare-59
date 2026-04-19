@@ -5,6 +5,14 @@
 [ext_resource type="PackedScene" uid="uid://dsuytuswkva87" path="res://Scenes/Towers/range_indicator.tscn" id="3_uwg1x"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="4_plphn"]
 [ext_resource type="PackedScene" uid="uid://d1vg032jkfv4j" path="res://Scenes/Towers/laser_beam.tscn" id="5_gd21c"]
+[ext_resource type="PackedScene" uid="uid://dhlxmu7d6jw67" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_base_1x_1.tscn" id="6_xiwfb"]
+[ext_resource type="PackedScene" uid="uid://mktg84sgp70u" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_top_1x_1.tscn" id="7_58dwc"]
+[ext_resource type="PackedScene" uid="uid://df0sxkfxq4aey" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_Glow_1x_1.tscn" id="8_12u6a"]
+[ext_resource type="PackedScene" uid="uid://c0c8eiiw7md1q" path="res://Models/LevelDesign/AssetScenes/active_tower_base_1x_1.tscn" id="9_apkep"]
+[ext_resource type="PackedScene" uid="uid://de83wwqor4dua" path="res://Models/LevelDesign/AssetScenes/active_tower_top_1x_1.tscn" id="10_x5f2w"]
+[ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
+[ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
+[ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_344ge"]
 material = ExtResource("1_rqjsg")
@@ -20,10 +28,12 @@ max_range = 5.0
 
 [node name="Tower" type="MeshInstance3D" parent="." unique_id=945097428]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.35000002, 0.5)
+visible = false
 mesh = SubResource("BoxMesh_344ge")
 
 [node name="Top" type="MeshInstance3D" parent="." unique_id=382770996]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.65000004, 0.5)
+visible = false
 mesh = SubResource("BoxMesh_6iyac")
 
 [node name="MinRangeIndicator" parent="." unique_id=1794438554 instance=ExtResource("3_uwg1x")]
@@ -48,3 +58,50 @@ unique_name_in_owner = true
 [node name="LaserEmitPosition" type="Node3D" parent="." unique_id=312950146]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.7, 0.5)
+
+[node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
+visible = false
+
+[node name="Active_Tower_Base1x1" parent="DeactivatedTower" unique_id=2103241637 instance=ExtResource("6_xiwfb")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part1_01" parent="DeactivatedTower" unique_id=1387399244 instance=ExtResource("7_58dwc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part2_01" parent="DeactivatedTower" unique_id=1372709437 instance=ExtResource("8_12u6a")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="ActiveTower_RED" type="Node3D" parent="." unique_id=530234063]
+
+[node name="Active_Tower_Base1x1" parent="ActiveTower_RED" unique_id=133128032 instance=ExtResource("9_apkep")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part1_01" parent="ActiveTower_RED" unique_id=1449672335 instance=ExtResource("10_x5f2w")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part2_02" parent="ActiveTower_RED" unique_id=1666624193 instance=ExtResource("11_o8kq5")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="ActiveTower_BLUE" type="Node3D" parent="." unique_id=1714876451]
+visible = false
+
+[node name="Active_Tower_Base1x1" parent="ActiveTower_BLUE" unique_id=1764571427 instance=ExtResource("9_apkep")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part1_01" parent="ActiveTower_BLUE" unique_id=234479793 instance=ExtResource("10_x5f2w")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part2_01" parent="ActiveTower_BLUE" unique_id=358745460 instance=ExtResource("13_7phyr")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="ActiveTower_YELLOW" type="Node3D" parent="." unique_id=1636264838]
+visible = false
+
+[node name="Active_Tower_Base1x1" parent="ActiveTower_YELLOW" unique_id=1644681991 instance=ExtResource("9_apkep")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part1_01" parent="ActiveTower_YELLOW" unique_id=1903567290 instance=ExtResource("10_x5f2w")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Tower_Part2_01" parent="ActiveTower_YELLOW" unique_id=865693910 instance=ExtResource("12_852ym")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)

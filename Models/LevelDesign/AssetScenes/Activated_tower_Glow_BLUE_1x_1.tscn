@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://dy5013qdf58qf"]
+
+[ext_resource type="PackedScene" uid="uid://c1vc63y3lpf4o" path="res://Models/LevelDesign/SourceMeshes/Tower_Part2_01.fbx" id="1_rmol3"]
+[ext_resource type="Material" uid="uid://c5idx5jahq77s" path="res://Materials/ImportedMats/Tower_Glow_BLUE.tres" id="2_2mftu"]
+
+[node name="Tower_Part2_01" unique_id=1372709437 instance=ExtResource("1_rmol3")]
+
+[node name="Tower_Glow_parts" parent="." index="0" unique_id=67285854]
+surface_material_override/0 = ExtResource("2_2mftu")
