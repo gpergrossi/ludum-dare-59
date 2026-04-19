@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://bnjhw0wb77g44"]
+
+[resource]
+resource_name = "Yellow_tower"
+cull_mode = 2
+albedo_color = Color(0.7848019, 0.5724345, 0, 1)
+metallic = 0.1
+roughness = 0.45

@@ -4,14 +4,15 @@
 [ext_resource type="PackedScene" uid="uid://dsuytuswkva87" path="res://Scenes/Towers/range_indicator.tscn" id="3_uwg1x"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="4_plphn"]
 [ext_resource type="PackedScene" uid="uid://d1vg032jkfv4j" path="res://Scenes/Towers/laser_beam.tscn" id="5_gd21c"]
-[ext_resource type="PackedScene" uid="uid://dhlxmu7d6jw67" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_base_1x_1.tscn" id="6_xiwfb"]
-[ext_resource type="PackedScene" uid="uid://mktg84sgp70u" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_top_1x_1.tscn" id="7_58dwc"]
-[ext_resource type="PackedScene" uid="uid://df0sxkfxq4aey" path="res://Models/LevelDesign/AssetScenes/Deactivated_tower_Glow_1x_1.tscn" id="8_12u6a"]
-[ext_resource type="PackedScene" uid="uid://c0c8eiiw7md1q" path="res://Models/LevelDesign/AssetScenes/active_tower_base_1x_1.tscn" id="9_apkep"]
-[ext_resource type="PackedScene" uid="uid://de83wwqor4dua" path="res://Models/LevelDesign/AssetScenes/active_tower_top_1x_1.tscn" id="10_x5f2w"]
-[ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
-[ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
-[ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
+[ext_resource type="PackedScene" uid="uid://dhlxmu7d6jw67" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_base_1x_1.tscn" id="6_xiwfb"]
+[ext_resource type="PackedScene" uid="uid://mktg84sgp70u" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_top_1x_1.tscn" id="7_58dwc"]
+[ext_resource type="PackedScene" uid="uid://df0sxkfxq4aey" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_Glow_1x_1.tscn" id="8_12u6a"]
+[ext_resource type="PackedScene" uid="uid://c0c8eiiw7md1q" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_base_1x_1.tscn" id="9_apkep"]
+[ext_resource type="PackedScene" uid="uid://de83wwqor4dua" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_top_1x_1.tscn" id="10_x5f2w"]
+[ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
+[ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
+[ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
+[ext_resource type="PackedScene" uid="uid://tincc0jug8mk" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Yellow_01.tscn" id="13_apkep"]
 [ext_resource type="Script" uid="uid://cgrxa438kg0n6" path="res://Code/wirebox.gd" id="14_apkep"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
@@ -90,6 +91,9 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 
 [node name="Tower_Part2_01" parent="ActiveTower_YELLOW" unique_id=865693910 instance=ExtResource("12_852ym")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Yellow_tower_01" parent="ActiveTower_YELLOW" unique_id=53956850 instance=ExtResource("13_apkep")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.25, 0)
 
 [node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("jack_positions")]
 unique_name_in_owner = true
