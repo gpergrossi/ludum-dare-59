@@ -17,9 +17,12 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
 
-[node name="Tower" type="Node3D" unique_id=1918667656]
+[node name="Tower" type="Node3D" unique_id=1918667656 node_paths=PackedStringArray("tower_animation_player")]
 script = ExtResource("2_d6h38")
 max_range = 5.0
+tower_animation_player = NodePath("ActiveTower_YELLOW/Yellow_tower_01/AnimationPlayer")
+tower_idle_animation = &"Yellow_node"
+tower_attack_animation = &"Yellow_Attack"
 
 [node name="MinRangeIndicator" parent="." unique_id=1794438554 instance=ExtResource("3_uwg1x")]
 unique_name_in_owner = true
@@ -43,7 +46,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
 [node name="LaserEmitPosition" type="Node3D" parent="." unique_id=312950146]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.3672777, 0.5)
 
 [node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
 visible = false
