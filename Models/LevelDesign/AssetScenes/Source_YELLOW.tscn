@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://d1smtrr7kdwjk"]
+
+[ext_resource type="PackedScene" uid="uid://qafq3t74o6ny" path="res://Models/LevelDesign/SourceMeshes/Source_Base_Parts01.fbx" id="1_d05uq"]
+[ext_resource type="Material" uid="uid://cwv8ud7i67bi5" path="res://Materials/ImportedMats/YellowSource.tres" id="2_d05uq"]
+[ext_resource type="Material" uid="uid://ckacas2mn7740" path="res://Materials/ImportedMats/Tower_Glow_YELLOW.tres" id="3_e4dy1"]
+[ext_resource type="PackedScene" uid="uid://cucsps24hdgtx" path="res://Models/LevelDesign/AssetScenes/Source_YELLOW_tile_3x3_01.tscn" id="4_hhmis"]
+
+[node name="Source_Base_Parts01" unique_id=393019212 instance=ExtResource("1_d05uq")]
+
+[node name="Source_BaseCircle" parent="." index="0" unique_id=870890670]
+transform = Transform3D(-296.39352, 2.5911542e-05, 1.1326295e-12, 0, -1.2955771e-05, 296.3935, 2.5911544e-05, 296.3935, 1.2955771e-05, 0, 0, 4.7683716e-07)
+surface_material_override/0 = ExtResource("2_d05uq")
+surface_material_override/1 = ExtResource("3_e4dy1")
+
+[node name="Tile_Base3x3_01" parent="." index="1" unique_id=811469491 instance=ExtResource("4_hhmis")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
