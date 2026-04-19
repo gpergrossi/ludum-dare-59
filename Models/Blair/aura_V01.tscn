@@ -1,0 +1,73 @@
+[gd_scene format=3 uid="uid://m4gjd6ne71iv"]
+
+[sub_resource type="Curve" id="Curve_jnt12"]
+_data = [Vector2(0, 0.50221807), 0.0, 0.6749453, 0, 0, Vector2(0.49704143, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.357959, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_jaxfx"]
+curve = SubResource("Curve_jnt12")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bth6n"]
+emission_shape = 6
+emission_ring_axis = Vector3(0, 90, 1)
+emission_ring_height = 0.0
+emission_ring_radius = 10.0
+emission_ring_inner_radius = 10.0
+emission_ring_cone_angle = 90.0
+direction = Vector3(0, 4, 0)
+spread = 0.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, -3, 0)
+alpha_curve = SubResource("CurveTexture_jaxfx")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnygb"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(1, 0.15686275, 0.07058824, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_0wten"]
+material = SubResource("StandardMaterial3D_rnygb")
+
+[sub_resource type="Curve" id="Curve_0wten"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50295854, 0.50221807), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_6b7rc"]
+curve = SubResource("Curve_0wten")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cb3m2"]
+direction = Vector3(0, 2, 0)
+spread = 0.0
+initial_velocity_min = -3.0
+initial_velocity_max = -3.0
+gravity = Vector3(0, 3, 0)
+alpha_curve = SubResource("CurveTexture_6b7rc")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80tqf"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.65882355, 0.09019608, 0, 0.43529412)
+
+[sub_resource type="TorusMesh" id="TorusMesh_svv8j"]
+material = SubResource("StandardMaterial3D_80tqf")
+inner_radius = 9.5
+outer_radius = 10.5
+
+[node name="Aura_V01" type="Node3D" unique_id=256386473]
+
+[node name="Outer_Balls" type="GPUParticles3D" parent="." unique_id=992386351]
+amount = 50
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_bth6n")
+draw_pass_1 = SubResource("SphereMesh_0wten")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=2114013291]
+amount = 4
+lifetime = 3.0
+process_material = SubResource("ParticleProcessMaterial_cb3m2")
+draw_pass_1 = SubResource("TorusMesh_svv8j")

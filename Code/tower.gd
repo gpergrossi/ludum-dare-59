@@ -22,7 +22,7 @@ class_name Tower extends Tile
 			refresh_range()
 
 # Damage dealt per tower firing.
-@export var damage := 1.0
+@export var damage := 10.0 # Probably needs editing per-tower, and depending on pitch/enemy type, etc.
 
 func refresh_range() -> void:
 	if not is_node_ready(): return

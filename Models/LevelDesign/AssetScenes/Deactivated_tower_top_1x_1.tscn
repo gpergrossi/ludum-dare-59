@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://mktg84sgp70u"]
+
+[ext_resource type="PackedScene" uid="uid://x2ugj2rqk7ga" path="res://Models/LevelDesign/SourceMeshes/Tower_Part1_01.fbx" id="1_jadd3"]
+[ext_resource type="Material" uid="uid://c6gqmtuwmc2qq" path="res://Materials/ImportedMats/Uninitialized.tres" id="2_htpnj"]
+[ext_resource type="Material" uid="uid://dmtyr7bioa7t7" path="res://Materials/ImportedMats/Metal_Ring.tres" id="3_oxhya"]
+[ext_resource type="Material" uid="uid://07gyqj1h172y" path="res://Materials/ImportedMats/Blackout.tres" id="4_05kjk"]
+
+[node name="Tower_Part1_01" unique_id=1387399244 instance=ExtResource("1_jadd3")]
+
+[node name="Tower_Parts_001" parent="." index="0" unique_id=2054843817]
+surface_material_override/0 = ExtResource("2_htpnj")
+surface_material_override/1 = ExtResource("3_oxhya")
+surface_material_override/2 = ExtResource("4_05kjk")

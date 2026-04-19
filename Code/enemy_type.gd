@@ -15,11 +15,7 @@ static func prototype_for(type : Enum) -> PackedScene:
 	return null
 
 static func name_of(type: Enum) -> String:
-	match(type):
-		Enum.Box: return "Box"
-		Enum.Ball: return "Ball"
-		Enum.Cone: return "Cone"
-	return ""
+	return Enum.keys()[type]
 
 @export var type_enum: Enum
 @export var scene_uid: PackedScene
