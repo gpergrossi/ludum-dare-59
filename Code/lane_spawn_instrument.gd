@@ -1,4 +1,3 @@
-@tool
 class_name LaneSpawnInstrument extends Node3D
 
 @export var part: Part
