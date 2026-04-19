@@ -125,10 +125,10 @@ func _apply_to_curved_path(new_curve: Curve3D) -> void:
 	
 	if curved_path == null:
 		curved_path = Path3D.new()
-		curved_path.name = "Curved"
-		curved_path.set_script(self.get_script())
+		curved_path.name = "Lane"
 		add_child(curved_path)
 		curved_path.owner = self.owner
+		
 	
 	curved_path.curve = new_curve
 
