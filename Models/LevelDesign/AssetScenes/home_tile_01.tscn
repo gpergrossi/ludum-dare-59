@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bs2jl8qkcuscx"]
+
+[ext_resource type="PackedScene" uid="uid://c803ww281w4kw" path="res://Models/LevelDesign/SourceMeshes/homeTile_01.fbx" id="1_qiqkk"]
+[ext_resource type="Material" uid="uid://dxc7p0ttvyx5k" path="res://Materials/ImportedMats/Tile_Base.tres" id="2_rf2ok"]
+[ext_resource type="Material" uid="uid://bw70uecv7c4yr" path="res://Materials/ImportedMats/Tower_Glow.tres" id="3_wgq7e"]
+
+[node name="homeTile_01" unique_id=1890897585 instance=ExtResource("1_qiqkk")]
+
+[node name="Heart_base" parent="." index="0" unique_id=1251771245]
+surface_material_override/0 = ExtResource("2_rf2ok")
+surface_material_override/1 = ExtResource("3_wgq7e")

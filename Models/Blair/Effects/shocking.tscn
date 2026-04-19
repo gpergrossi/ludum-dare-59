@@ -1,0 +1,79 @@
+[gd_scene format=4 uid="uid://cio1q1sb1a77m"]
+
+[ext_resource type="ArrayMesh" uid="uid://b5xylqpd07rpf" path="res://Models/Blair/Bolt.tres" id="1_d5082"]
+
+[sub_resource type="Curve" id="Curve_ajhwj"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.339795, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_cb3m2"]
+curve = SubResource("Curve_ajhwj")
+
+[sub_resource type="Curve" id="Curve_80tqf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.6042507, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_svv8j"]
+curve = SubResource("Curve_80tqf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a77cq"]
+emission_shape = 1
+emission_sphere_radius = 0.1
+spread = 25.0
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+angular_velocity_min = -424.54
+angular_velocity_max = 274.55
+gravity = Vector3(0, 0, 0)
+radial_accel_min = -2.2351742e-06
+radial_accel_max = -2.2351742e-06
+scale_min = 0.25
+scale_curve = SubResource("CurveTexture_svv8j")
+alpha_curve = SubResource("CurveTexture_cb3m2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ll0wn"]
+resource_name = "lambert1"
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.30980393, 0, 0, 1)
+emission_enabled = true
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_elilf"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_wbj0a"]
+resource_name = "Bolt"
+_surfaces = [{
+"aabb": AABB(-0.13017502, -0.05, -0.0050000013, 0.26035005, 0.1, 0.010000003),
+"attribute_data": PackedByteArray("AADAPgAAQD+//L8+LRqAPzm9/z0XA4A/AAAAPgAAQD+1kAA/wGBlPq8l/j5AMTc93jPpPsTQND+5iv8+Jr7UPtatyD56L4A/RMPoPjM5fj/McAE+uAGAPxO/+D0dCoA/1q3IPnovgD+mK8c+tg0+P94z6T7E0DQ/RMPoPjM5fj+//L8+LRqAPwAAwD4AAEA/5lEBPi4DQD+clQc+RBJAP94z6T7E0DQ/pivHPrYNPj8AAAA+AABAPwAAwD4AAEA/E7/4PR0KgD/McAE+uAGAP5yVBz5EEkA/5lEBPi4DQD85vf89FwOAPwAAAD4AAEA/AADAPgAAQD8AAMA+AACAPwAAAD4AAIA/AAAAPgAAQD+1kAA/wGBlPq8l/j5AMTc9Vc7qPnjtKT/Is/o+7HQIP9S04T7uh34/RMPoPjM5fj/McAE+uAGAP/QwAT5sAYA/AADAPgAAgD8AAAA+AACAP9S04T7uh34/fWLgPu/zNz9Vzuo+eO0pP0TD6D4zOX4/AADAPgAAgD8AAMA+AABAP/QwAT5sAYA/zHABPrgBgD8X8gc+LPc/P6HKCD7qoz8/AAAAPgAAgD8AAAA+AABAPwAAAD4AAEA/ocoIPuqjPz99YuA+7/M3PwAAwD4AAEA/"),
+"format": 34359742487,
+"index_count": 108,
+"index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwADQAMABAAEAARAA0AEgATABQAFAAVABIAFgASABUAFQAXABYAGAAZABoAGgAbABgAHAAYABsAGwAdABwAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYAKgAmACkAKQArACoALAAtAC4ALgAvACwALQAsADAAMAAxAC0AMgAzADQANAA1ADIANgAyADUANQA3ADYAOAA5ADoAOgA7ADgA"),
+"material": SubResource("StandardMaterial3D_ll0wn"),
+"name": "Bolt",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 60,
+"vertex_data": PackedByteArray("yB1Tvc3MTD0N16M7PS9MvAAAAAAN16M7PS9MvAAAAAAN16O7yB1Tvc3MTD0N16O7mkwFPgAAAAAN16O7mkwFPgAAAAAN16M7OJC6Pc3MTD0N16M7OJC6Pc3MTD0N16O7PS9MPArXI7EN16M7mkwFPgAAAAAN16M7mkwFPgAAAAAN16O7PS9MPArXI7EN16O7PS9MPArXI7EN16M7j+HavM3MTD0N16M7OJC6Pc3MTD0N16M7mkwFPgAAAAAN16M7PS9MvAAAAAAN16M7yB1Tvc3MTD0N16M7j+HavM3MTD0N16O7OJC6Pc3MTD0N16O7OJC6Pc3MTD0N16M7j+HavM3MTD0N16M7yB1Tvc3MTD0N16O7yB1Tvc3MTD0N16M7PS9MPArXI7EN16O7mkwFPgAAAAAN16O7OJC6Pc3MTD0N16O7j+HavM3MTD0N16O7PS9MvAAAAAAN16O7yB1Tvc3MTD0N16O7mkwFvgrXI7EN16M7OJC6vc3MTL0N16M7OJC6vc3MTL0N16O7mkwFvgrXI7EN16O7yB1TPc3MTL0N16O7yB1TPc3MTL0N16M7PS9MPArXI7EN16M7PS9MPArXI7EN16O7DfXbPM3MTL0N16M7yB1TPc3MTL0N16M7yB1TPc3MTL0N16O7DfXbPM3MTL0N16O7OJC6vc3MTL0N16M7OJC6vc3MTL0N16O7DfXbPM3MTL0N16M7PS9MvAAAAAAN16M7PS9MPArXI7EN16M7yB1TPc3MTL0N16M7OJC6vc3MTL0N16M7mkwFvgrXI7EN16M7DfXbPM3MTL0N16O7yB1TPc3MTL0N16O7PS9MPArXI7EN16O7PS9MvAAAAAAN16O7OJC6vc3MTL0N16O7mkwFvgrXI7EN16O7mkwFvgrXI7EN16O7PS9MvAAAAAAN16O7PS9MvAAAAAAN16M7mkwFvgrXI7EN16M7JzjYR9t/FsAnONhHoH7fwCc42EfCfsnAJzjYR/9//7/Xxya4oM8YbdfHJrgyzSVs18cmuNE/8BjXxya45kIkGv9/AAC1/P8//38AANYL/z//fwAAmwz/P/9/AACZ/f8//3//fy38Fr7/f/9/5/nzvP9//38O/Ye+/3//f3D+OL//f/9/P/+fv/9//3/y+Hi8/3///6v//z//f///8P//P/9///+XJP+//3////9//7//f////3//v/9/////f/+/AAD//zgA478AAP//8P8GQAAA///3/wNA//////L/+T//////8v/5P//////y//k/JzjYR/9//78nONhH/3//vyc42Ef/f/+/JzjYR/9//7/Xxya4SM/2bNfHJrg4zMNr18cmuJU18BTXxya4xzgwFv9/AADvCf8//38AAFMI/z//fwAA6v//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9//3+++l+9/3//f330Prr/f/9/VOYps/9//38Q/4e//3//fwT7gb3/f/9/wfngvAAA///8//4/AAD///z//j8AAP//SwFZv//////t/whA/////8X/HED/////sf8mQP9///8Xef+//3///4EA/7//f///XAf/v/9/////f/+/")
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_elilf")
+
+[node name="Shocking" type="Node3D" unique_id=1422476025]
+
+[node name="Bolt_01" type="GPUParticles3D" parent="." unique_id=579193806]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+amount = 6
+lifetime = 0.3
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_a77cq")
+draw_pass_1 = ExtResource("1_d5082")
+
+[node name="Bolt_02" type="GPUParticles3D" parent="." unique_id=1265673036]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0)
+amount = 6
+lifetime = 0.41000000000000003
+explosiveness = 0.7
+process_material = SubResource("ParticleProcessMaterial_a77cq")
+draw_pass_1 = SubResource("ArrayMesh_wbj0a")

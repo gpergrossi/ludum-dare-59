@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://dnhigb0p8h014"]
+
+[resource]
+resource_name = "Tower_Glow"
+shading_mode = 0
+disable_ambient_light = true
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.5019608, 1, 1, 1)
