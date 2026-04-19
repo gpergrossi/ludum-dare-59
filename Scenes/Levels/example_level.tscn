@@ -52,7 +52,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, 1.5)
 
 [node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
-max_range = 2.94
 
 [node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
