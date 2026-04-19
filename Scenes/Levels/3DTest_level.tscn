@@ -4,9 +4,8 @@
 [ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="2_2sxju"]
 [ext_resource type="Environment" uid="uid://twvtitxyyrv5" path="res://Models/LevelDesign/WorldEnvironment_T01.tres" id="2_jtpw3"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="3_51j0e"]
-[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Song1/synth_resource.tres" id="4_n8mod"]
+[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Songs/synth_resource.tres" id="4_n8mod"]
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="5_b5yrm"]
-[ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_ertfi"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_kkkvx"]
 [ext_resource type="PackedScene" uid="uid://c75cur2kcnxxg" path="res://Scenes/Levels/lane_spawn_instrument.tscn" id="8_jtpw3"]
 [ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/lane1_spawn_instrument.tres" id="9_wh1ob"]
@@ -16,9 +15,9 @@
 [ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="13_1x8j5"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="14_aesoo"]
 [ext_resource type="PackedScene" uid="uid://dsuytuswkva87" path="res://Scenes/Towers/range_indicator.tscn" id="14_b5yrm"]
-[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Song1/song1.gd" id="15_mmfe2"]
-[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Song1/kicks_resource.tres" id="16_0l2a3"]
-[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Song1/hihats_resource.tres" id="17_umsk2"]
+[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="15_mmfe2"]
+[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Songs/kicks_resource.tres" id="16_0l2a3"]
+[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Songs/hihats_resource.tres" id="17_umsk2"]
 [ext_resource type="PackedScene" uid="uid://qxftaapvr2xj" path="res://Models/LevelDesign/AssetScenes/RoadTileBase.tscn" id="19_ertfi"]
 [ext_resource type="PackedScene" uid="uid://73rw06ofy088" path="res://Models/LevelDesign/AssetScenes/tile_1x1_01.tscn" id="20_kkkvx"]
 [ext_resource type="PackedScene" uid="uid://coihmcca0ktrs" path="res://Models/LevelDesign/AssetScenes/tile_3x3_01.tscn" id="21_jtpw3"]
@@ -42,10 +41,9 @@ _data = {
 }
 point_count = 56
 
-[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "tower_bases")]
+[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_51b2r")
 lanes = [NodePath("OLD_LEVEL/Lane1")]
-tower_bases = [NodePath("ExistingTowers/TowerBase1"), NodePath("ExistingTowers/TowerBase2")]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832940335]
 environment = ExtResource("2_jtpw3")
@@ -194,36 +192,28 @@ visible = false
 [node name="Tower" parent="ExistingTowers" unique_id=945097428 instance=ExtResource("3_51j0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
-[node name="Instrument" parent="ExistingTowers/Tower" index="4" unique_id=914717014]
+[node name="Instrument" parent="ExistingTowers/Tower" index="2" unique_id=914717014]
 part = ExtResource("4_n8mod")
 
 [node name="Tower2" parent="ExistingTowers" unique_id=1918667656 instance=ExtResource("3_51j0e")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 4)
 
-[node name="MaxRangeIndicator" parent="ExistingTowers/Tower2" index="3" unique_id=1761813199]
+[node name="MaxRangeIndicator" parent="ExistingTowers/Tower2" index="1" unique_id=1761813199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.6448146, 0.5)
 
-[node name="Instrument" parent="ExistingTowers/Tower2" index="4" unique_id=914717014]
+[node name="Instrument" parent="ExistingTowers/Tower2" index="2" unique_id=914717014]
 part = ExtResource("16_0l2a3")
 
 [node name="Tower3" parent="ExistingTowers" unique_id=144730068 instance=ExtResource("3_51j0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
 
-[node name="Instrument" parent="ExistingTowers/Tower3" index="4" unique_id=914717014]
+[node name="Instrument" parent="ExistingTowers/Tower3" index="2" unique_id=914717014]
 part = ExtResource("17_umsk2")
 
 [node name="MaxRangeIndicator2" parent="ExistingTowers/Tower3" unique_id=1387911917 instance=ExtResource("14_b5yrm")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.6448146, -2.5)
 range = 5.0
-
-[node name="TowerBase1" parent="ExistingTowers" unique_id=1116541907 instance=ExtResource("6_ertfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
-visible = false
-
-[node name="TowerBase2" parent="ExistingTowers" unique_id=2084031751 instance=ExtResource("6_ertfi")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
-visible = false
 
 [node name="Pianola" type="Node" parent="." unique_id=1958729676]
 unique_name_in_owner = true
