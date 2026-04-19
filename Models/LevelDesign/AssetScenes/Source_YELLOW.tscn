@@ -4,6 +4,7 @@
 [ext_resource type="Material" uid="uid://cwv8ud7i67bi5" path="res://Materials/ImportedMats/YellowSource.tres" id="2_d05uq"]
 [ext_resource type="Material" uid="uid://ckacas2mn7740" path="res://Materials/ImportedMats/Tower_Glow_YELLOW.tres" id="3_e4dy1"]
 [ext_resource type="PackedScene" uid="uid://cucsps24hdgtx" path="res://Models/LevelDesign/AssetScenes/Source_YELLOW_tile_3x3_01.tscn" id="4_hhmis"]
+[ext_resource type="PackedScene" uid="uid://tincc0jug8mk" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Yellow_01.tscn" id="5_e4dy1"]
 
 [node name="Source_Base_Parts01" unique_id=393019212 instance=ExtResource("1_d05uq")]
 
@@ -14,3 +15,6 @@ surface_material_override/1 = ExtResource("3_e4dy1")
 
 [node name="Tile_Base3x3_01" parent="." index="1" unique_id=811469491 instance=ExtResource("4_hhmis")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
+
+[node name="Yellow_tower_01" parent="." index="2" unique_id=53956850 instance=ExtResource("5_e4dy1")]
+transform = Transform3D(-2, 0, -3.019916e-07, 0, 2, 0, 3.019916e-07, 0, -2, 0.8, -1, 0.5)

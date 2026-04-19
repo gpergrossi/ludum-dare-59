@@ -2,6 +2,8 @@ class_name Enemy extends Node3D
 
 @export var path : Path3D
 
+@onready var hit_target_position : Node3D = %HitTargetPosition
+
 @export var velocity := 1.0
 @export var offset_on_curve := 0.0
 

@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bq4u5awlg3ngs"]
 
+[ext_resource type="Material" uid="uid://bt0ffhlipgue8" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v01.tres" id="1_i42dk"]
+
 [sub_resource type="Curve" id="Curve_65s3f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.3488653, 0.0, 0, 0]
 point_count = 2
@@ -22,12 +24,15 @@ point_count = 3
 curve = SubResource("Curve_svv8j")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_elilf"]
-emission_shape = 1
-emission_sphere_radius = 1.0
-direction = Vector3(0, 4, 0)
-initial_velocity_min = 13.0
-initial_velocity_max = 15.0
+direction = Vector3(0, 0.625, 0)
+flatness = 0.15
+initial_velocity_min = 12.5
+initial_velocity_max = 16.6
+orbit_velocity_min = 9.49949e-08
+orbit_velocity_max = 9.49949e-08
 gravity = Vector3(0, -20, 0)
+tangential_accel_min = -10.000002
+tangential_accel_max = 9.999997
 scale_min = 0.5
 scale_max = 1.5
 scale_curve = SubResource("CurveTexture_a77cq")
@@ -36,16 +41,11 @@ color_ramp = SubResource("GradientTexture1D_80tqf")
 alpha_curve = SubResource("CurveTexture_ajhwj")
 hue_variation_min = -0.15000002
 hue_variation_max = 0.14999998
+turbulence_noise_scale = 10.0
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnt12"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(0.10321132, 0.5217625, 0.99999994, 1)
-
-[sub_resource type="SphereMesh" id="SphereMesh_daftk"]
-material = SubResource("StandardMaterial3D_jnt12")
+[sub_resource type="BoxMesh" id="BoxMesh_hnl2r"]
+material = ExtResource("1_i42dk")
+size = Vector3(1.34, 1, 1)
 
 [node name="Exploding_Enemy_v01" type="Node3D" unique_id=1303959735]
 
@@ -55,4 +55,4 @@ speed_scale = 1.5
 explosiveness = 1.0
 randomness = 0.7
 process_material = SubResource("ParticleProcessMaterial_elilf")
-draw_pass_1 = SubResource("SphereMesh_daftk")
+draw_pass_1 = SubResource("BoxMesh_hnl2r")

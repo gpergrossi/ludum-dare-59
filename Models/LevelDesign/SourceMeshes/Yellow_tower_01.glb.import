@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://60r3skn58hjw"
-path="res://.godot/imported/Home_Sphere_01.glb-39592b65b152999bb6599b4b38580d8c.scn"
+uid="uid://d2fdnir0npfrh"
+path="res://.godot/imported/Yellow_tower_01.glb-465f10d0b91e2dca07ab14571c729f8a.scn"
 
 [deps]
 
-source_file="res://Models/LevelDesign/SourceMeshes/Home_Sphere_01.glb"
-dest_files=["res://.godot/imported/Home_Sphere_01.glb-39592b65b152999bb6599b4b38580d8c.scn"]
+source_file="res://Models/LevelDesign/SourceMeshes/Yellow_tower_01.glb"
+dest_files=["res://.godot/imported/Yellow_tower_01.glb-465f10d0b91e2dca07ab14571c729f8a.scn"]
 
 [params]
 
@@ -39,7 +39,7 @@ materials/extract_format=0
 materials/extract_path=""
 _subresources={
 "animations": {
-"Heart_ani": {
+"Yellow_node": {
 "save_to_file/enabled": false,
 "save_to_file/fallback_path": "",
 "save_to_file/keep_custom_tracks": "",
@@ -2094,6 +2094,13 @@ _subresources={
 "slice_99/save_to_file/path": "",
 "slice_99/start_frame": 0,
 "slices/amount": 0
+}
+},
+"materials": {
+"Yellow_tower": {
+"use_external/enabled": true,
+"use_external/fallback_path": "res://Materials/ImportedMats/Yellow_tower.tres",
+"use_external/path": "uid://bnjhw0wb77g44"
 }
 }
 }
