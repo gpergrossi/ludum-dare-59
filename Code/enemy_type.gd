@@ -14,15 +14,8 @@ static func prototype_for(type : Enum) -> PackedScene:
 		Enum.Cone: return preload("res://Scenes/Enemies/cone_enemy.tscn")
 	return null
 
-static func name_of(type: Enum) -> String:
-	match(type):
-		Enum.Box: return "Box"
-		Enum.Ball: return "Ball"
-		Enum.Cone: return "Cone"
-	return ""
-
 @export var type_enum: Enum
 @export var scene_uid: PackedScene
 
 var name: String:
-	get(): return name_of(type_enum)
+	get(): return Enum.keys()[type_enum]
