@@ -1,0 +1,7 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://07gyqj1h172y"]
+
+[resource]
+resource_name = "Blackout"
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.009997517, 0.009997517, 0.009997517, 1)
