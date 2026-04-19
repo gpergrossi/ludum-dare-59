@@ -106,7 +106,7 @@ func makeSong() -> Song:
 		s7, s7, s10, null, null, null, null, null,
 		null, null, s4s, null, s5, null, s6, null,
 	], 4.0);
-	addPatternSpawns(song, PARTS.spawn1, 0, 20, [
+	addPatternSpawns(song, PARTS.spawn1, 0, 120, [
 		spawnBox, spawnBall, spawnCone, spawnNone,
 	], 0.125);
 	return song;
