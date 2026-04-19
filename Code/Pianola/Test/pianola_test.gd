@@ -21,6 +21,4 @@ func _ready():
 		song.notes.push_back(note)
 		
 	var pianola = $Pianola
-	pianola.instruments.append($Kickstrument)
-	pianola.instruments.append($Hihatstrument)
 	pianola.song = song
