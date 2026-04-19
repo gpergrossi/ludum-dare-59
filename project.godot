@@ -19,6 +19,10 @@ config/icon="res://Images/icon.svg"
 
 buses/default_bus_layout="uid://clu1nde471ioy"
 
+[global_group]
+
+enemies="All Enemy nodes."
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
