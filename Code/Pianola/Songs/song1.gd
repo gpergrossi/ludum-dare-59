@@ -3,9 +3,9 @@
 class_name Song1 extends SongGenerator
 
 const PARTS: Dictionary[String, Resource] = {
-	"kick": preload("res://Code/Pianola/Song1/kicks_resource.tres"),
-	"hihat": preload("res://Code/Pianola/Song1/hihats_resource.tres"),
-	"synth": preload("res://Code/Pianola/Song1/synth_resource.tres"),
+	"kick": preload("res://Code/Pianola/Songs/kicks_resource.tres"),
+	"hihat": preload("res://Code/Pianola/Songs/hihats_resource.tres"),
+	"synth": preload("res://Code/Pianola/Songs/synth_resource.tres"),
 	"spawn1": preload("uid://c25sck87yn44s"),
 	"spawn2": preload("uid://tf55e001gar5"),
 	"spawn3": preload("uid://ctvecbluw3187"),
