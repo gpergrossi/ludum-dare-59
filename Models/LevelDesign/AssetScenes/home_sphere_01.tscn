@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dfvs2d1tfwnf4"]
+
+[ext_resource type="PackedScene" uid="uid://60r3skn58hjw" path="res://Models/LevelDesign/SourceMeshes/Home_Sphere_01.glb" id="1_gg3nc"]
+[ext_resource type="Material" uid="uid://c6gqmtuwmc2qq" path="res://Materials/ImportedMats/Uninitialized.tres" id="2_dghth"]
+[ext_resource type="Material" uid="uid://dnhigb0p8h014" path="res://Materials/ImportedMats/Home_Glow.tres" id="2_pw7cc"]
+
+[node name="Home_Sphere_01" unique_id=426090421 instance=ExtResource("1_gg3nc")]
+
+[node name="Center faces" parent="HeartSphere_mesh/heart_root" parent_id_path=PackedInt32Array(856949150) index="0" unique_id=39176483]
+transform = Transform3D(0.9229446, 0, 0, 0, 0.9229446, 0, 0, 0, 0.9229446, 7.1525574e-06, 2.4493337, -1.1920929e-07)
+
+[node name="Sphere_002" parent="HeartSphere_mesh/heart_root" parent_id_path=PackedInt32Array(856949150) index="1" unique_id=923456620]
+surface_material_override/0 = ExtResource("2_dghth")
+surface_material_override/1 = ExtResource("2_pw7cc")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=986008837]
+speed_scale = 0.2

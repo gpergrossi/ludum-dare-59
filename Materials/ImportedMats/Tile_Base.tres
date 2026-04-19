@@ -3,6 +3,6 @@
 [resource]
 resource_name = "Tile_Base"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.5, 0.25, 0.5, 1)
+albedo_color = Color(0.43, 0.25800002, 0.26086664, 1)
 emission = Color(0.85, 0, 0.85, 1)
 emission_energy_multiplier = 0.5

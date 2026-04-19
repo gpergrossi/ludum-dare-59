@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://tincc0jug8mk"]
+
+[ext_resource type="PackedScene" uid="uid://d2fdnir0npfrh" path="res://Models/LevelDesign/SourceMeshes/Yellow_tower_01.glb" id="1_yflap"]
+
+[node name="Yellow_tower_01" unique_id=53956850 instance=ExtResource("1_yflap")]
+
+[node name="Skeleton3D" parent="Yellow_NODE" parent_id_path=PackedInt32Array(1486546948) index="0" unique_id=1732941240]
+bones/1/position = Vector3(-0.34892693, 1.6880763, -0.4931172)
+bones/1/rotation = Quaternion(0, 0.9742075, 0, 0.22565435)
+
+[node name="Node_bone" parent="Yellow_NODE/Skeleton3D" index="0" unique_id=186350650]
+transform = Transform3D(-0.89816034, 0, 0.43966827, 0, 1, 0, -0.43966827, 0, -0.89816034, -0.34892693, 1.6880763, -0.4931172)

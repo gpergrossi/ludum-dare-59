@@ -6,4 +6,4 @@ disable_ambient_light = true
 vertex_color_use_as_albedo = true
 emission_enabled = true
 emission = Color(1, 1, 1, 1)
-emission_energy_multiplier = 0.5
+emission_energy_multiplier = 1.5
