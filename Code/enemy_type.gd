@@ -1,6 +1,7 @@
 class_name EnemyType extends Resource
 
 enum Enum {
+	None,
 	Box,
 	Ball,
 	Cone

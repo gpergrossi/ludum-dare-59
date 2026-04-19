@@ -39,6 +39,11 @@ script = ExtResource("1_veeq1")
 lanes = [NodePath("Lane1")]
 tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
 
+[node name="Pianola" type="Node" parent="." unique_id=1958729676]
+unique_name_in_owner = true
+script = ExtResource("11_u27mm")
+metadata/_custom_type_script = "uid://b0yi0y43su4ie"
+
 [node name="Enemy" parent="." unique_id=3273144 instance=ExtResource("3_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, -0.5)
 
@@ -59,11 +64,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
 [node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
-
-[node name="Pianola" type="Node" parent="." unique_id=1958729676]
-unique_name_in_owner = true
-script = ExtResource("11_u27mm")
-metadata/_custom_type_script = "uid://b0yi0y43su4ie"
 
 [node name="LaneSpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
 part = SubResource("Resource_u5lri")

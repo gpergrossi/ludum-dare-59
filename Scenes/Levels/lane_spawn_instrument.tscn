@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://1trkdweam6xf" path="res://Code/lane_spawn_instrument.gd" id="1_a8585"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="2_olofg"]
-[ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/spawner_instrument_part.tres" id="3_polvw"]
+[ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/spawn_instrument.tres" id="3_polvw"]
 
 [node name="LaneSpawnInstrument" type="Node3D" unique_id=180430757]
 script = ExtResource("1_a8585")

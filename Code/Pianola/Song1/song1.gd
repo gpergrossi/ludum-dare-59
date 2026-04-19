@@ -10,6 +10,7 @@ const PARTS: Dictionary[String, Resource] = {
 	"kick": preload("res://Code/Pianola/Song1/kicks_resource.tres"),
 	"hihat": preload("res://Code/Pianola/Song1/hihats_resource.tres"),
 	"synth": preload("res://Code/Pianola/Song1/synth_resource.tres"),
+	"spawners": preload("uid://c25sck87yn44s")
 }
 
 const kick: AudioStream = preload("res://Audio/Drums/kick_drum_1.ogg");
@@ -44,6 +45,10 @@ const s27: AudioStream = preload("res://Audio/Synth0/A5.wav");
 const s28: AudioStream = preload("res://Audio/Synth0/B5.wav");
 const s29: AudioStream = preload("res://Audio/Synth0/C6.wav");
 
+const spawnBox := EnemyType.Enum.Box
+const spawnBall := EnemyType.Enum.Ball
+const spawnCone := EnemyType.Enum.Cone
+
 func _ready():
 	var song := makeSong1();
 	%Pianola.song = song;
@@ -51,12 +56,16 @@ func _ready():
 func makeSong1() -> Song:
 	var song = Song.new();
 	addPattern(song, PARTS.kick,  0, 120, [kick, kick, kick, null]);
+	addPattern(song, PARTS.kick,  0, 120, [kick, kick, kick, null]);
 	addPattern(song, PARTS.hihat, 0, 120, [null, hihat, null, null], 1.0, 0.5);
 	addPattern(song, PARTS.synth, 0, 120, [
 		s5, s6, s7, null, s6, s5, s4, s3, s2, s2, null,
 		s1, null, s3, s7, null, s6, s10, s9, null, null, null,
 		
 	], 2);
+	addPatternSpawns(song, PARTS.spawners, 0, 10, [
+		spawnBox
+	], 0.125)
 	return song;
 
 func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[AudioStream], rate: float = 1, offset: float = 0):
@@ -65,14 +74,24 @@ func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: A
 		var position := beat % pattern.size();
 		var audio = pattern[position];
 		if (audio == null): continue;
-		var note := makeNote(beat/rate + offset, part, audio);
+		var note := makeNote(beat/rate + offset, part, audio, EnemyType.Enum.None);
 		song.notes.push_back(note);
 
-func makeNote(beat: float, part: Part, audio: AudioStream) -> Note:
+func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[EnemyType.Enum], rate: float = 1, offset: float = 0):
+	var length := (endBeat - startBeat) * rate;
+	for beat in range(0, length):
+		var position := beat % pattern.size();
+		var enemy_type: EnemyType.Enum = pattern[position];
+		if (enemy_type == EnemyType.Enum.None): continue;
+		var note := makeNote(beat/rate + offset, part, null, enemy_type);
+		song.notes.push_back(note);
+
+func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyType.Enum) -> Note:
 	var note := Note.new();
 	
 	note.beat = beat;
 	note.part = part;
 	note.audio_stream = audio;
+	note.spawn_enemy = enemy;
 	
 	return note;
