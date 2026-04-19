@@ -24,6 +24,10 @@ buses/default_bus_layout="uid://clu1nde471ioy"
 Enemies=""
 HealthBar=""
 
+[layer_names]
+
+3d_physics/layer_5="Clickable"
+
 [physics]
 
 3d/physics_engine="Jolt Physics"
