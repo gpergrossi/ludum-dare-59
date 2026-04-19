@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c0wtlkyd55ar7"]
+
+[ext_resource type="PackedScene" uid="uid://c06vddi5sof38" path="res://Models/WireBits/PlugFemale_01.fbx" id="1_ud4c0"]
+[ext_resource type="Material" uid="uid://dmtyr7bioa7t7" path="res://Materials/ImportedMats/Metal_Ring.tres" id="2_iw1r2"]
+[ext_resource type="Material" uid="uid://07gyqj1h172y" path="res://Materials/ImportedMats/Blackout.tres" id="3_4bfve"]
+[ext_resource type="Material" uid="uid://bw70uecv7c4yr" path="res://Materials/ImportedMats/Tower_Glow.tres" id="4_vx58d"]
+
+[node name="PlugFemale_01" unique_id=2098565446 instance=ExtResource("1_ud4c0")]
+
+[node name="Cylinder_012" parent="." index="0" unique_id=935839033]
+surface_material_override/0 = ExtResource("2_iw1r2")
+surface_material_override/1 = ExtResource("3_4bfve")
+surface_material_override/2 = ExtResource("4_vx58d")

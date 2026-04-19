@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://cbmv2gs6frhh7"]
+
+[ext_resource type="PackedScene" uid="uid://bf50ljlvns61k" path="res://Models/WireBits/PlugHead_01.fbx" id="1_5xppw"]
+[ext_resource type="Material" uid="uid://dmtyr7bioa7t7" path="res://Materials/ImportedMats/Metal_Ring.tres" id="2_pfdvp"]
+[ext_resource type="Material" uid="uid://beji872omfqqj" path="res://Materials/ImportedMats/Rubber.tres" id="3_48rkw"]
+
+[node name="PlugHead_01" unique_id=1645218517 instance=ExtResource("1_5xppw")]
+
+[node name="WirePlugEnd_01" parent="." index="0" unique_id=1196831142]
+surface_material_override/0 = ExtResource("2_pfdvp")
+surface_material_override/1 = ExtResource("3_48rkw")
