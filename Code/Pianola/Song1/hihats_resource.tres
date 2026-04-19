@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Part" format=3 uid="uid://dcm6hp2fegf1y"]
+
+[ext_resource type="Script" uid="uid://cs2t520eocaft" path="res://Code/Pianola/part.gd" id="1_unylf"]
+
+[resource]
+script = ExtResource("1_unylf")
+metadata/_custom_type_script = "uid://cs2t520eocaft"
