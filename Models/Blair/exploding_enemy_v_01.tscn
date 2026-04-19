@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://bq4u5awlg3ngs"]
+
+[sub_resource type="Curve" id="Curve_65s3f"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.3488653, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ajhwj"]
+curve = SubResource("Curve_65s3f")
+
+[sub_resource type="Gradient" id="Gradient_cb3m2"]
+offsets = PackedFloat32Array(0, 0.6545842, 1)
+colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_80tqf"]
+gradient = SubResource("Gradient_cb3m2")
+
+[sub_resource type="Curve" id="Curve_svv8j"]
+_data = [Vector2(0, 0), 0.0, 3.261434, 0, 0, Vector2(0.49112424, 1), 0.0, 0.0, 0, 0, Vector2(0.9980277, 0.64183986), -1.8628478, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_a77cq"]
+curve = SubResource("Curve_svv8j")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_elilf"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+direction = Vector3(0, 4, 0)
+initial_velocity_min = 13.0
+initial_velocity_max = 15.0
+gravity = Vector3(0, -20, 0)
+scale_min = 0.5
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_a77cq")
+color = Color(0.3718729, 0.345951, 0.86280453, 1)
+color_ramp = SubResource("GradientTexture1D_80tqf")
+alpha_curve = SubResource("CurveTexture_ajhwj")
+hue_variation_min = -0.15000002
+hue_variation_max = 0.14999998
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnt12"]
+transparency = 1
+blend_mode = 1
+cull_mode = 2
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.10321132, 0.5217625, 0.99999994, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_daftk"]
+material = SubResource("StandardMaterial3D_jnt12")
+
+[node name="Exploding_Enemy_v01" type="Node3D" unique_id=1303959735]
+
+[node name="Burst_01" type="GPUParticles3D" parent="." unique_id=861896065]
+amount = 12
+speed_scale = 1.5
+explosiveness = 1.0
+randomness = 0.7
+process_material = SubResource("ParticleProcessMaterial_elilf")
+draw_pass_1 = SubResource("SphereMesh_daftk")
