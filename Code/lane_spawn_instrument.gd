@@ -1,22 +1,14 @@
 @tool
 class_name LaneSpawnInstrument extends Node3D
 
-@export var part: Part:
-	set(p):
-		part = p
-		if is_node_ready():
-			instrument.part = p
-	get():
-		if is_node_ready():
-			return instrument.part
-		return null
-
+@export var part: Part
 @export var lane: Lane
 
-@onready var instrument: Instrument = $Instrument
+@onready var spawnstrument: Instrument = %Spawnstrument
 
 func _ready() -> void:
-	instrument.part = part
+	spawnstrument.part = part
+	spawnstrument.register()
 
 func _on_instrument_on_play_note(note: Note) -> void:
-	pass # Replace with function body.
+	lane.spawn(note.spawn_enemy)

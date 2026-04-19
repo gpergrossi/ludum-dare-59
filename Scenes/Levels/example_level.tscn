@@ -2,30 +2,27 @@
 
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_veeq1"]
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
+[ext_resource type="PackedScene" uid="uid://b63vuflvhpvkk" path="res://Code/Pianola/Song1/song1.tscn" id="2_u27mm"]
 [ext_resource type="PackedScene" uid="uid://decggobjsm5ft" path="res://Scenes/Enemies/box_enemy.tscn" id="3_fauja"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
 [ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_u27mm"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
 [ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="9_fauja"]
+[ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/lane1_spawn_instrument.tres" id="10_u27mm"]
 [ext_resource type="PackedScene" uid="uid://c75cur2kcnxxg" path="res://Scenes/Levels/lane_spawn_instrument.tscn" id="10_v550q"]
 [ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="11_u27mm"]
-[ext_resource type="Script" uid="uid://cs2t520eocaft" path="res://Code/Pianola/part.gd" id="11_xox26"]
+[ext_resource type="Resource" uid="uid://tf55e001gar5" path="res://Data/Instruments/lane2_spawn_instrument.tres" id="11_v550q"]
+[ext_resource type="Resource" uid="uid://ctvecbluw3187" path="res://Data/Instruments/lane3_spawn_instrument.tres" id="12_xox26"]
 [ext_resource type="Script" uid="uid://w1k8rp32fvu4" path="res://Code/lane.gd" id="13_xox26"]
-
-[sub_resource type="Resource" id="Resource_u5lri"]
-resource_local_to_scene = true
-script = ExtResource("11_xox26")
-name = &"SpawnLane1"
-metadata/_custom_type_script = "uid://cs2t520eocaft"
 
 [sub_resource type="Curve3D" id="Curve3D_fauja"]
 resource_local_to_scene = true
 _data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -6, 0, -3, 0, 0, 0, 0, 0, 0, -6, 0, 2, 0, 0, 0, 0, 0, 0, -2, 0, 2, 0, 0, 0, 0, 0, 0, -2, 0.5, -3, 0, 0, 0, 0, 0, 0, 2, 0.5, -3, 0, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, -2, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0)
 }
-point_count = 8
+point_count = 2
 
 [sub_resource type="Curve3D" id="Curve3D_u5lri"]
 _data = {
@@ -38,6 +35,7 @@ point_count = 56
 script = ExtResource("1_veeq1")
 lanes = [NodePath("Lane1")]
 tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
+song = ExtResource("2_u27mm")
 
 [node name="Pianola" type="Node" parent="." unique_id=1958729676]
 unique_name_in_owner = true
@@ -64,22 +62,30 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
 [node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
 
-[node name="LaneSpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
-part = SubResource("Resource_u5lri")
+[node name="Lane1SpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
+part = ExtResource("10_u27mm")
 lane = NodePath("../Lane1")
+
+[node name="Lane2SpawnInstrument" parent="." unique_id=772355483 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
+part = ExtResource("11_v550q")
+lane = NodePath("../Lane2")
+
+[node name="Lane3SpawnInstrument" parent="." unique_id=947303992 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
+part = ExtResource("12_xox26")
+lane = NodePath("../Lane3")
 
 [node name="Lane1" type="Node3D" parent="." unique_id=366671561 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
 script = ExtResource("13_xox26")
-path = NodePath("InputCurve/Curved")
+path = NodePath("InputCurve1/Curved")
 enemy_base = NodePath("../EnemyBase")
 home_base = NodePath("../HomeBase")
 
-[node name="InputCurve" type="Path3D" parent="Lane1" unique_id=96203357]
+[node name="InputCurve1" type="Path3D" parent="Lane1" unique_id=96203357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
 curve = SubResource("Curve3D_fauja")
 script = ExtResource("9_fauja")
 
-[node name="Curved" type="Path3D" parent="Lane1/InputCurve" unique_id=1096756300]
+[node name="Curved" type="Path3D" parent="Lane1/InputCurve1" unique_id=1096756300]
 curve = SubResource("Curve3D_u5lri")
 script = ExtResource("9_fauja")
 
@@ -160,3 +166,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 2)
 
 [node name="Path30" parent="Lane1" unique_id=2050442066 instance=ExtResource("5_u5lri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 1)
+
+[node name="Lane2" type="Node3D" parent="." unique_id=441314712 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+script = ExtResource("13_xox26")
+path = NodePath("InputCurve2")
+enemy_base = NodePath("../EnemyBase")
+home_base = NodePath("../HomeBase")
+
+[node name="InputCurve2" type="Path3D" parent="Lane2" unique_id=1022993139]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("9_fauja")
+
+[node name="Lane3" type="Node3D" parent="." unique_id=603596210 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+script = ExtResource("13_xox26")
+path = NodePath("InputCurve3")
+enemy_base = NodePath("../EnemyBase")
+home_base = NodePath("../HomeBase")
+
+[node name="InputCurve3" type="Path3D" parent="Lane3" unique_id=621456685]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
+curve = SubResource("Curve3D_fauja")
+script = ExtResource("9_fauja")

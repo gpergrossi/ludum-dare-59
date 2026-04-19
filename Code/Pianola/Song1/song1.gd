@@ -1,6 +1,6 @@
 # @author Vivian
 
-extends Node
+class_name Song1 extends SongGenerator
 
 @onready var kickstrument: Instrument = $Kickstrument;
 @onready var hihatstrument: Instrument = $Hihatstrument;
@@ -10,7 +10,9 @@ const PARTS: Dictionary[String, Resource] = {
 	"kick": preload("res://Code/Pianola/Song1/kicks_resource.tres"),
 	"hihat": preload("res://Code/Pianola/Song1/hihats_resource.tres"),
 	"synth": preload("res://Code/Pianola/Song1/synth_resource.tres"),
-	"spawners": preload("uid://c25sck87yn44s")
+	"spawn1": preload("uid://c25sck87yn44s"),
+	"spawn2": preload("uid://tf55e001gar5"),
+	"spawn3": preload("uid://ctvecbluw3187"),
 }
 
 const kick: AudioStream = preload("res://Audio/Drums/kick_drum_1.ogg");
@@ -70,15 +72,12 @@ const s27s: AudioStream = preload("res://Audio/Synth0/A#5.wav");
 const s28: AudioStream = preload("res://Audio/Synth0/B5.wav");
 const s29: AudioStream = preload("res://Audio/Synth0/C6.wav");
 
+const spawnNone := EnemyType.Enum.None
 const spawnBox := EnemyType.Enum.Box
 const spawnBall := EnemyType.Enum.Ball
 const spawnCone := EnemyType.Enum.Cone
 
-func _ready():
-	var song := makeSong1();
-	%Pianola.song = song;
-
-func makeSong1() -> Song:
+func makeSong() -> Song:
 	var song = Song.new();
 	addPattern(song, PARTS.kick,  0, 120, [
 		kick, null, null, null,
@@ -111,12 +110,12 @@ func makeSong1() -> Song:
 		s7, s7, s10, null, null, null, null, null,
 		null, null, s4s, null, s5, null, s6, null,
 	], 4.0);
-	addPatternSpawns(song, PARTS.spawners, 0, 10, [
-		spawnBox
+	addPatternSpawns(song, PARTS.spawn1, 0, 20, [
+		spawnBox, spawnBall, spawnCone, spawnNone,
 	], 0.125);
 	return song;
 
-func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[AudioStream], rate: float = 1, offset: float = 0):
+static func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[AudioStream], rate: float = 1, offset: float = 0):
 	var length := (endBeat - startBeat) * rate;
 	for beat in range(0, length):
 		var position := beat % pattern.size();
@@ -125,7 +124,7 @@ func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pattern: A
 		var note := makeNote(beat/rate + offset, part, audio, EnemyType.Enum.None);
 		song.notes.push_back(note);
 
-func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[EnemyType.Enum], rate: float = 1, offset: float = 0):
+static func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[EnemyType.Enum], rate: float = 1, offset: float = 0):
 	var length := (endBeat - startBeat) * rate;
 	for beat in range(0, length):
 		var position := beat % pattern.size();
@@ -134,7 +133,7 @@ func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, patt
 		var note := makeNote(beat/rate + offset, part, null, enemy_type);
 		song.notes.push_back(note);
 
-func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyType.Enum) -> Note:
+static func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyType.Enum) -> Note:
 	var note := Note.new();
 	
 	note.beat = beat;

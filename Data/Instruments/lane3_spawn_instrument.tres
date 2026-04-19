@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="Part" format=3 uid="uid://ctvecbluw3187"]
+
+[ext_resource type="Script" uid="uid://cs2t520eocaft" path="res://Code/Pianola/part.gd" id="1_vwnpd"]
+
+[resource]
+script = ExtResource("1_vwnpd")
+name = &"SpawnLane3"
+metadata/_custom_type_script = "uid://cs2t520eocaft"

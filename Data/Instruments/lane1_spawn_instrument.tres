@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cs2t520eocaft" path="res://Code/Pianola/part.gd" id="1_4x503"]
 
 [resource]
-resource_local_to_scene = true
 script = ExtResource("1_4x503")
 name = &"SpawnLane1"
 metadata/_custom_type_script = "uid://cs2t520eocaft"

@@ -7,7 +7,7 @@ enum Enum {
 	Cone
 }
 
-static func get_type_name(type: Enum) -> String:
+static func name_of(type: Enum) -> String:
 	match(type):
 		Enum.Box: return "Box"
 		Enum.Ball: return "Ball"
@@ -18,4 +18,4 @@ static func get_type_name(type: Enum) -> String:
 @export var scene_uid: PackedScene
 
 var name: String:
-	get(): return get_type_name(type_enum)
+	get(): return name_of(type_enum)
