@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://d1vg032jkfv4j"]
+
+[ext_resource type="Script" uid="uid://u2186v4kofl4" path="res://Code/laser_beam.gd" id="1_6bfep"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_6bfep"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5ej88"]
+resource_local_to_scene = true
+transparency = 1
+shading_mode = 0
+albedo_color = Color(1, 0.26, 0.26, 1)
+
+[sub_resource type="Animation" id="Animation_6bfep"]
+resource_name = "FadeOut"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 18.379202),
+"update": 0,
+"values": [Color(1, 0.26, 0.26, 1), Color(1, 0.26, 0.26, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ej88"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:surface_material_override/0:albedo_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 0.26, 0.26, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yt3wv"]
+_data = {
+&"FadeOut": SubResource("Animation_6bfep"),
+&"RESET": SubResource("Animation_5ej88")
+}
+
+[node name="LaserBeam" type="Node3D" unique_id=1687362048]
+visible = false
+script = ExtResource("1_6bfep")
+metadata/_custom_type_script = "uid://u2186v4kofl4"
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=583739023]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+mesh = SubResource("CylinderMesh_6bfep")
+surface_material_override/0 = SubResource("StandardMaterial3D_5ej88")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="MeshInstance3D" unique_id=280765989]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_yt3wv")

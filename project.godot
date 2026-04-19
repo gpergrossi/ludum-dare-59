@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://clu1nde471ioy"
 [global_group]
 
 Enemies=""
+HealthBar=""
 
 [physics]
 

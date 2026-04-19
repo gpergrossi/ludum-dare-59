@@ -3,6 +3,9 @@ class_name Tower extends Tile
 
 @onready var min_range_indicator: RangeIndicator = %MinRangeIndicator
 @onready var max_range_indicator: RangeIndicator = %MaxRangeIndicator
+@onready var laser_beam := %LaserBeam
+@onready var laser_emit_position := %LaserEmitPosition
+@onready var instrument := %Instrument
 
 @export var min_range := 0.0:
 	set(mr):
@@ -18,6 +21,9 @@ class_name Tower extends Tile
 			min_range = minf(min_range, max_range)
 			refresh_range()
 
+# Damage dealt per tower firing.
+@export var damage := 1.0
+
 func refresh_range() -> void:
 	if not is_node_ready(): return
 	min_range_indicator.visible = (min_range > 0.0)
@@ -29,11 +35,19 @@ func refresh_range() -> void:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	refresh_range()
-
+	instrument.on_play_note.connect(_fire)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func _fire(note : Note) -> void:
+	var enemy := _closest_in_range_enemy()
+	if enemy == null:
+		instrument.stop()
+		return
+	laser_beam.fire(laser_emit_position.global_position, enemy.global_position)
+	enemy.take_damage(damage)
 	
 func _closest_in_range_enemy() -> Enemy:
 	var closest_enemy : Enemy = null

@@ -2,10 +2,6 @@
 
 class_name Song1 extends SongGenerator
 
-@onready var kickstrument: Instrument = $Kickstrument;
-@onready var hihatstrument: Instrument = $Hihatstrument;
-@onready var synthstrument: Instrument = $Synthstrument;
-
 const PARTS: Dictionary[String, Resource] = {
 	"kick": preload("res://Code/Pianola/Song1/kicks_resource.tres"),
 	"hihat": preload("res://Code/Pianola/Song1/hihats_resource.tres"),
