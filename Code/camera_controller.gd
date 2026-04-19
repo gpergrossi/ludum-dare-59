@@ -24,7 +24,7 @@ extends Camera3D
 # --- STATE ---
 var origin: Vector3 = Vector3.ZERO
 
-var yaw: float = 0.0
+var yaw: float = 45.0
 var pitch: float
 var zoom_tick := 0
 var zoom_dist_mult := 1.0
