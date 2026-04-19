@@ -1,9 +1,9 @@
 [gd_scene format=3 uid="uid://dhlxmu7d6jw67"]
 
 [ext_resource type="PackedScene" uid="uid://y76witooocmj" path="res://Models/LevelDesign/SourceMeshes/Active_Tower_Base1x1.fbx" id="1_t1pq3"]
-[ext_resource type="Material" uid="uid://dxc7p0ttvyx5k" path="res://Materials/ImportedMats/Tile_Base.tres" id="3_i2uoq"]
+[ext_resource type="Material" uid="uid://c6gqmtuwmc2qq" path="res://Materials/ImportedMats/Uninitialized.tres" id="2_8xoqm"]
 
 [node name="Active_Tower_Base1x1" unique_id=2103241637 instance=ExtResource("1_t1pq3")]
 
 [node name="Tile_Base" parent="." index="0" unique_id=1117412436]
-material_override = ExtResource("3_i2uoq")
+surface_material_override/0 = ExtResource("2_8xoqm")

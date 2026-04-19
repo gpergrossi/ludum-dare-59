@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://babgkfuq1l04j"]
+
+[ext_resource type="PackedScene" uid="uid://dr34t5fc8u25" path="res://Models/LevelDesign/SourceMeshes/Tile2x2_road.fbx" id="1_wykva"]
+[ext_resource type="Material" uid="uid://b5c0abq8563ce" path="res://Materials/ImportedMats/m_Road.tres" id="2_08tpq"]
+
+[node name="Tile2x2_road" unique_id=1433077553 instance=ExtResource("1_wykva")]
+
+[node name="Road_Plane" parent="." index="0" unique_id=1431944344]
+surface_material_override/0 = ExtResource("2_08tpq")
