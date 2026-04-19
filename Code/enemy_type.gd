@@ -7,6 +7,13 @@ enum Enum {
 	Cone
 }
 
+static func prototype_for(type : Enum) -> PackedScene:
+	match(type):
+		Enum.Box: return preload("res://Scenes/Enemies/box_enemy.tscn")
+		Enum.Ball: return preload("res://Scenes/Enemies/ball_enemy.tscn")
+		Enum.Cone: return preload("res://Scenes/Enemies/cone_enemy.tscn")
+	return null
+
 static func name_of(type: Enum) -> String:
 	match(type):
 		Enum.Box: return "Box"

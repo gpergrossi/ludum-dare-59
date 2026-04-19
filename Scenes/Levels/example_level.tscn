@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_veeq1"]
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
 [ext_resource type="PackedScene" uid="uid://b63vuflvhpvkk" path="res://Code/Pianola/Song1/song1.tscn" id="2_u27mm"]
-[ext_resource type="PackedScene" uid="uid://decggobjsm5ft" path="res://Scenes/Enemies/box_enemy.tscn" id="3_fauja"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
 [ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_u27mm"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
@@ -41,12 +40,6 @@ song = ExtResource("2_u27mm")
 unique_name_in_owner = true
 script = ExtResource("11_u27mm")
 metadata/_custom_type_script = "uid://b0yi0y43su4ie"
-
-[node name="Enemy" parent="." unique_id=3273144 instance=ExtResource("3_fauja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, -0.5)
-
-[node name="Enemy2" parent="." unique_id=2052101982 instance=ExtResource("3_fauja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, 1.5)
 
 [node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
