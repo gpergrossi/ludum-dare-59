@@ -6,6 +6,14 @@ bg_color = Color(0.3983732, 0.3765226, 0.47123778, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jxero"]
 bg_color = Color(0.45610118, 0.6660106, 0.40036267, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qdvrb"]
+bg_color = Color(0.5632, 0.64, 0.57216, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_wviqb"]
+font_size = 25
+outline_size = 2
+outline_color = Color(0, 0, 0, 1)
+
 [node name="Ui" type="Control" unique_id=435459739]
 layout_mode = 3
 anchors_preset = 15
@@ -41,3 +49,20 @@ theme_override_styles/background = SubResource("StyleBoxFlat_wviqb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jxero")
 value = 50.0
 show_percentage = false
+
+[node name="AnnounceText" type="Label" parent="." unique_id=1856988497 groups=["AnnounceText"]]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxFlat_qdvrb")
+text = "you lose :(((((
+
+thank you for trying anyways.
+please refresh the page to play again"
+label_settings = SubResource("LabelSettings_wviqb")
+horizontal_alignment = 1
+vertical_alignment = 1
