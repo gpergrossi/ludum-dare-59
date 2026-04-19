@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://i1kv84ownrhc"]
 
+[ext_resource type="Material" uid="uid://dvsu0v71on80" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v02.tres" id="1_2y0a3"]
+
 [sub_resource type="Curve" id="Curve_ajhwj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.3488653, 0.0, 0, 0]
 point_count = 2
@@ -37,15 +39,8 @@ alpha_curve = SubResource("CurveTexture_cb3m2")
 hue_variation_min = -0.15000002
 hue_variation_max = 0.14999998
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jnt12"]
-transparency = 1
-blend_mode = 1
-cull_mode = 2
-vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.7647059, 0.03137255, 1)
-
 [sub_resource type="SphereMesh" id="SphereMesh_daftk"]
-material = SubResource("StandardMaterial3D_jnt12")
+material = ExtResource("1_2y0a3")
 
 [node name="Exploding_Enemy_v02" type="Node3D" unique_id=233097901]
 
