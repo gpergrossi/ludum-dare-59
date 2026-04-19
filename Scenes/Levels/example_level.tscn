@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_veeq1"]
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
-[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Song1/synth_resource.tres" id="4_xox26"]
+[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Songs/synth_resource.tres" id="4_xox26"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
@@ -13,9 +13,9 @@
 [ext_resource type="Resource" uid="uid://tf55e001gar5" path="res://Data/Instruments/lane2_spawn_instrument.tres" id="11_v550q"]
 [ext_resource type="Resource" uid="uid://ctvecbluw3187" path="res://Data/Instruments/lane3_spawn_instrument.tres" id="12_xox26"]
 [ext_resource type="Script" uid="uid://w1k8rp32fvu4" path="res://Code/lane.gd" id="13_xox26"]
-[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Song1/song1.gd" id="14_v550q"]
-[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Song1/kicks_resource.tres" id="16_p0yi4"]
-[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Song1/hihats_resource.tres" id="17_se8dm"]
+[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="14_v550q"]
+[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Songs/kicks_resource.tres" id="16_p0yi4"]
+[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Songs/hihats_resource.tres" id="17_se8dm"]
 
 [sub_resource type="Curve3D" id="Curve3D_fauja"]
 resource_local_to_scene = true

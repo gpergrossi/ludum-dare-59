@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://b63vuflvhpvkk"]
 
-[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Song1/song1.gd" id="1_v077h"]
+[ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="1_v077h"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="3_b2owx"]
-[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Song1/kicks_resource.tres" id="4_8lal7"]
-[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Song1/hihats_resource.tres" id="5_t2ft3"]
-[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Song1/synth_resource.tres" id="6_uyfba"]
+[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Songs/kicks_resource.tres" id="4_8lal7"]
+[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Songs/hihats_resource.tres" id="5_t2ft3"]
+[ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Songs/synth_resource.tres" id="6_uyfba"]
 
 [node name="PianolaTest" type="Node3D" unique_id=525543952]
 script = ExtResource("1_v077h")
