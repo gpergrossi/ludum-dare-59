@@ -7,8 +7,9 @@
 material = ExtResource("1_xsk3e")
 size = Vector3(1, 0.05, 1)
 
-[node name="Path" type="MeshInstance3D" unique_id=2081608055]
+[node name="Path" type="Node3D" unique_id=1838677120]
+script = ExtResource("2_2eeij")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="." unique_id=2081608055]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 0.5)
 mesh = SubResource("BoxMesh_hptm8")
-script = ExtResource("2_2eeij")
-walkable = true
