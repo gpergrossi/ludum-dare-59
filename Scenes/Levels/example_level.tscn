@@ -34,13 +34,10 @@ point_count = 56
 script = ExtResource("1_veeq1")
 enemy_bindings = Array[ExtResource("2_sd5y2")]([SubResource("Resource_u5lri")])
 wave_bindings = Array[ExtResource("3_plffg")]([null])
-lanes = [NodePath("LaneA/Curved")]
+lanes = [NodePath("Lane1/InputCurve/Curved")]
 lane_enemy_spawners = [NodePath("EnemyBase")]
 lane_home_base = [NodePath("HomeBase")]
 tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
-
-[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
 [node name="Enemy" parent="." unique_id=3273144 instance=ExtResource("3_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, -0.5)
@@ -48,101 +45,106 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, -0.5)
 [node name="Enemy2" parent="." unique_id=2052101982 instance=ExtResource("3_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.05, 1.5)
 
-[node name="Path" parent="." unique_id=2081608055 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, -1.5)
+[node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
+max_range = 2.94
 
-[node name="Path2" parent="." unique_id=749324752 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, -0.5)
-
-[node name="Path3" parent="." unique_id=929375996 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 0.5)
-
-[node name="Path5" parent="." unique_id=951830891 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 1.5)
-
-[node name="Path6" parent="." unique_id=1751724085 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.5, 0.025, 2.5)
-
-[node name="Path7" parent="." unique_id=287154181 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.5, 0.025, 2.5)
-
-[node name="Path8" parent="." unique_id=919745412 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.025, 2.5)
-
-[node name="Path10" parent="." unique_id=143647152 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.5, 0.025, 2.5)
-
-[node name="Path11" parent="." unique_id=678971056 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.025, 2.5)
-
-[node name="Path12" parent="." unique_id=1505564872 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.125, 1.5)
-
-[node name="Path13" parent="." unique_id=1313813375 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.22500001, 0.5)
-
-[node name="Path14" parent="." unique_id=175931352 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.32500002, -0.5)
-
-[node name="Path15" parent="." unique_id=103207357 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.425, -1.5)
-
-[node name="Path16" parent="." unique_id=710403651 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.525, -2.5)
-
-[node name="Path17" parent="." unique_id=292841160 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.525, -2.5)
-
-[node name="Path18" parent="." unique_id=577214590 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.525, -2.5)
-
-[node name="Path20" parent="." unique_id=1954112430 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.525, -2.5)
-
-[node name="Path21" parent="." unique_id=1079266268 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.525, -2.5)
-
-[node name="Path22" parent="." unique_id=1021515576 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.425, -1.5)
-
-[node name="Path24" parent="." unique_id=2086533788 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.32500002, -0.5)
-
-[node name="Path25" parent="." unique_id=1546649573 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.22500001, 0.5)
-
-[node name="Path26" parent="." unique_id=1312683886 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.125, 1.5)
-
-[node name="Path27" parent="." unique_id=307150405 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.025, 2.5)
-
-[node name="Path28" parent="." unique_id=265334973 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 0.025, 2.5)
-
-[node name="Path29" parent="." unique_id=427574430 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 2.5)
-
-[node name="Path30" parent="." unique_id=2050442066 instance=ExtResource("5_u5lri")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 1.5)
+[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
 [node name="TowerBase1" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, 0.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
 
 [node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_u27mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
 
 [node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
-[node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.55, -1.5)
+[node name="Lane1" type="Node3D" parent="." unique_id=366671561]
 
-[node name="LaneA" type="Path3D" parent="." unique_id=96203357]
+[node name="InputCurve" type="Path3D" parent="Lane1" unique_id=96203357]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
 curve = SubResource("Curve3D_fauja")
 script = ExtResource("9_fauja")
 
-[node name="Curved" type="Path3D" parent="LaneA" unique_id=1096756300]
+[node name="Curved" type="Path3D" parent="Lane1/InputCurve" unique_id=1096756300]
 curve = SubResource("Curve3D_u5lri")
 script = ExtResource("9_fauja")
+
+[node name="Path" parent="." unique_id=2081608055 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, -2)
+
+[node name="Path2" parent="." unique_id=749324752 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, -1)
+
+[node name="Path3" parent="." unique_id=929375996 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 0)
+
+[node name="Path5" parent="." unique_id=951830891 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 1)
+
+[node name="Path6" parent="." unique_id=1751724085 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0.025, 2)
+
+[node name="Path7" parent="." unique_id=287154181 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 0.025, 2)
+
+[node name="Path8" parent="." unique_id=919745412 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.025, 2)
+
+[node name="Path10" parent="." unique_id=143647152 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.025, 2)
+
+[node name="Path11" parent="." unique_id=678971056 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.025, 2)
+
+[node name="Path12" parent="." unique_id=1505564872 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.125, 1)
+
+[node name="Path13" parent="." unique_id=1313813375 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.22500001, 0)
+
+[node name="Path14" parent="." unique_id=175931352 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.32500002, -1)
+
+[node name="Path15" parent="." unique_id=103207357 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.425, -2)
+
+[node name="Path16" parent="." unique_id=710403651 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 0.525, -3)
+
+[node name="Path17" parent="." unique_id=292841160 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0.525, -3)
+
+[node name="Path18" parent="." unique_id=577214590 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525, -3)
+
+[node name="Path20" parent="." unique_id=1954112430 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.525, -3)
+
+[node name="Path21" parent="." unique_id=1079266268 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.525, -3)
+
+[node name="Path22" parent="." unique_id=1021515576 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.425, -2)
+
+[node name="Path24" parent="." unique_id=2086533788 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.32500002, -1)
+
+[node name="Path25" parent="." unique_id=1546649573 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.22500001, 0)
+
+[node name="Path26" parent="." unique_id=1312683886 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.125, 1)
+
+[node name="Path27" parent="." unique_id=307150405 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.025, 2)
+
+[node name="Path28" parent="." unique_id=265334973 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0.025, 2)
+
+[node name="Path29" parent="." unique_id=427574430 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 2)
+
+[node name="Path30" parent="." unique_id=2050442066 instance=ExtResource("5_u5lri")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.025, 1)
