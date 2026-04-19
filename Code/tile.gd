@@ -1,4 +1,3 @@
-@tool
 class_name Tile extends Node3D
 
 @export var walkable := false

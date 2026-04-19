@@ -2,7 +2,6 @@ extends Node
 
 func _ready():
 	var song = Song.new()
-		
 	for i in range(0, 120):
 		if i % 4 == 3:
 			continue

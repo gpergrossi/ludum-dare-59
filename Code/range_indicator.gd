@@ -1,5 +1,5 @@
 @tool
-class_name RangeIndicator extends StaticBody3D
+class_name RangeIndicator extends Area3D
 
 @onready var hit_sphere: CollisionShape3D = %HitSphere
 
@@ -15,4 +15,4 @@ func _ready() -> void:
 func refresh() -> void:
 	if not is_node_ready(): return
 	var sphere := hit_sphere.shape as SphereShape3D
-	sphere.radius = range
+	sphere.radius = maxf(range, 0.1)

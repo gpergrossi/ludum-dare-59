@@ -4,24 +4,16 @@
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
 [ext_resource type="Script" uid="uid://n6rwtpbsmqjy" path="res://Code/enemy_type.gd" id="2_sd5y2"]
 [ext_resource type="PackedScene" uid="uid://decggobjsm5ft" path="res://Scenes/Enemies/box_enemy.tscn" id="3_fauja"]
-[ext_resource type="Resource" uid="uid://cu0wpgs523t41" path="res://Data/Enemies/BoxEnemy.tres" id="3_sd5y2"]
-[ext_resource type="Resource" uid="uid://qwgaql0qkex7" path="res://Data/Enemies/BallEnemy.tres" id="4_u5lri"]
+[ext_resource type="Script" uid="uid://dy7slr1pqyadi" path="res://Code/wave_info.gd" id="3_plffg"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
-[ext_resource type="Resource" uid="uid://c4q6grb7mpt0" path="res://Data/Enemies/ConeEnemy.tres" id="5_u27mm"]
 [ext_resource type="PackedScene" uid="uid://dwypv0vesggk0" path="res://Scenes/Tiles/tower_base.tscn" id="6_u27mm"]
-[ext_resource type="Script" uid="uid://dy7slr1pqyadi" path="res://Code/wave_info.gd" id="6_v550q"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
 [ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="9_fauja"]
 
-[sub_resource type="Resource" id="Resource_xox26"]
-script = ExtResource("6_v550q")
-spawn_counts = Dictionary[String, int]({
-"BoxEnemy": 5
-})
-spawn_duration = 10.0
-expected_kill_duration = 20.0
-metadata/_custom_type_script = "uid://dy7slr1pqyadi"
+[sub_resource type="Resource" id="Resource_u5lri"]
+script = ExtResource("2_sd5y2")
+metadata/_custom_type_script = "uid://n6rwtpbsmqjy"
 
 [sub_resource type="Curve3D" id="Curve3D_fauja"]
 resource_local_to_scene = true
@@ -38,10 +30,14 @@ _data = {
 }
 point_count = 56
 
-[node name="Level" type="Node3D" unique_id=1504116293]
+[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "lane_enemy_spawners", "lane_home_base", "tower_bases")]
 script = ExtResource("1_veeq1")
-enemies = Array[ExtResource("2_sd5y2")]([ExtResource("3_sd5y2"), ExtResource("4_u5lri"), ExtResource("5_u27mm")])
-wave_info = Array[ExtResource("6_v550q")]([SubResource("Resource_xox26")])
+enemy_bindings = Array[ExtResource("2_sd5y2")]([SubResource("Resource_u5lri")])
+wave_bindings = Array[ExtResource("3_plffg")]([null])
+lanes = [NodePath("LaneA/Curved")]
+lane_enemy_spawners = [NodePath("EnemyBase")]
+lane_home_base = [NodePath("HomeBase")]
+tower_bases = [NodePath("TowerBase1"), NodePath("TowerBase2")]
 
 [node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
@@ -130,13 +126,13 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 2.5)
 [node name="Path30" parent="." unique_id=2050442066 instance=ExtResource("5_u5lri")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.025, 1.5)
 
-[node name="TowerBase" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
+[node name="TowerBase1" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, 0.5)
 
 [node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_u27mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.5, 0.1, -1.5)
 
-[node name="HomeBase2" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
+[node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
 
 [node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]

@@ -6,7 +6,7 @@
 resource_local_to_scene = true
 radius = 2.5
 
-[node name="RangeIndicator" type="StaticBody3D" unique_id=1794438554]
+[node name="RangeIndicator" type="Area3D" unique_id=1387911917]
 script = ExtResource("1_ogt8v")
 
 [node name="HitSphere" type="CollisionShape3D" parent="." unique_id=1355206157]

@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dwypv0vesggk0"]
 
 [ext_resource type="Material" uid="uid://dgl5t7rqj52hx" path="res://Materials/gray_color.material" id="1_5v1iw"]
-[ext_resource type="Script" uid="uid://b3aw7syivt7kp" path="res://Code/tile.gd" id="2_nelge"]
+[ext_resource type="Script" uid="uid://kma6wiy2x41p" path="res://Code/tower_bass.gd" id="2_nelge"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_6bp64"]
 material = ExtResource("1_5v1iw")
