@@ -33,6 +33,11 @@ _data = {
 }
 point_count = 56
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_p0yi4"]
+size = Vector2(11, 8)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_p0yi4"]
+
 [node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "tower_bases")]
 script = ExtResource("1_veeq1")
 lanes = [NodePath("Lane1")]
@@ -53,7 +58,7 @@ part = ExtResource("4_xox26")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
 [node name="TowerBase1" parent="." unique_id=1116541907 instance=ExtResource("6_u27mm")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.4, 0)
 
 [node name="TowerBase2" parent="." unique_id=2084031751 instance=ExtResource("6_u27mm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
@@ -203,6 +208,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30425787, 0.2, -1.1383162)
 
 [node name="Instrument" parent="Tower3" index="4" unique_id=914717014]
 part = ExtResource("17_se8dm")
+
+[node name="Under Plane" type="Node3D" parent="." unique_id=993072046]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Under Plane" unique_id=1308203218]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_p0yi4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Under Plane" unique_id=882537998]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Under Plane/StaticBody3D" unique_id=95843381]
+shape = SubResource("WorldBoundaryShape3D_p0yi4")
 
 [editable path="Tower"]
 [editable path="Tower2"]

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cdexlvgjxmmyv" path="res://Code/main.gd" id="1_jjgbg"]
 [ext_resource type="PackedScene" uid="uid://ckc08wsniw05u" path="res://Scenes/Levels/example_level.tscn" id="2_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://ch3mn3087kwra" path="res://Scenes/ui.tscn" id="3_8gbba"]
+[ext_resource type="Script" uid="uid://dljcwksvcacnc" path="res://Code/wirebox_ray_interactor.gd" id="4_jjvhh"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_344ge"]
 sky_top_color = Color(0.28346398, 0.5040741, 0.39693835, 1)
@@ -32,3 +33,6 @@ transform = Transform3D(-4.371139e-08, 0.42261827, -0.9063077, 0, 0.90630776, 0.
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 5, 0)
 
 [node name="Ui" parent="." unique_id=435459739 instance=ExtResource("3_8gbba")]
+
+[node name="WireboxRayInteractor" type="Node3D" parent="." unique_id=379869970]
+script = ExtResource("4_jjvhh")

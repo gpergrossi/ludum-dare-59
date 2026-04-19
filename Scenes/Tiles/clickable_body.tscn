@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://2p21668olech"]
+
+[ext_resource type="Script" uid="uid://dl2cta14ts3tj" path="res://Code/clickable_body.gd" id="1_bdtum"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_nelge"]
+size = Vector3(1, 0.2, 1)
+
+[node name="ClickableBody" type="StaticBody3D" unique_id=1851142055]
+collision_layer = 16
+collision_mask = 16
+input_capture_on_drag = true
+script = ExtResource("1_bdtum")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1884836907]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+shape = SubResource("BoxShape3D_nelge")
