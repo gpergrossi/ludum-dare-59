@@ -2,7 +2,7 @@ class_name Pianola extends Node
 
 var _current_time : float = 0.0
 
-var instruments : Array[Instrument] = []
+var _instruments : Array[Instrument] = []
 
 var _song_start_time : float = 0.0
 var _next_note_idx : int
@@ -15,6 +15,15 @@ var song : Song :
 		song.sort_notes()
 		_next_note_idx = 0
 
+func _ready() -> void:
+	# Instruments look this up as %Pianola.
+	assert(unique_name_in_owner)
+	assert(name == &"Pianola")
+
+func register_instrument(instrument : Instrument) -> void:
+	_instruments.push_back(instrument)
+	instrument.tree_exiting.connect(func ():
+		_instruments.erase(instrument))
 
 func _process(delta: float) -> void:
 	_current_time += delta
@@ -28,7 +37,7 @@ func _process(delta: float) -> void:
 
 	while _next_note_idx < song.notes.size() and song.notes[_next_note_idx].beat <= beat:
 		var note = song.notes[_next_note_idx]
-		for instrument in instruments:
+		for instrument in _instruments:
 			if instrument.part != note.part:
 				continue
 			instrument.play_note(note)

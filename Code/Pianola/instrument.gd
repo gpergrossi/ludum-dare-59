@@ -4,6 +4,9 @@ class_name Instrument extends AudioStreamPlayer3D
 
 signal on_play_note(note : Note)
 
+func _enter_tree() -> void:
+	%Pianola.register_instrument(self)
+
 func play_note(note : Note) -> void:
 	stream = note.audio_stream
 	play()
