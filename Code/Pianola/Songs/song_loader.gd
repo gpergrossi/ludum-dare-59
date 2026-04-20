@@ -173,7 +173,7 @@ const trackMaps = {
 
 static var SONG_7NATION = "7nation";
 static var SONG_GRAVITY_FALLS = "gravity_falls";
-var my_song: String;
+@export var my_song: String;
 
 func _init(songName: String = "gravity_falls"):
 	my_song = songName;
