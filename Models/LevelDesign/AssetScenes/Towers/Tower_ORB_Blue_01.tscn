@@ -2,4 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ctd37igrvetjv" path="res://Models/LevelDesign/SourceMeshes/Blue_tower_01.glb" id="1_hwrew"]
 
-[node name="Blue_tower_01" unique_id=741819122 instance=ExtResource("1_hwrew")]
+[node name="Blue_tower_01" unique_id=676472211 instance=ExtResource("1_hwrew")]
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=2133878913]
+autoplay = &"Blue_idle"

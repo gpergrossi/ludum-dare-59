@@ -70,7 +70,19 @@ const s28: AudioStream = preload("res://Audio/Synth0/B5.wav");
 const s29: AudioStream = preload("res://Audio/Synth0/C6.wav");
 
 # These ones we're going to number diffferently; sharps get their own numeral, unlike above.
-# Range runs from note 36 (C2) to 84 (C6).
+# Range used to run from note 36 (C2) to 84 (C6).
+const m24: AudioStream = preload("res://Audio/Marimba0/note_024_C1.wav");
+const m25: AudioStream = preload("res://Audio/Marimba0/note_025_C#1.wav");
+const m26: AudioStream = preload("res://Audio/Marimba0/note_026_D1.wav");
+const m27: AudioStream = preload("res://Audio/Marimba0/note_027_D#1.wav");
+const m28: AudioStream = preload("res://Audio/Marimba0/note_028_E1.wav");
+const m29: AudioStream = preload("res://Audio/Marimba0/note_029_F1.wav");
+const m30: AudioStream = preload("res://Audio/Marimba0/note_030_F#1.wav");
+const m31: AudioStream = preload("res://Audio/Marimba0/note_031_G1.wav");
+const m32: AudioStream = preload("res://Audio/Marimba0/note_032_G#1.wav");
+const m33: AudioStream = preload("res://Audio/Marimba0/note_033_A1.wav");
+const m34: AudioStream = preload("res://Audio/Marimba0/note_034_A#1.wav");
+const m35: AudioStream = preload("res://Audio/Marimba0/note_035_B1.wav");
 const m36: AudioStream = preload("res://Audio/Marimba0/note_036_C2.wav");
 const m37: AudioStream = preload("res://Audio/Marimba0/note_037_C#2.wav");
 const m38: AudioStream = preload("res://Audio/Marimba0/note_038_D2.wav");
@@ -120,6 +132,19 @@ const m81: AudioStream = preload("res://Audio/Marimba0/note_081_A5.wav");
 const m82: AudioStream = preload("res://Audio/Marimba0/note_082_A#5.wav");
 const m83: AudioStream = preload("res://Audio/Marimba0/note_083_B5.wav");
 const m84: AudioStream = preload("res://Audio/Marimba0/note_084_C6.wav");
+const m85: AudioStream = preload("res://Audio/Marimba0/note_085_C#6.wav");
+const m86: AudioStream = preload("res://Audio/Marimba0/note_086_D6.wav");
+const m87: AudioStream = preload("res://Audio/Marimba0/note_087_D#6.wav");
+const m88: AudioStream = preload("res://Audio/Marimba0/note_088_E6.wav");
+const m89: AudioStream = preload("res://Audio/Marimba0/note_089_F6.wav");
+const m90: AudioStream = preload("res://Audio/Marimba0/note_090_F#6.wav");
+const m91: AudioStream = preload("res://Audio/Marimba0/note_091_G6.wav");
+const m92: AudioStream = preload("res://Audio/Marimba0/note_092_G#6.wav");
+const m93: AudioStream = preload("res://Audio/Marimba0/note_093_A6.wav");
+const m94: AudioStream = preload("res://Audio/Marimba0/note_094_A#6.wav");
+const m95: AudioStream = preload("res://Audio/Marimba0/note_095_B6.wav");
+
+# Rest. 3-char abbreviation so that it lines up visually with the 3-character sound codes.
 const rst := null;
 
 const spawnNone := EnemyType.Enum.None
@@ -140,34 +165,143 @@ func makeSong() -> Song:
 		hihat3, hihat4, null, null,
 	], 2.0);
 	addPattern(song, PARTS.marimba, 0, 999, [
-		# F and C sharp
-		[m66, m54], rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		# Key: F and C sharp
+		# 8th notes
 
-		#m35, rst, m37, rst, m38, rst, m40, rst, m42, rst, m38, rst, m42, rst, rst, rst,
-		#m41, rst, m37, rst, m41, rst, rst, rst, m40, rst, m36, rst, m40, rst, rst, rst,
-		#m35, rst, m37, rst, m38, rst, m40, rst, m42, rst, m38, rst, m42, rst, m47, rst,
-		#m45, rst, m42, rst, m38, rst, m42, rst, m45, rst, rst, rst, rst, rst, rst, rst,
+		# Opening chord
+		[m66, m54], rst, rst, rst, rst, rst, rst, rst,
 
-		m47, rst, m49, rst, m50, rst, m52, rst, m54, rst, m50, rst, m54, rst, rst, rst,
-		m53, rst, m49, rst, m53, rst, rst, rst, m52, rst, m48, rst, m52, rst, rst, rst,
-		m47, rst, m49, rst, m50, rst, m52, rst, m54, rst, m50, rst, m54, rst, m59, rst,
-		m57, rst, m54, rst, m50, rst, m54, rst, [m57, m45], rst, rst, rst, rst, rst, rst, rst,
+		# 1st movement, low
+		m35, m37, m38, m40, m42, m38, m42, rst,
+		m41, m37, m41, rst, m40, m36, m40, rst,
+		m35, m37, m38, m40, m42, m38, m42, m47,
+		m45, m42, m38, m42, m45, rst, rst, rst,
 
-		m42, rst, m44, rst, m46, rst, m47, rst, m49, rst, m45, rst, m49, rst, rst, rst,
-		m50, rst, m46, rst, m50, rst, rst, rst, m49, rst, m45, rst, m49, rst, rst, rst,
-		m42, rst, m44, rst, m46, rst, m47, rst, m49, rst, m45, rst, m49, rst, rst, rst,
-		m50, rst, m46, rst, m50, rst, rst, rst, m49, rst, rst, rst, rst, rst, rst, rst,
+		# 2nd movement, higher
+		m47, m49, m50, m52, m54, m50, m54, rst,
+		m53, m49, m53, rst, m52, m48, m52, rst,
+		m47, m49, m50, m52, m54, m50, m54, m59,
+		m57, m54, m50, m54, [m57, m45], rst, rst, rst,
 
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		# 3rd movement, higher and tense
+		m42, m44, m46, m47, m49, m45, m49, rst,
+		m50, m46, m50, rst, m49, m45, m49, rst,
+		m42, m44, m46, m47, m49, m45, m49, rst,
+		m50, m46, m50, rst, m49, rst, rst, rst,
 
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
-		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		# 4th movement, higherer
+		m54, m56, m58, m59, m61, m58, m61, rst,
+		m62, m58, m62, rst, m61, m58, m61, rst,
+		m54, m56, m58, m59, m61, m58, m61, rst,
+		m62, m58, m62, rst, [m61, m49], rst, rst, rst,
+
+		# 5th movement, duplicate of #1
+		m35, m37, m38, m40, m42, m38, m42, rst,
+		m41, m37, m41, rst, m40, m36, m40, rst,
+		m35, m37, m38, m40, m42, m38, m42, m47,
+		m45, m42, m38, m42, m45, rst, rst, rst,
+
+		# 6th movement, near-duplicate of #2 (final note is non-chord)
+		m47, m49, m50, m52, m54, m50, m54, rst,
+		m53, m49, m53, rst, m52, m48, m52, rst,
+		m47, m49, m50, m52, m54, m50, m54, m59,
+		m57, m54, m50, m54, m47, rst, rst, rst,
+
+		# 7th movement, shift to treble clef, increasingly discordant
+		m59, m61, [m62, m54], m64, m66, m62, [m66, m54], rst,
+		m65, m61, [m65, m54], rst, m64, m60, [m60, m54], rst,
+		m59, m61, [m62, m54], m64, m66, m62, m66, m71,
+		m69, m66, [m62, m57], m66, m69, rst, [m62, m57], rst,
 		
+		# 8th movement, higher
+		m71, m73, m74, m76, m78, m74, m78, rst,
+		m77, m73, m77, rst, m76, m72, m77, rst,
+		m71, m73, m74, m76, m78, m74, m78, m83,
+		m81, m78, [m74, m69], m78, m81, rst, [m74, m69], rst,
+
+		# 9th movement, lower, more chordant
+		m66, m68, [m70, m66], m71, m73, m69, [m73, m69, m66], rst,
+		m74, m70, [m74, m69, m66], rst, m73, m69, [m73, m69, m66], rst,
+		m66, m68, [m70, m66], m71, m73, m69, [m73, m69, m66], rst,
+		m74, m70, [m74, m69, m66], rst, m73, rst, [m69, m66], rst,
+
+		# 10th movement, higher, still chordant, less dischordant
+		m78, m80, [m82, m78], m83, m85, m82, [m85, m82, m78], rst,
+		m86, m82, [m86, m82, m78], rst, m85, m82, [m85, m82, m78], rst,
+		m78, m80, [m82, m78], m83, m85, m82, [m85, m82, m78], rst,
+		m86, m82, [m86, m82, m78], rst, m85, rst, [m82, m78], rst,
+
+		# 11th movement, duplicate of #7
+		m59, m61, [m62, m54], m64, m66, m62, [m66, m54], rst,
+		m65, m61, [m65, m54], rst, m64, m60, [m60, m54], rst,
+		m59, m61, [m62, m54], m64, m66, m62, m66, m71,
+		m69, m66, [m62, m57], m66, m69, rst, [m62, m57], rst,
+
+		# 12th movement, near-dupe of #8
+		m71, m73, m74, m76, m78, m74, m78, rst,
+		m77, m73, m77, rst, m76, m72, m77, rst,
+		m71, m73, m74, m76, m78, m74, [m78, m74, m71], m83,
+		m78, m74, [m78, m74, m71], m83, m71, rst, rst, rst,
+
+		# 13th movement, keyshift; not one, but TWO m71s
+		[m71, m71], m73, m74, m76, [m78, m71], m74, m78, rst,
+		[m77, m71], m73, m77, rst, [m76, m71], m73, m76, rst,
+		[m71, m71], m73, m74, m76, m78, m74, m78, m83,
+		[m81, m74, m69], m78, m74, m78, [m81, m74, m69], rst, rst, rst,
+
+		# 14th movement, dupe of #13
+		[m71, m71], m73, m74, m76, [m78, m71], m74, m78, rst,
+		[m77, m71], m73, m77, rst, [m76, m71], m73, m76, rst,
+		[m71, m71], m73, m74, m76, m78, m74, m78, m83,
+		[m81, m74, m69], m78, m74, m78, [m81, m74, m69], rst, rst, rst,
+
+		# 15th movement, high & tinny; not one, but TWO m78s
+		[m78, m78], m80, m82, m83, [m85, m78, m73], m82, [m85, m78, m73], rst,
+		[m86, m78, m74], m82, [m86, m78, m74], rst, [m85, m78, m73], m82, [m85, m78, m73], rst,
+		m78, [m80, m78], [m82, m78], [m83, m78], [m85, m78, m73], [m82, m78, m73], [m85, m78, m73], rst,
+		[m86, m78, m74], [m82, m78, m74], [m86, m78, m74], rst, [m85, m78, m73], rst, rst, rst,
+
+		# 16th movement, near-dupe of #15; brighter, a few extra sharps in measures 2 and 4
+		[m78, m78], m80, m82, m83, [m85, m78, m73], m82, [m85, m78, m73], rst,
+		[m87, m78, m75], m82, [m87, m78, m75], rst, [m85, m78, m73], m82, [m85, m78, m73], rst,
+		m78, [m80, m78], [m82, m78], [m83, m78], [m85, m78, m73], [m82, m78, m73], [m85, m78, m73], rst,
+		[m87, m78, m75], [m82, m78, m75], [m87, m78, m75], rst, [m85, m78, m73], rst, rst, rst,
+
+		# 17th movement, lower, dupe of #13
+		[m71, m71], m73, m74, m76, [m78, m71], m74, m78, rst,
+		[m77, m71], m73, m77, rst, [m76, m71], m73, m76, rst,
+		[m71, m71], m73, m74, m76, m78, m74, m78, m83,
+		[m81, m74, m69], m78, m74, m78, [m81, m74, m69], rst, rst, rst,
+
+		# 18th movement, chordant and crashes at end
+		m71, [m73, m71], [m74, m71], [m76, m71], [m78, m71], [m74, m71], [m78, m74, m71], rst,
+		[m77, m71], [m73, m71], [m77, m73, m71], rst, [m76, m71], [m72, m71], [m76, m72, m71], rst,
+		m71, m73, m74, m76, m78, m74, m78, m83,
+		m78, m74, m78, m83, m71, rst, rst, rst,
+
+		# 19th, bum-scree bum-scree, plus key shift
+		[m35, m47], rst, [m49, m50, m54, m57], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		[m35, m47], rst, [m50, m54, m59], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		m71, m72, m74, m76, m77, m74, m77, m83,
+		m82, m77, m82, m84, m83, rst, rst, rst,
+
+		# 20th, bum-scree bum-scree, original key
+		[m35, m47], rst, [m49, m50, m54, m57], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		[m35, m47], rst, [m50, m54, m59], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		m71, m73, m74, m76, m78, m74, m78, m83,
+		m82, m77, m82, m84, m83, rst, rst, rst,
+		
+		# 21st, bum-scree bum-scree, scree scree scree scree scree scree scree
+		[m35, m47], rst, [m49, m50, m54, m57], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		[m35, m47], rst, [m49, m50, m54, m57], [m79, m80, m81], [m83, m74], rst, rst, rst,
+		[m35, m47], rst, [m49, m50, m54, m57, m79, m80, m81], [m83, m74], [m49, m50, m54, m57, m79, m80, m81], [m83, m74], [m49, m50, m54, m57, m79, m80, m81], [m83, m74],
+		[m49, m50, m54, m57, m79, m80, m81], [m83, m74], [m49, m50, m54, m57, m79, m80, m81], [m83, m74], [m49, m50, m54, m57, m79, m80, m81], [m83, m74], [m49, m50, m54, m57, m79, m80, m81], [m83, m74],
+
+		# 22nd, improv. outro
+		[m35, m47], rst,
+		m74, m72, m74, m76, m77, m74, m77, m83,
+		m82, m77, m82, m84, m83, rst, rst, rst,
+		m71, rst, rst, rst, rst, rst,
 	], 4.0);
 	
 	addPatternSpawns(song, PARTS.spawn1, 0, 80, [
@@ -185,9 +319,10 @@ static func addPattern(song: Song, part: Part, startBeat: int, endBeat: int, pat
 		
 		# Type: Array[AudioStream | Array[AudioStream]] | null
 		if (maybeChord is Array):
-			for audio in maybeChord:
-				var note := makeNote(beat/rate + offset, part, audio, EnemyType.Enum.None);
-				song.notes.push_back(note);
+			#for audio in maybeChord:
+			var audio = maybeChord[0]; # Placeholder, until engine supports polyphony & chords
+			var note := makeNote(beat/rate + offset, part, audio, EnemyType.Enum.None);
+			song.notes.push_back(note);
 		else:
 			var audio = maybeChord;
 			var note := makeNote(beat/rate + offset, part, audio, EnemyType.Enum.None);

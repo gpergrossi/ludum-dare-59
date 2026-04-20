@@ -8,6 +8,43 @@
 [ext_resource type="PackedScene" uid="uid://bp5lojg5n1kef" path="res://Models/Blair/Effects/bass_note_V01.tscn" id="6_6b7rc"]
 [ext_resource type="PackedScene" uid="uid://cio1q1sb1a77m" path="res://Models/Blair/Effects/shocking.tscn" id="7_65s3f"]
 
+[sub_resource type="Curve" id="Curve_ajhwj"]
+_data = [Vector2(0, 0.50221807), 0.0, 0.0, 0, 0, Vector2(0.5009862, 1), 0.0, 0.0, 0, 0, Vector2(0.84023666, 0.90287185), -0.7549198, -0.7549198, 0, 0, Vector2(1, 0), -6.510641, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_cb3m2"]
+curve = SubResource("Curve_ajhwj")
+
+[sub_resource type="Curve" id="Curve_65s3f"]
+_data = [Vector2(0, 0.0985291), 0.0, 0.18104446, 0, 0, Vector2(1, 1), 1.2567472, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ajhwj"]
+curve = SubResource("Curve_65s3f")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cb3m2"]
+direction = Vector3(0, 10, 0)
+spread = 0.0
+initial_velocity_min = 9.0
+initial_velocity_max = 9.0
+gravity = Vector3(0, -15, 0)
+scale_min = 5.0
+scale_max = 5.0
+scale_curve = SubResource("CurveTexture_ajhwj")
+alpha_curve = SubResource("CurveTexture_cb3m2")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80tqf"]
+transparency = 1
+blend_mode = 1
+cull_mode = 1
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.6100899, 2.466701e-06, 4.813075e-07, 1)
+
+[sub_resource type="TorusMesh" id="TorusMesh_svv8j"]
+material = SubResource("StandardMaterial3D_80tqf")
+inner_radius = 0.4
+outer_radius = 0.45
+
 [node name="Particles" type="Node3D" unique_id=885463375]
 
 [node name="Wave_V01" parent="." unique_id=293711996 instance=ExtResource("1_rnygb")]
@@ -17,6 +54,7 @@ visible = false
 visible = false
 
 [node name="Exploding_Enemy_v01" parent="." unique_id=1303959735 instance=ExtResource("2_bth6n")]
+visible = false
 
 [node name="Exploding_Enemy_v02" parent="." unique_id=233097901 instance=ExtResource("2_jaxfx")]
 visible = false
@@ -29,3 +67,12 @@ visible = false
 
 [node name="Shocking" parent="." unique_id=1422476025 instance=ExtResource("7_65s3f")]
 visible = false
+
+[node name="Death" type="Node3D" parent="." unique_id=1238544779]
+visible = false
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Death" unique_id=1312774333]
+amount = 5
+explosiveness = 0.45
+process_material = SubResource("ParticleProcessMaterial_cb3m2")
+draw_pass_1 = SubResource("TorusMesh_svv8j")
