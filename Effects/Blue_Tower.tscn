@@ -111,9 +111,9 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_vxmwd")
 
-[node name="Guitar_Strings" type="Node3D" unique_id=1190846127]
+[node name="Blue_Tower" type="Node3D" unique_id=1190846127]
 
-[node name="Strings" type="GPUParticles3D" parent="." unique_id=1579317418]
+[node name="Rings" type="GPUParticles3D" parent="." unique_id=1579317418]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 amount = 3
 lifetime = 0.3

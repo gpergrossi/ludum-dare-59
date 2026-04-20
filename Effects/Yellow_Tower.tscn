@@ -93,7 +93,7 @@ scale_curve = SubResource("CurveTexture_5ivhe")
 color_ramp = SubResource("GradientTexture1D_73pwt")
 alpha_curve = SubResource("CurveTexture_e8loj")
 
-[node name="Shocking" type="Node3D" unique_id=1422476025]
+[node name="Yellow_Tower" type="Node3D" unique_id=1422476025]
 
 [node name="Bolt_01" type="GPUParticles3D" parent="." unique_id=579193806]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)

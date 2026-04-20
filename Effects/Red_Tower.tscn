@@ -19,11 +19,13 @@ curve = SubResource("Curve_6b7rc")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_ajhwj"]
 emission_shape = 1
 emission_sphere_radius = 0.1
-direction = Vector3(0, 0, 0)
+direction = Vector3(0, 1, 0)
 spread = 0.0
-gravity = Vector3(2, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
+initial_velocity_min = 0.29999998
+initial_velocity_max = 0.35
+gravity = Vector3(0, 0, 0)
+scale_min = 0.19999999
+scale_max = 0.19999999
 scale_curve = SubResource("CurveTexture_65s3f")
 alpha_curve = SubResource("CurveTexture_0wten")
 
@@ -61,17 +63,18 @@ curve = SubResource("Curve_e115k")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hkilh"]
 spread = 90.0
-initial_velocity_min = 10.0
-initial_velocity_max = 10.0
+initial_velocity_min = 6.0
+initial_velocity_max = 6.0
 gravity = Vector3(0, 0, 0)
-scale_max = 3.0
+scale_min = 0.5
+scale_max = 1.5
 scale_curve = SubResource("CurveTexture_imjec")
 color_ramp = SubResource("GradientTexture1D_pfyhb")
 alpha_curve = SubResource("CurveTexture_hkilh")
 
-[node name="Bass_Note" type="Node3D" unique_id=2061785939]
+[node name="Red_Tower" type="Node3D" unique_id=2061785939]
 
-[node name="Bass" type="GPUParticles3D" parent="." unique_id=963928303]
+[node name="Rings" type="GPUParticles3D" parent="." unique_id=963928303]
 transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
 amount = 4
 lifetime = 0.5
@@ -79,10 +82,11 @@ explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_ajhwj")
 draw_pass_1 = SubResource("TorusMesh_80tqf")
 
-[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1854375521]
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=1854375521]
 amount = 16
-lifetime = 0.41
+lifetime = 0.3
 explosiveness = 1.0
+randomness = 0.5
 transform_align = 2
 process_material = SubResource("ParticleProcessMaterial_hkilh")
 draw_pass_1 = ExtResource("1_iql4m")
