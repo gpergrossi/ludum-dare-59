@@ -29,16 +29,13 @@ var pitch: float
 var zoom_tick := 0
 var zoom_dist_mult := 1.0
 
-# Unified input signals
 var pan_horizontal: int = 0  # -1, 0, 1
 var pan_vertical: int = 0    # -1, 0, 1
 
-# Timing per axis
 var pan_time: float = 0.0
 
 var rotating_with_mouse: bool = false
 
-# -------------------------
 func _ready() -> void:
 	pitch = deg_to_rad(pitch_center_deg)
 
@@ -54,14 +51,10 @@ func _process(delta: float) -> void:
 	_update_camera_transform()
 	
 
-# -------------------------
-# INPUT UNIFICATION
-# -------------------------
 func _update_pan_input() -> void:
 	var h := 0
 	var v := 0
 
-	# --- KEYBOARD ---
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("ui_left"):
 		h -= 1
 	if Input.is_action_pressed("move_right") or Input.is_action_pressed("ui_right"):
@@ -72,13 +65,12 @@ func _update_pan_input() -> void:
 	if Input.is_action_pressed("move_back") or Input.is_action_pressed("ui_down"):
 		v -= 1
 
-	# --- EDGE SCROLL ---
 	var mouse_pos := get_viewport().get_mouse_position()
 	var visible_rect := get_viewport().get_visible_rect()
 	var screen_size := visible_rect.size
 	
 	var in_view := visible_rect.has_point(mouse_pos)
-	if in_view:
+	if in_view and not rotating_with_mouse:
 		var margin_x := screen_size.x * edge_margin_ratio
 		var margin_y := screen_size.y * edge_margin_ratio
 
@@ -92,13 +84,9 @@ func _update_pan_input() -> void:
 		elif mouse_pos.y > screen_size.y - margin_y:
 			v -= 1
 
-	# Clamp to -1..1 (important when combining inputs)
 	pan_horizontal = clamp(h, -1, 1)
 	pan_vertical = clamp(v, -1, 1)
 
-# -------------------------
-# TIMING MODEL
-# -------------------------
 func _update_pan_timers(delta: float) -> void:
 	if pan_horizontal != 0 or pan_vertical != 0:
 		pan_time += delta
@@ -114,9 +102,6 @@ func _compute_axis_speed(time: float) -> float:
 
 	return lerp(pan_min_speed, pan_max_speed, t)
 
-# -------------------------
-# APPLY MOVEMENT
-# -------------------------
 func _apply_pan(delta: float) -> void:
 	if pan_horizontal == 0 and pan_vertical == 0:
 		return
@@ -132,9 +117,6 @@ func _apply_pan(delta: float) -> void:
 	var move := (right * speed_x + forward * speed_y) * delta
 	origin += move
 
-# -------------------------
-# ROTATION (IJKL + MOUSE)
-# -------------------------
 func _handle_rotation(delta: float) -> void:
 	var yaw_input := 0.0
 	var pitch_input := 0.0
@@ -160,24 +142,18 @@ func _input(event: InputEvent) -> void:
 		pitch -= event.relative.y * mouse_sensitivity
 		_clamp_pitch()
 
-# -------------------------
-# MOUSE MODES
-# -------------------------
 func _handle_mouse_modes() -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		rotating_with_mouse = false
 
 	if Input.is_mouse_button_pressed(MOUSE_BUTTON_RIGHT):
-		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		Input.set_mouse_mode(Input.MOUSE_MODE_CONFINED_HIDDEN)
 		rotating_with_mouse = true
 	else:
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		rotating_with_mouse = false
 
-# -------------------------
-# CAMERA ZOOM
-# -------------------------
 func _handle_zoom(_delta: float) -> void:
 	if Input.is_action_just_pressed("zoom_in"):
 		zoom_tick = maxi(0, zoom_tick-1)
@@ -187,9 +163,6 @@ func _handle_zoom(_delta: float) -> void:
 	var target_dist_mult = lerpf(min_zoom_distance_mult, max_zoom_distance_mult, float(zoom_tick)/float(zoom_ticks-1.0))
 	zoom_dist_mult = lerp(zoom_dist_mult, target_dist_mult, 0.05)
 
-# -------------------------
-# CAMERA ORBIT
-# -------------------------
 func _update_camera_transform() -> void:
 	var orbit_x := cos(-pitch) * zoom_distance * zoom_dist_mult
 	var orbit_y := sin(-pitch) * zoom_distance * zoom_dist_mult
@@ -200,9 +173,6 @@ func _update_camera_transform() -> void:
 	look_at(origin, Vector3.UP)
 	rotation.x = pitch
 
-# -------------------------
-# HELPERS
-# -------------------------
 func _clamp_pitch() -> void:
 	var center := deg_to_rad(pitch_center_deg)
 	var min_pitch := center - deg_to_rad(pitch_adjust_range)

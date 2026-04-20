@@ -82,6 +82,7 @@ zoom_out={
 [layer_names]
 
 3d_physics/layer_5="Clickable"
+3d_physics/layer_6="PlugHead"
 
 [physics]
 

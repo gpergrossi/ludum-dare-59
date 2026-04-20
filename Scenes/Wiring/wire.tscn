@@ -30,13 +30,15 @@ script = ExtResource("1_jk6vn")
 plug_a_pos = Vector3(1, 0, 0)
 plug_b_pos = Vector3(0.0012974739, 0, 0.036751628)
 
-[node name="PlugA" parent="." unique_id=1645218517 instance=ExtResource("2_klmu7")]
+[node name="PlugA" parent="." unique_id=1645218517 node_paths=PackedStringArray("wire") instance=ExtResource("2_klmu7")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0)
+wire = NodePath("..")
 
-[node name="PlugB" parent="." unique_id=1882151797 instance=ExtResource("2_klmu7")]
+[node name="PlugB" parent="." unique_id=1882151797 node_paths=PackedStringArray("wire") instance=ExtResource("2_klmu7")]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0012974739, 0, 0.036751628)
+wire = NodePath("..")
 
 [node name="WirePath" type="Path3D" parent="." unique_id=594784255]
 unique_name_in_owner = true
