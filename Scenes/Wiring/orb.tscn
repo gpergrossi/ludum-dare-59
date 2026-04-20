@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://51rlk21pv73c"]
+
+[ext_resource type="Script" uid="uid://cn60n1indxtcw" path="res://Code/signal_orb.gd" id="1_wsqp0"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_urpeo"]
+radius = 0.06
+height = 0.12
+
+[node name="Orb" type="MeshInstance3D" unique_id=1826416089]
+mesh = SubResource("SphereMesh_urpeo")
+script = ExtResource("1_wsqp0")

@@ -3,12 +3,18 @@
 [ext_resource type="Script" uid="uid://57y4gh5j0tdc" path="res://Code/home_base.gd" id="2_en16n"]
 [ext_resource type="PackedScene" uid="uid://bs2jl8qkcuscx" path="res://Models/LevelDesign/AssetScenes/home_tile_01.tscn" id="2_ygryx"]
 [ext_resource type="PackedScene" uid="uid://dfvs2d1tfwnf4" path="res://Models/LevelDesign/AssetScenes/home_sphere_01.tscn" id="3_ygryx"]
+[ext_resource type="PackedScene" uid="uid://m4gjd6ne71iv" path="res://Effects/Home_Aura.tscn" id="4_7xafj"]
 
-[node name="HomeBase" type="Node3D" unique_id=131273681]
+[node name="HomeBase" type="Node3D" unique_id=131273681 node_paths=PackedStringArray("tower_part")]
 script = ExtResource("2_en16n")
+tower_part = NodePath("Home_Sphere_01")
+idle_animation = &"Sphere_idle"
 
 [node name="homeTile_01" parent="." unique_id=1890897585 instance=ExtResource("2_ygryx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0, 0, 1)
 
 [node name="Home_Sphere_01" parent="." unique_id=426090421 instance=ExtResource("3_ygryx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 0, 1)
+
+[node name="Aura_V01" parent="." unique_id=256386473 instance=ExtResource("4_7xafj")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9937646, 1.4374899, -1.0354419)

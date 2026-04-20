@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c1mxb1d1jjfhe" path="res://Code/enemy.gd" id="1_1c1ei"]
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_tvkrt"]
+[ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="2_2sua6"]
 [ext_resource type="PackedScene" uid="uid://cj8cfvdnh8lc3" path="res://Models/Enemies/EnemyScenes/yellow_eni_01.tscn" id="3_7564p"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_tvkrt"]
@@ -10,9 +11,12 @@ top_radius = 0.0
 bottom_radius = 0.25
 height = 0.5
 
-[node name="Enemy" type="Node3D" unique_id=2052101982 groups=["Enemies"]]
+[node name="Enemy" type="Node3D" unique_id=2052101982 node_paths=PackedStringArray("enemy_part") groups=["Enemies"]]
 script = ExtResource("1_1c1ei")
 velocity = 1.5
+death_effect = ExtResource("2_2sua6")
+enemy_part = NodePath("Yellow_eni_01")
+idle_animation = &"Yellow_eni"
 
 [node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
 transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0.25, -0.1)

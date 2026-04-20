@@ -1,16 +1,17 @@
 [gd_scene format=4 uid="uid://cio1q1sb1a77m"]
 
 [ext_resource type="ArrayMesh" uid="uid://b5xylqpd07rpf" path="res://Models/Blair/Bolt.tres" id="1_d5082"]
+[ext_resource type="ArrayMesh" uid="uid://cv5eeds7s7jph" path="res://Models/Blair/Pill_Shape.tres" id="2_6glgt"]
 
 [sub_resource type="Curve" id="Curve_ajhwj"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.339795, 0.0, 0, 0]
+_data = [Vector2(0, 0.51739436), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.5877695, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_cb3m2"]
 curve = SubResource("Curve_ajhwj")
 
 [sub_resource type="Curve" id="Curve_80tqf"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.6042507, 0.0, 0, 0]
+_data = [Vector2(0, 0.52953535), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9315321, 0.0, 0, 0]
 point_count = 2
 
 [sub_resource type="CurveTexture" id="CurveTexture_svv8j"]
@@ -19,15 +20,16 @@ curve = SubResource("Curve_80tqf")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a77cq"]
 emission_shape = 1
 emission_sphere_radius = 0.1
-spread = 25.0
-initial_velocity_min = 2.0
-initial_velocity_max = 2.0
+spread = 17.667
+initial_velocity_min = 7.0
+initial_velocity_max = 7.0
 angular_velocity_min = -424.54
 angular_velocity_max = 274.55
 gravity = Vector3(0, 0, 0)
 radial_accel_min = -2.2351742e-06
 radial_accel_max = -2.2351742e-06
-scale_min = 0.25
+scale_min = 2.5
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_svv8j")
 alpha_curve = SubResource("CurveTexture_cb3m2")
 
@@ -35,10 +37,9 @@ alpha_curve = SubResource("CurveTexture_cb3m2")
 resource_name = "lambert1"
 transparency = 1
 blend_mode = 1
-cull_mode = 1
+cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.30980393, 0, 0, 1)
-emission_enabled = true
+albedo_color = Color(1, 0.27450982, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_elilf"]
 
@@ -60,20 +61,63 @@ _surfaces = [{
 blend_shape_mode = 0
 shadow_mesh = SubResource("ArrayMesh_elilf")
 
-[node name="Shocking" type="Node3D" unique_id=1422476025]
+[sub_resource type="Curve" id="Curve_ppusa"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.644669, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_e8loj"]
+curve = SubResource("Curve_ppusa")
+
+[sub_resource type="Gradient" id="Gradient_6vsrl"]
+offsets = PackedFloat32Array(0.6439232, 1)
+colors = PackedColorArray(0.88235295, 0.3137255, 0, 1, 1, 0.7019608, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_73pwt"]
+gradient = SubResource("Gradient_6vsrl")
+
+[sub_resource type="Curve" id="Curve_8epuf"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.8855449, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5ivhe"]
+curve = SubResource("Curve_8epuf")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nj3vk"]
+spread = 64.0
+initial_velocity_min = 5.0
+initial_velocity_max = 5.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_5ivhe")
+color_ramp = SubResource("GradientTexture1D_73pwt")
+alpha_curve = SubResource("CurveTexture_e8loj")
+
+[node name="Yellow_Tower" type="Node3D" unique_id=1422476025]
 
 [node name="Bolt_01" type="GPUParticles3D" parent="." unique_id=579193806]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
 amount = 6
 lifetime = 0.3
 explosiveness = 0.7
+randomness = 0.45
 process_material = SubResource("ParticleProcessMaterial_a77cq")
 draw_pass_1 = ExtResource("1_d5082")
 
 [node name="Bolt_02" type="GPUParticles3D" parent="." unique_id=1265673036]
 transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0)
 amount = 6
-lifetime = 0.41000000000000003
+lifetime = 0.5
 explosiveness = 0.7
+randomness = 0.44
 process_material = SubResource("ParticleProcessMaterial_a77cq")
 draw_pass_1 = SubResource("ArrayMesh_wbj0a")
+
+[node name="Sparks" type="GPUParticles3D" parent="." unique_id=633043271]
+amount = 12
+lifetime = 0.5
+explosiveness = 0.8
+randomness = 0.5
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_nj3vk")
+draw_pass_1 = ExtResource("2_6glgt")

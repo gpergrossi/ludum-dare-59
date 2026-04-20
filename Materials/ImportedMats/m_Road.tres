@@ -3,7 +3,7 @@
 [resource]
 resource_name = "Uninitialized"
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.25, 0.235, 0.225, 1)
+albedo_color = Color(0.28, 0.273, 0.252, 1)
 metallic_specular = 0.0
 roughness = 0.05
 emission = Color(1, 1, 1, 1)

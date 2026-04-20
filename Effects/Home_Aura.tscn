@@ -11,14 +11,16 @@ curve = SubResource("Curve_jnt12")
 emission_shape = 6
 emission_ring_axis = Vector3(0, 90, 1)
 emission_ring_height = 0.0
-emission_ring_radius = 10.0
-emission_ring_inner_radius = 10.0
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 1.0
 emission_ring_cone_angle = 90.0
 direction = Vector3(0, 4, 0)
 spread = 0.0
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
-gravity = Vector3(0, -3, 0)
+initial_velocity_min = 0.9
+initial_velocity_max = 0.9
+gravity = Vector3(0, -0.9, 0)
+scale_min = 0.14999999
+scale_max = 0.14999999
 alpha_curve = SubResource("CurveTexture_jaxfx")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rnygb"]
@@ -26,7 +28,7 @@ transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.15686275, 0.07058824, 1)
+albedo_color = Color(0.5019608, 0.34901962, 0.2, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_0wten"]
 material = SubResource("StandardMaterial3D_rnygb")
@@ -41,9 +43,9 @@ curve = SubResource("Curve_0wten")
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cb3m2"]
 direction = Vector3(0, 2, 0)
 spread = 0.0
-initial_velocity_min = -3.0
-initial_velocity_max = -3.0
-gravity = Vector3(0, 3, 0)
+initial_velocity_min = -0.5
+initial_velocity_max = -0.5
+gravity = Vector3(0, 0.5, 0)
 alpha_curve = SubResource("CurveTexture_6b7rc")
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_80tqf"]
@@ -51,18 +53,18 @@ transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.65882355, 0.09019608, 0, 0.43529412)
+albedo_color = Color(0.5019608, 0.34901962, 0.2, 0.78431374)
 
 [sub_resource type="TorusMesh" id="TorusMesh_svv8j"]
 material = SubResource("StandardMaterial3D_80tqf")
-inner_radius = 9.5
-outer_radius = 10.5
+inner_radius = 0.95
+outer_radius = 1.05
 
 [node name="Aura_V01" type="Node3D" unique_id=256386473]
 
 [node name="Outer_Balls" type="GPUParticles3D" parent="." unique_id=992386351]
-amount = 50
-lifetime = 3.0
+amount = 25
+lifetime = 2.0
 process_material = SubResource("ParticleProcessMaterial_bth6n")
 draw_pass_1 = SubResource("SphereMesh_0wten")
 

@@ -4,15 +4,15 @@
 [ext_resource type="Material" uid="uid://c6gqmtuwmc2qq" path="res://Materials/ImportedMats/Uninitialized.tres" id="2_dghth"]
 [ext_resource type="Material" uid="uid://dnhigb0p8h014" path="res://Materials/ImportedMats/Home_Glow.tres" id="2_pw7cc"]
 
-[node name="Home_Sphere_01" unique_id=426090421 instance=ExtResource("1_gg3nc")]
+[node name="Home_Sphere_01" unique_id=2119912752 instance=ExtResource("1_gg3nc")]
 
-[node name="Center faces" parent="HeartSphere_mesh/heart_root" parent_id_path=PackedInt32Array(16119342) index="0" unique_id=891144267]
-transform = Transform3D(0.9229446, 0, 0, 0, 0.9229446, 0, 0, 0, 0.9229446, 7.1525574e-06, 2.4493337, -1.1920929e-07)
+[node name="Skeleton3D" parent="Sphere_home" parent_id_path=PackedInt32Array(185879970) index="0" unique_id=727574132]
+bones/1/rotation = Quaternion(0, 0.8345144, 0, 0.5509863)
+bones/2/scale = Vector3(0.9687808, 0.9687808, 0.9687808)
 
-[node name="Sphere_002" parent="HeartSphere_mesh/heart_root" parent_id_path=PackedInt32Array(16119342) index="1" unique_id=1965648434]
+[node name="Sphere_002" parent="Sphere_home/Skeleton3D" index="0" unique_id=691716294]
 surface_material_override/0 = ExtResource("2_dghth")
 surface_material_override/1 = ExtResource("2_pw7cc")
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1477248997]
+[node name="AnimationPlayer" parent="." index="1" unique_id=774360778]
 autoplay = &"Heart_ani"
-speed_scale = 0.2

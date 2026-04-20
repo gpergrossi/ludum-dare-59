@@ -154,16 +154,19 @@ const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
 	var song = Song.new();
-	#addPattern(song, PARTS.kick,  0, 120, [
-		#kick, null, null, null,
-		#null, null, null, null,
-		#kick, kick, null, null,
-		#kick, kick, null, null,
-	#], 2.0);
-	#addPattern(song, PARTS.hihat, 0, 120, [
-		#hihat1, hihat2, null, null,
-		#hihat3, hihat4, null, null,
-	#], 2.0);
+	song.blue_parts.append_array([ PARTS.kick ])
+	song.red_parts.append_array([ PARTS.hihat ])
+	song.yellow_parts.append_array([ PARTS.marimba ])
+	addPattern(song, PARTS.kick,  0, 120, [
+		kick, null, null, null,
+		null, null, null, null,
+		kick, kick, null, null,
+		kick, kick, null, null,
+	], 2.0);
+	addPattern(song, PARTS.hihat, 0, 120, [
+		hihat1, hihat2, null, null,
+		hihat3, hihat4, null, null,
+	], 2.0);
 	addPattern(song, PARTS.marimba, 0, 999, [
 		# Key: F and C sharp
 		# 8th notes

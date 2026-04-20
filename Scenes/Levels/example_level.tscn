@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_veeq1"]
 [ext_resource type="PackedScene" uid="uid://b6iqylom80rgh" path="res://Scenes/Tiles/enemy_base.tscn" id="2_fauja"]
 [ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Songs/synth_resource.tres" id="4_xox26"]
+[ext_resource type="PackedScene" uid="uid://d1smtrr7kdwjk" path="res://Models/LevelDesign/AssetScenes/Source_YELLOW.tscn" id="5_p0yi4"]
 [ext_resource type="PackedScene" uid="uid://7vkybgfa1vtx" path="res://Scenes/Tiles/path.tscn" id="5_u5lri"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_v550q"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="8_xox26"]
@@ -16,6 +17,8 @@
 [ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="14_v550q"]
 [ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Songs/kicks_resource.tres" id="16_p0yi4"]
 [ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Songs/hihats_resource.tres" id="17_se8dm"]
+[ext_resource type="PackedScene" uid="uid://c86716jm6tck8" path="res://Models/LevelDesign/AssetScenes/Source_BLUE.tscn" id="18_hahti"]
+[ext_resource type="PackedScene" uid="uid://v3wd1frjlos7" path="res://Models/LevelDesign/AssetScenes/Source_RED.tscn" id="19_3pnuv"]
 
 [sub_resource type="Curve3D" id="Curve3D_fauja"]
 resource_local_to_scene = true
@@ -46,28 +49,51 @@ unique_name_in_owner = true
 script = ExtResource("11_u27mm")
 metadata/_custom_type_script = "uid://b0yi0y43su4ie"
 
-[node name="Tower" parent="." unique_id=945097428 instance=ExtResource("8_xox26")]
+[node name="SongGenerator" type="Node" parent="." unique_id=977955754]
+unique_name_in_owner = true
+script = ExtResource("14_v550q")
+metadata/_custom_type_script = "uid://d3fwkxp4gauwr"
+
+[node name="Tower" parent="." unique_id=1918667656 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0.2, -2)
 
 [node name="Instrument" parent="Tower" index="2" unique_id=914717014]
 part = ExtResource("4_xox26")
 
-[node name="Tower2" parent="." unique_id=1918667656 instance=ExtResource("8_xox26")]
+[node name="LaserEmitPosition" parent="Tower" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
+
+[node name="ActiveTower_RED" parent="Tower" index="6" unique_id=530234063]
+visible = true
+
+[node name="Tower2" parent="." unique_id=1340979183 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8042359, 0.2, 3.7545137)
 
 [node name="Instrument" parent="Tower2" index="2" unique_id=914717014]
 part = ExtResource("16_p0yi4")
 
-[node name="Tower3" parent="." unique_id=144730068 instance=ExtResource("8_xox26")]
+[node name="LaserEmitPosition" parent="Tower2" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
+
+[node name="ActiveTower_RED" parent="Tower2" index="6" unique_id=530234063]
+visible = true
+
+[node name="Tower3" parent="." unique_id=1600284608 instance=ExtResource("8_xox26")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30425787, 0.2, -1.1383162)
 
 [node name="Instrument" parent="Tower3" index="2" unique_id=914717014]
 part = ExtResource("17_se8dm")
 
-[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
+[node name="LaserEmitPosition" parent="Tower3" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
 
-[node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
+[node name="ActiveTower_RED" parent="Tower3" index="6" unique_id=530234063]
+visible = true
+
+[node name="EnemyBase" parent="." unique_id=430080185 instance=ExtResource("2_fauja")]
+transform = Transform3D(-0.25, 0, -2.1855694e-08, 0, 0.25, 0, 2.1855694e-08, 0, -0.25, -5, 0, -2)
+
+[node name="HomeBase" parent="." unique_id=131273681 instance=ExtResource("7_v550q")]
 transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 1)
 
 [node name="Lane1SpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
@@ -197,11 +223,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.05, 0.5)
 curve = SubResource("Curve3D_fauja")
 script = ExtResource("9_fauja")
 
-[node name="SongGenerator" type="Node" parent="." unique_id=977955754]
-unique_name_in_owner = true
-script = ExtResource("14_v550q")
-metadata/_custom_type_script = "uid://d3fwkxp4gauwr"
-
 [node name="Under Plane" type="Node3D" parent="." unique_id=993072046]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Under Plane" unique_id=1308203218]
@@ -214,6 +235,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Under Plane/StaticBody3D" unique_id=95843381]
 shape = SubResource("WorldBoundaryShape3D_p0yi4")
+
+[node name="Source_YELLOW" parent="." unique_id=393019212 instance=ExtResource("5_p0yi4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.8502107, 0.37328804, -7.774892)
+
+[node name="Source_BLUE" parent="." unique_id=234185053 instance=ExtResource("18_hahti")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 6.7516875, 0.17684388, 1.721034)
+
+[node name="Source_RED" parent="." unique_id=142613333 instance=ExtResource("19_3pnuv")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2.5792475, -0.47078627, 3.6385963)
 
 [editable path="Tower"]
 [editable path="Tower2"]

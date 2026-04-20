@@ -7,23 +7,25 @@
 [ext_resource type="PackedScene" uid="uid://dhlxmu7d6jw67" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_base_1x_1.tscn" id="6_xiwfb"]
 [ext_resource type="PackedScene" uid="uid://mktg84sgp70u" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_top_1x_1.tscn" id="7_58dwc"]
 [ext_resource type="PackedScene" uid="uid://df0sxkfxq4aey" path="res://Models/LevelDesign/AssetScenes/Towers/Deactivated_tower_Glow_1x_1.tscn" id="8_12u6a"]
+[ext_resource type="Script" uid="uid://buge046kqgc7f" path="res://Code/tower_topper.gd" id="8_852ym"]
 [ext_resource type="PackedScene" uid="uid://c0c8eiiw7md1q" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_base_1x_1.tscn" id="9_apkep"]
 [ext_resource type="PackedScene" uid="uid://de83wwqor4dua" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_top_1x_1.tscn" id="10_x5f2w"]
+[ext_resource type="PackedScene" uid="uid://duc0m0512kw4i" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Red_01.tscn" id="11_852ym"]
 [ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
 [ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
-[ext_resource type="PackedScene" uid="uid://b3uun3qhg2eu6" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Blue_01.tscn" id="12_x5f2w"]
+[ext_resource type="PackedScene" uid="uid://b02qtf1mcpuul" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Blue_01.tscn" id="12_x5f2w"]
 [ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
+[ext_resource type="PackedScene" uid="uid://bp5lojg5n1kef" path="res://Effects/Red_Tower.tscn" id="13_38wd3"]
 [ext_resource type="PackedScene" uid="uid://tincc0jug8mk" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Yellow_01.tscn" id="13_apkep"]
 [ext_resource type="Script" uid="uid://cgrxa438kg0n6" path="res://Code/wirebox.gd" id="14_apkep"]
+[ext_resource type="PackedScene" uid="uid://cugwjnx11ydku" path="res://Effects/Blue_Tower.tscn" id="16_ms3j0"]
+[ext_resource type="PackedScene" uid="uid://cio1q1sb1a77m" path="res://Effects/Yellow_Tower.tscn" id="19_y82to"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
 
-[node name="Tower" type="Node3D" unique_id=1918667656 node_paths=PackedStringArray("tower_animation_player")]
+[node name="Tower" type="Node3D" unique_id=1918667656]
 script = ExtResource("2_d6h38")
 max_range = 5.0
-tower_animation_player = NodePath("ActiveTower_YELLOW/Yellow_tower_01/AnimationPlayer")
-tower_idle_animation = &"Yellow_node"
-tower_attack_animation = &"Yellow_Attack"
 
 [node name="MinRangeIndicator" parent="." unique_id=1794438554 instance=ExtResource("3_uwg1x")]
 unique_name_in_owner = true
@@ -50,7 +52,7 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.3672777, 0.5)
 
 [node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
-visible = false
+unique_name_in_owner = true
 
 [node name="Active_Tower_Base1x1" parent="DeactivatedTower" unique_id=2103241637 instance=ExtResource("6_xiwfb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -61,8 +63,12 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Tower_Part2_01" parent="DeactivatedTower" unique_id=1372709437 instance=ExtResource("8_12u6a")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="ActiveTower_RED" type="Node3D" parent="." unique_id=530234063]
+[node name="ActiveTower_RED" type="Node3D" parent="." unique_id=530234063 node_paths=PackedStringArray("tower_part")]
+unique_name_in_owner = true
 visible = false
+script = ExtResource("8_852ym")
+tower_part = NodePath("red_tower_01")
+idle_animation = &"Red_idle"
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_RED" unique_id=133128032 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -73,8 +79,18 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Tower_Part2_02" parent="ActiveTower_RED" unique_id=1666624193 instance=ExtResource("11_o8kq5")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
 
-[node name="ActiveTower_BLUE" type="Node3D" parent="." unique_id=1714876451]
+[node name="red_tower_01" parent="ActiveTower_RED" unique_id=1486404359 instance=ExtResource("11_852ym")]
+transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 0.53515303, 0.17062753, 0.8673418)
+
+[node name="Red_Tower" parent="ActiveTower_RED" unique_id=2061785939 instance=ExtResource("13_38wd3")]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -0.13466072, 1.1136718, 0.5025912)
+
+[node name="ActiveTower_BLUE" type="Node3D" parent="." unique_id=1714876451 node_paths=PackedStringArray("tower_part")]
+unique_name_in_owner = true
 visible = false
+script = ExtResource("8_852ym")
+tower_part = NodePath("Blue_tower_01")
+idle_animation = &"Blue_idle"
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_BLUE" unique_id=1764571427 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -88,7 +104,15 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Blue_tower_01" parent="ActiveTower_BLUE" unique_id=741819122 instance=ExtResource("12_x5f2w")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.25, 0)
 
-[node name="ActiveTower_YELLOW" type="Node3D" parent="." unique_id=1636264838]
+[node name="Blue_Tower" parent="ActiveTower_BLUE" unique_id=1190846127 instance=ExtResource("16_ms3j0")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.19694227, 1.2142533, 0.4935459)
+
+[node name="ActiveTower_YELLOW" type="Node3D" parent="." unique_id=1636264838 node_paths=PackedStringArray("tower_part")]
+unique_name_in_owner = true
+visible = false
+script = ExtResource("8_852ym")
+tower_part = NodePath("Yellow_tower_01")
+idle_animation = &"Yellow_node"
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_YELLOW" unique_id=1644681991 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -102,9 +126,13 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Yellow_tower_01" parent="ActiveTower_YELLOW" unique_id=53956850 instance=ExtResource("13_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.25, 0)
 
-[node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("jack_positions")]
+[node name="Yellow_Tower" parent="ActiveTower_YELLOW" unique_id=1422476025 instance=ExtResource("19_y82to")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -0.18750846, 1.3802307, 0.49458694)
+
+[node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("wirebox_owner", "jack_positions")]
 unique_name_in_owner = true
 script = ExtResource("14_apkep")
+wirebox_owner = NodePath("..")
 jack_positions = [NodePath("JackPositionA"), NodePath("JackPositionB"), NodePath("JackPositionC")]
 
 [node name="ClickableBody" type="StaticBody3D" parent="Wirebox" unique_id=1489930333]

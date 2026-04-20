@@ -36,21 +36,19 @@ theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 40
 theme_override_constants/margin_bottom = 40
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1968626511]
-layout_mode = 2
-mouse_filter = 2
-
-[node name="HealthBar" type="ProgressBar" parent="MarginContainer/VBoxContainer" unique_id=1536647206 groups=["HealthBar"]]
+[node name="HealthBar" type="ProgressBar" parent="MarginContainer" unique_id=1536647206]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 20)
 layout_mode = 2
-size_flags_horizontal = 0
+size_flags_horizontal = 4
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_wviqb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jxero")
 value = 50.0
 show_percentage = false
 
-[node name="AnnounceText" type="Label" parent="." unique_id=1856988497 groups=["AnnounceText"]]
+[node name="AnnounceText" type="Label" parent="." unique_id=1856988497]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15

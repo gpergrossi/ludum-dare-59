@@ -1,6 +1,8 @@
 @tool
 class_name Wire extends Node3D
 
+const ORB = preload("uid://51rlk21pv73c")
+
 @onready var plug_a: Plug = %PlugA
 @onready var plug_b: Plug = %PlugB
 @onready var wire_path: Path3D = %WirePath
@@ -16,11 +18,29 @@ class_name Wire extends Node3D
 @export var plug_b_pos: Vector3
 @export var plug_b_rot: Vector3
 
+var time := 0.0
+var cycle := 0
+
 func _process(_delta: float) -> void:
 	var changed := is_changed()
 	if changed:
 		do_changes()
+	
+	time += _delta
+	if time >= 1:
+		time -= 1
+		cycle = (cycle + 1) % 3
+		#pulse(SourceColor.Enum.values()[cycle], 10.0, func(): pass)
 
+
+func pulse(color: SourceColor.Enum, speed: float, callback: Callable) -> void:
+	if not is_node_ready() or Engine.is_editor_hint(): return
+	var new_orb := ORB.instantiate() as SignalOrb
+	add_child(new_orb)
+	new_orb.signal_finished.connect(func(): 
+		callback.call()
+	)
+	new_orb.begin(wire_path.curve, color, speed)
 
 func is_changed() -> bool:
 	if (plug_a.position - plug_a_pos).length_squared() > 0.000001:
@@ -62,7 +82,6 @@ func update_curve() -> void:
 
 
 func disconnect_plugs() -> void:
-	print("Disconnecting wire " + str(self))
 	disconnect_plug(plug_a)
 	disconnect_plug(plug_b)
 	visible = false
@@ -74,11 +93,6 @@ func disconnect_plug(plug: Plug) -> void:
 		var slot := plug.wirebox.find_slot(plug)
 		if slot != -1:
 			plug.wirebox.release_slot(slot, plug)
-			print("Removing plug " + str(plug) + " from wirebox " + str(plug.wirebox) + " slot " + str(slot))
-		else:
-			print("no slot in wirebox matches plug!")
-	else:
-		print("no wirebox attached to plug")
 
 
 func get_other_plug(plug: Plug) -> Plug:

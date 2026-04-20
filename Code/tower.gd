@@ -6,6 +6,12 @@ class_name Tower extends Tile
 @onready var laser_beam := %LaserBeam
 @onready var laser_emit_position := %LaserEmitPosition
 @onready var instrument := %Instrument
+@onready var wirebox := %Wirebox
+
+@onready var deactivated_tower: Node3D = %DeactivatedTower
+@onready var active_tower_red: TowerTopper = %ActiveTower_RED
+@onready var active_tower_blue: TowerTopper = %ActiveTower_BLUE
+@onready var active_tower_yellow: TowerTopper = %ActiveTower_YELLOW
 
 @export var min_range := 0.0:
 	set(mr):
@@ -24,9 +30,16 @@ class_name Tower extends Tile
 # Damage dealt per tower firing.
 @export var damage := 10.0 # Probably needs editing per-tower, and depending on pitch/enemy type, etc.
 
-@export var tower_animation_player : AnimationPlayer
-@export var tower_idle_animation : StringName
-@export var tower_attack_animation : StringName
+var tower_source: TowerSource = null:
+	set(s):
+		if tower_source != s:
+			tower_source = s
+			update_color()
+			update_instrument()
+
+var current_topper: TowerTopper = null
+var current_part: Part = null
+var current_song: Song = null
 
 func refresh_range() -> void:
 	if not is_node_ready(): return
@@ -38,17 +51,64 @@ func refresh_range() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	refresh_range()
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
-	tower_animation_player = find_child("Yellow_tower_01").find_child("AnimationPlayer")
-	tower_animation_player.play(tower_idle_animation)
+	update_color()
+	level.song_changed.connect(on_song_changed)
+	update_instrument()
+
+
+func on_song_changed(song: Song) -> void:
+	current_song = song
+	update_instrument()
+
+
+func update_color() -> void:
+	if current_topper != null: current_topper.pause()
+	if tower_source == null:
+		current_topper = null
+		deactivated_tower.visible = true
+		active_tower_red.visible = false
+		active_tower_blue.visible = false
+		active_tower_yellow.visible = false
+	else:
+		match tower_source.color:
+			SourceColor.Enum.RED:
+				current_topper = active_tower_red
+				deactivated_tower.visible = false
+				active_tower_red.visible = true
+				active_tower_blue.visible = false
+				active_tower_yellow.visible = false
+			SourceColor.Enum.BLUE:
+				current_topper = active_tower_blue
+				deactivated_tower.visible = false
+				active_tower_red.visible = false
+				active_tower_blue.visible = true
+				active_tower_yellow.visible = false
+			SourceColor.Enum.YELLOW:
+				current_topper = active_tower_blue
+				deactivated_tower.visible = false
+				active_tower_red.visible = false
+				active_tower_blue.visible = false
+				active_tower_yellow.visible = true
+	if current_topper != null: current_topper.resume()
+
+
+func update_instrument() -> void:
+	if tower_source == null:
+		instrument.part = null
+	else:
+		match tower_source.color:
+			SourceColor.Enum.RED: instrument.part = current_song.red_parts[0]
+			SourceColor.Enum.BLUE: instrument.part = current_song.blue_parts[0]
+			SourceColor.Enum.YELLOW: instrument.part = current_song.yellow_parts[0]
+
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
-	tower_animation_player.play(tower_attack_animation)
-	tower_animation_player.queue(tower_idle_animation)
-
+	current_topper.attack()
 	
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:

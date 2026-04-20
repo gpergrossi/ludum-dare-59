@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bkoqn0c5gxrjg"]
+
+[ext_resource type="PackedScene" uid="uid://c8surgwa140ul" path="res://Models/LevelDesign/SourceMeshes/SpawnPoint_02.fbx" id="1_f86po"]
+[ext_resource type="Script" uid="uid://u6qt80cdu6pm" path="res://Code/enemy_base.gd" id="1_rxg2i"]
+
+[node name="SpawnPoint02" type="Node3D" unique_id=2110018831]
+script = ExtResource("1_rxg2i")
+
+[node name="SpawnPoint_02" parent="." unique_id=1429836146 instance=ExtResource("1_f86po")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0, 0)

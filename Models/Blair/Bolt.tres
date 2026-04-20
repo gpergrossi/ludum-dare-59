@@ -4,10 +4,9 @@
 resource_name = "lambert1"
 transparency = 1
 blend_mode = 1
-cull_mode = 1
+cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.30980393, 0, 0, 1)
-emission_enabled = true
+albedo_color = Color(0.9647059, 0.6156863, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_6d38f"]
 
