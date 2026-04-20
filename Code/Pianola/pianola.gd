@@ -16,8 +16,9 @@ var song : Song :
 	set(value):
 		song = value
 		_song_start_time = _current_time
-		song.sort_notes()
 		_next_note_idx = 0
+		if song != null:
+			song.sort_notes()
 		song_changed.emit(song)
 		print("Song starting with " + str(_instruments.size()) + " instruments")
 

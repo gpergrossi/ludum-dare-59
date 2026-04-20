@@ -1,7 +1,6 @@
 [gd_scene format=3 uid="uid://dgxojo74rrf4h"]
 
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_51b2r"]
-[ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="2_2sxju"]
 [ext_resource type="Environment" uid="uid://twvtitxyyrv5" path="res://Models/LevelDesign/WorldEnvironment_T01.tres" id="2_jtpw3"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="3_51j0e"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_kkkvx"]
@@ -91,11 +90,6 @@ shadow_opacity = 0.95
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832940335]
 environment = ExtResource("2_jtpw3")
-
-[node name="Pianola" type="Node" parent="." unique_id=1958729676]
-unique_name_in_owner = true
-script = ExtResource("2_2sxju")
-metadata/_custom_type_script = "uid://b0yi0y43su4ie"
 
 [node name="SongGenerator" type="Node" parent="." unique_id=977955754]
 unique_name_in_owner = true

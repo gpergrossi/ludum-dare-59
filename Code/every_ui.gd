@@ -1,13 +1,18 @@
 class_name EveryUi extends Control
 
 @onready var health_bar: ProgressBar = %HealthBar
-@onready var announce_text: Label = %AnnounceText
+@onready var loss_text: Label = %LossText
+@onready var restart_button : Button = %RestartButton
 
 var health: float
 var max_health: float
 
+signal restart_pressed()
+
 func _ready() -> void:
 	refresh_health()
+	restart_button.pressed.connect(func ():
+		restart_pressed.emit())
 
 func set_health(current: float, max: float) -> void:
 	health = current
@@ -19,13 +24,24 @@ func refresh_health() -> void:
 	health_bar.max_value = max_health
 	health_bar.value = health
 
-func lose_screen() -> void:
+func show_lose_screen() -> void:
 	if not is_node_ready(): return
-	announce_text.text = """you lose :(((
-		
-		thank you for trying anyways.
-		please refresh the page to try again.
-	"""
-	announce_text.show()
-	announce_text.modulate.a = 0.0
-	create_tween().tween_property(announce_text, "modulate:a", 1.0, 0.5)
+
+	loss_text.show()
+	loss_text.modulate.a = 0.0
+	restart_button.show()
+	restart_button.modulate.a = 0.0
+	var tween = create_tween()
+	tween.tween_property(loss_text, "modulate:a", 1.0, 0.5)
+	tween.tween_property(restart_button, "modulate:a", 1.0, 0.5)
+
+func hide_lose_screen():
+	if not is_node_ready(): return
+	var tween = create_tween()
+	tween.tween_property(loss_text, "modulate:a", 0.0, 0.5)
+	tween.tween_property(restart_button, "modulate:a", 0.0, 0.5)
+	tween.tween_callback(func ():
+		loss_text.hide()
+		restart_button.hide())
+
+	

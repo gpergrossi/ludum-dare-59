@@ -4,10 +4,12 @@ class_name Level extends Node3D
 const GRID_SIZE = 1.0
 
 @export var lanes: Array[Lane] = []
-@export var ui: EveryUi
 
 @export var max_health : float = 100.0
 @export var current_health : float
+
+@export var ui: EveryUi
+@export var wirebox : WireboxRayInteractor
 
 signal song_changed(song: Song)
 
@@ -26,8 +28,8 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
-	%Pianola.song_changed.connect(func(song: Song): song_changed.emit(song))
-	%Pianola.song = %SongGenerator.makeSong()
+	Pianola.INSTANCE.song_changed.connect(func(song: Song): song_changed.emit(song))
+	Pianola.INSTANCE.song = %SongGenerator.makeSong()
 	
 	current_health = max_health
 	ui.set_health(current_health, max_health)
@@ -45,6 +47,21 @@ func _take_damage(amount : float):
 		
 		if current_health < 0 && _level_state != LevelState.LOST:
 			_level_state = LevelState.LOST
-			ui.lose_screen()
-		
+			Pianola.INSTANCE.song = null
+			ui.show_lose_screen()
+			ui.restart_pressed.connect(func():
+				_reset())
+
+func _reset():
+	wirebox.reset()
+	ui.hide_lose_screen()
+
+	var replacement : Level = load(scene_file_path).instantiate()
+	
+	replacement.max_health = current_health
+	replacement.ui = ui
+	replacement.wirebox = wirebox
+	
+	get_parent_node_3d().add_child(replacement)
+	queue_free()
 	
