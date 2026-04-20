@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://cy31c6i7d5qq2"]
+
+[ext_resource type="PackedScene" uid="uid://ko2htt2jb7wv" path="res://Models/LevelDesign/SourceMeshes/SpawnPoint_01.fbx" id="1_egvnb"]
+[ext_resource type="Material" uid="uid://dxc7p0ttvyx5k" path="res://Materials/ImportedMats/Tile_Base.tres" id="2_74hu2"]
+
+[node name="SpawnPoint_01" unique_id=425512584 instance=ExtResource("1_egvnb")]
+
+[node name="Tile_3x3_001" parent="." index="0" unique_id=49907494]
+surface_material_override/0 = ExtResource("2_74hu2")

@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://clu1nde471ioy"
 
 Enemies=""
 HealthBar=""
+AnnounceText="singleton for the announcement text"
 
 [input]
 
@@ -82,6 +83,7 @@ zoom_out={
 [layer_names]
 
 3d_physics/layer_5="Clickable"
+3d_physics/layer_6="PlugHead"
 
 [physics]
 

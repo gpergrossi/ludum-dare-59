@@ -1,8 +1,8 @@
 @tool
 class_name Wire extends Node3D
 
-@onready var plug_a: Node3D = %PlugA
-@onready var plug_b: Node3D = %PlugB
+@onready var plug_a: Plug = %PlugA
+@onready var plug_b: Plug = %PlugB
 @onready var wire_path: Path3D = %WirePath
 @onready var wire_mesh: MeshInstance3D = %WireMesh
 
@@ -59,6 +59,33 @@ func update_curve() -> void:
 	
 	curve.add_point(plug_b_pos - dir * 0.01 + 0.3 * basis_b.y, basis_b.y, -basis_b.y * 0.1)
 	curve.add_point(plug_b_pos, basis_b.y * 0.1, Vector3.ZERO)
+
+
+func disconnect_plugs() -> void:
+	print("Disconnecting wire " + str(self))
+	disconnect_plug(plug_a)
+	disconnect_plug(plug_b)
+	visible = false
+
+
+func disconnect_plug(plug: Plug) -> void:
+	plug.transform.origin = Vector3.UP * 100
+	if plug.wirebox != null:
+		var slot := plug.wirebox.find_slot(plug)
+		if slot != -1:
+			plug.wirebox.release_slot(slot, plug)
+			print("Removing plug " + str(plug) + " from wirebox " + str(plug.wirebox) + " slot " + str(slot))
+		else:
+			print("no slot in wirebox matches plug!")
+	else:
+		print("no wirebox attached to plug")
+
+
+func get_other_plug(plug: Plug) -> Plug:
+	if plug_a == plug: return plug_b
+	if plug_b == plug: return plug_a
+	assert(false)
+	return null
 
 
 func update_mesh() -> void:
@@ -142,3 +169,8 @@ func update_mesh() -> void:
 	var mesh := wire_mesh.mesh as ArrayMesh
 	mesh.clear_surfaces()
 	mesh.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+
+
+func _replace_existing_connections(other: Wire) -> void:
+	plug_a._replace_existing_connections(other.plug_a)
+	plug_b._replace_existing_connections(other.plug_b)

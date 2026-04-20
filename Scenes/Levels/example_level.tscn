@@ -68,6 +68,7 @@ part = ExtResource("17_se8dm")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, -3)
 
 [node name="HomeBase" parent="." unique_id=778295800 instance=ExtResource("7_v550q")]
+transform = Transform3D(0.25, 0, 0, 0, 0.25, 0, 0, 0, 0.25, 0, 0, 1)
 
 [node name="Lane1SpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("10_v550q")]
 part = ExtResource("10_u27mm")

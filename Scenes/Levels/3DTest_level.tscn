@@ -824,9 +824,6 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 [node name="Tile_Base1x1_52" parent="Environment/1xTiles" unique_id=1429662273 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -1)
 
-[node name="Tile_Base1x1_88" parent="Environment/1xTiles" unique_id=70027933 instance=ExtResource("20_kkkvx")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 21.194641, 1, -1.5437889)
-
 [node name="Tile_Base1x1_79" parent="Environment/1xTiles" unique_id=482388745 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 18.194641, 1, -1.5437889)
 
@@ -1086,6 +1083,9 @@ transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 6.9999924, 0, 4)
 
 [node name="Tile_Base4x42" parent="Environment/2xTiles" unique_id=950640995 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 8.999992, 0, 4)
+
+[node name="EnemyBase" parent="." unique_id=119988933 instance=ExtResource("5_b5yrm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 2)
 
 [editable path="ExistingTowers/Tower"]
 [editable path="ExistingTowers/Tower2"]
