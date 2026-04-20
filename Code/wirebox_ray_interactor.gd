@@ -83,24 +83,26 @@ func _input(event: InputEvent) -> void:
 						_drag_begin(_current_wirebox, _hit_position)
 					else:
 						_drag_active = false
-						drag_end.emit(_current_wirebox, _hit_position)
+						_drag_end(_current_wirebox, _hit_position)
 				elif not _drag_active and _current_plug != null and _current_plug.wire != wire:
 					var this_end := _current_plug
 					var this_box := _current_plug.wirebox
 					var other_end := _current_plug.wire.get_other_plug(_current_plug)
 					var other_box := other_end.wirebox
+					_connections.disconnect_items(this_box, other_box)
+					update_tower_sources()
 					_current_plug.wire.disconnect_plugs()
 					_current_plug.wire.queue_free()
 					_current_plug = null
 					if other_end != null and other_box != null:
 						_drag_active = true
 						_handle_wirebox_hit(other_box, _hit_position)
-						drag_begin.emit(other_box, _hit_position)
+						_drag_begin(other_box, _hit_position)
 						_handle_wirebox_hit(this_box, _hit_position)
 			elif (mbe.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 				if _drag_active:
 					_drag_active = false
-					drag_end.emit(null, _hit_position)
+					_drag_end(null, _hit_position)
 
 
 func _get_wirebox_from_collider(collider: Object) -> Wirebox:
@@ -174,55 +176,71 @@ func _drag_begin(wirebox: Wirebox, hit_position: Vector3) -> void:
 
 
 func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
-	_drag_wirebox.selected = false
-	wire.visible = false
-	
-	if wirebox != null:
-		var slot := wirebox.find_empty_slot()
-		
-		# Add a new connection
-		wirebox.claim_slot(slot, wire.plug_b)
-		wire.plug_b.transform = wirebox.get_slot_transform(slot)
-		var box_a := wire.plug_a.wirebox
-		var box_b := wire.plug_b.wirebox
-		_ensure_tracking(box_a)
-		_ensure_tracking(box_b)
-		
-		if box_a == box_b:
-			# Can't wire a box to itself
-			wire.disconnect_plugs()
-			return
-		
-		if _connections.is_connected_including_indirectly(box_a, box_b):
-			print("Already connected.")
-			_connections.connect_items(box_a, box_b)
-		else:
-			_connections.connect_items(box_a, box_b)
-			var connected_sources : Array[TowerSource] = []
-			for source in _sources:
-				if _connections.is_connected_including_indirectly(source.wirebox, box_a) or \
-					_connections.is_connected_including_indirectly(source.wirebox, box_b):
-						connected_sources.append(source)
-						print("New wire connected to source " + str(source))
-			if connected_sources.size() > 1:
-				print("Too many connect sources!")
-				_connections.disconnect_items(box_a, box_b)
-				wire.disconnect_plugs()
-				return
-		
-		var new_wire := WIRE.instantiate() as Wire
-		self.add_child(new_wire)
-		new_wire._replace_existing_connections(wire)
-		wire.disconnect_plugs()
-		
-		drag_end.emit(wirebox, hit_position)
-	else:
-		# Wirebox was null or completion was cancelled
+	if wirebox == null:
+		_drag_wirebox.selected = false
 		_drag_wirebox.release_slot(_drag_wirebox_slot, wire.plug_a)
 		_drag_wirebox = null
 		_drag_wirebox_slot = -1
 		wire.disconnect_plugs()
+		wire.visible = false
+		return
 	
+	var slot := wirebox.find_empty_slot()
+	
+	# Add a new connection
+	wirebox.claim_slot(slot, wire.plug_b)
+	wire.plug_b.transform = wirebox.get_slot_transform(slot)
+	var box_a := wire.plug_a.wirebox
+	var box_b := wire.plug_b.wirebox
+	_ensure_tracking(box_a)
+	_ensure_tracking(box_b)
+	
+	if box_a == box_b:
+		# Can't wire a box to itself
+		return
+	
+	if _connections.is_connected_including_indirectly(box_a, box_b):
+		print("Already connected.")
+		_connections.connect_items(box_a, box_b)
+	else:
+		_connections.connect_items(box_a, box_b)
+		var connected_sources : Array[TowerSource] = []
+		for source in _sources:
+			if _connections.is_connected_including_indirectly(source.wirebox, box_a) or \
+				_connections.is_connected_including_indirectly(source.wirebox, box_b):
+					connected_sources.append(source)
+					print("New wire connected to source " + str(source))
+		if connected_sources.size() > 1:
+			print("Too many connect sources!")
+			_connections.disconnect_items(box_a, box_b)
+			wire.disconnect_plugs()
+			return
+	
+	var new_wire := WIRE.instantiate() as Wire
+	self.add_child(new_wire)
+	new_wire._replace_existing_connections(wire)
+	wire.disconnect_plugs()
+	
+	update_tower_sources()
+	
+	drag_end.emit(wirebox, hit_position)
+	
+
+
+func update_tower_sources() -> void:
+	var source_assignments: Dictionary[Tower, TowerSource] = {}
+	for tower in _towers:
+		tower.tower_source = null
+		for source in _sources:
+			if _connections.is_connected_including_indirectly(tower.wirebox, source.wirebox):
+				assert(not source_assignments.has(tower))
+				source_assignments[tower] = source
+	
+	for tower in _towers:
+		if not source_assignments.has(tower): continue
+		var source := source_assignments[tower]
+		if tower.tower_source != source:
+			tower.tower_source = source
 
 
 func _ensure_tracking(box: Wirebox) -> void:

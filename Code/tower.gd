@@ -6,6 +6,11 @@ class_name Tower extends Tile
 @onready var laser_beam := %LaserBeam
 @onready var laser_emit_position := %LaserEmitPosition
 @onready var instrument := %Instrument
+@onready var wirebox := %Wirebox
+@onready var deactivated_tower: Node3D = %DeactivatedTower
+@onready var active_tower_red: Node3D = %ActiveTower_RED
+@onready var active_tower_blue: Node3D = %ActiveTower_BLUE
+@onready var active_tower_yellow: Node3D = %ActiveTower_YELLOW
 
 @export var min_range := 0.0:
 	set(mr):
@@ -28,7 +33,12 @@ class_name Tower extends Tile
 @export var tower_idle_animation : StringName
 @export var tower_attack_animation : StringName
 
-var tower_source: TowerSource = null
+var tower_source: TowerSource = null:
+	set(s):
+		if tower_source != s:
+			tower_source = s
+			update_color()
+			
 
 func refresh_range() -> void:
 	if not is_node_ready(): return
@@ -43,9 +53,16 @@ func _ready() -> void:
 	refresh_range()
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
+	update_color()
 	tower_animation_player = find_child("Yellow_tower_01").find_child("AnimationPlayer")
 	if not tower_idle_animation.is_empty():
 		tower_animation_player.play(tower_idle_animation)
+
+func update_color() -> void:
+	deactivated_tower.visible = (tower_source == null)
+	active_tower_red.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.RED)
+	active_tower_blue.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.BLUE)
+	active_tower_yellow.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.YELLOW)
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
