@@ -6,10 +6,10 @@ uid="uid://dsb1myfen4663"
 
 [deps]
 
-files=["res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.note.translation"]
+files=["res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.start.translation", "res://SongCsvs/7nation.min.end.translation"]
 
 source_file="res://SongCsvs/7nation.min.csv"
-dest_files=["res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.note.translation"]
+dest_files=["res://SongCsvs/7nation.min.note.translation", "res://SongCsvs/7nation.min.start.translation", "res://SongCsvs/7nation.min.end.translation"]
 
 [params]
 
