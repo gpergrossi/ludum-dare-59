@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_51b2r"]
 [ext_resource type="Environment" uid="uid://twvtitxyyrv5" path="res://Models/LevelDesign/WorldEnvironment_T01.tres" id="2_jtpw3"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="3_51j0e"]
+[ext_resource type="Script" uid="uid://6ew2r47t6bru" path="res://Code/Pianola/Songs/song2.gd" id="4_b5yrm"]
+[ext_resource type="Script" uid="uid://cisibvv02nubf" path="res://Code/Pianola/Songs/song_loader.gd" id="5_ertfi"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_kkkvx"]
 [ext_resource type="PackedScene" uid="uid://c75cur2kcnxxg" path="res://Scenes/Levels/lane_spawn_instrument.tscn" id="8_jtpw3"]
 [ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/lane1_spawn_instrument.tres" id="9_wh1ob"]
@@ -70,10 +72,9 @@ _data = {
 }
 point_count = 47
 
-[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes", "song_generators")]
+[node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_51b2r")
 lanes = [NodePath("Lanes/Lane1")]
-song_generators = [NodePath("FirstSong")]
 current_health = 100.0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=274476349]
@@ -92,9 +93,23 @@ shadow_opacity = 0.95
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=832940335]
 environment = ExtResource("2_jtpw3")
 
-[node name="FirstSong" type="Node" parent="." unique_id=977955754]
+[node name="SongGenerators" type="Node" parent="." unique_id=2052248532]
+unique_name_in_owner = true
+
+[node name="FirstSong" type="Node" parent="SongGenerators" unique_id=977955754]
 script = ExtResource("15_mmfe2")
 metadata/_custom_type_script = "uid://d3fwkxp4gauwr"
+
+[node name="SecondSong" type="Node" parent="SongGenerators" unique_id=504214433]
+script = ExtResource("4_b5yrm")
+
+[node name="GravityFalls" type="Node" parent="SongGenerators" unique_id=1715466304]
+script = ExtResource("5_ertfi")
+my_song = "gravity_falls"
+
+[node name="SevenNation" type="Node" parent="SongGenerators" unique_id=1455298956]
+script = ExtResource("5_ertfi")
+my_song = "7nation"
 
 [node name="Towers" type="Node3D" parent="." unique_id=1989324696]
 

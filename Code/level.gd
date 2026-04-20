@@ -4,13 +4,14 @@ class_name Level extends Node3D
 const GRID_SIZE = 1.0
 
 @export var lanes: Array[Lane] = []
-@export var song_generators : Array[SongGenerator]
 
 @export var max_health : float = 100.0
 @export var current_health : float
 
 @export var ui: EveryUi
 @export var wirebox : WireboxRayInteractor
+
+@onready var _song_generators := %SongGenerators
 
 var _song_queue : Array[Song] = []
 
@@ -28,7 +29,7 @@ func _ready() -> void:
 		
 	if _song_queue.is_empty():
 		_song_queue = []
-		for generator in song_generators:
+		for generator : SongGenerator in _song_generators.get_children():
 			_song_queue.push_back(generator.makeSong())
 			
 	Pianola.INSTANCE.song = _song_queue.front()
@@ -63,7 +64,7 @@ func _on_song_finished(song : Song):
 	_level_state = LevelState.BETWEEN_SONGS
 	_song_queue.pop_front()
 	
-	await get_tree().create_timer(4.0).timeout
+	await get_tree().create_timer(2.0).timeout
 
 	if _song_queue.is_empty():
 		await ui.show_popover_screen("""congratulations - you won!
