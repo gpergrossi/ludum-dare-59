@@ -2,7 +2,6 @@
 
 [resource]
 resource_name = "Tile_Base"
-cull_mode = 2
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.25, 0.2125, 0.25, 1)
 roughness = 0.1
