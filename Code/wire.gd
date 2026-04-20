@@ -62,7 +62,6 @@ func update_curve() -> void:
 
 
 func disconnect_plugs() -> void:
-	print("Disconnecting wire " + str(self))
 	disconnect_plug(plug_a)
 	disconnect_plug(plug_b)
 	visible = false
@@ -74,11 +73,6 @@ func disconnect_plug(plug: Plug) -> void:
 		var slot := plug.wirebox.find_slot(plug)
 		if slot != -1:
 			plug.wirebox.release_slot(slot, plug)
-			print("Removing plug " + str(plug) + " from wirebox " + str(plug.wirebox) + " slot " + str(slot))
-		else:
-			print("no slot in wirebox matches plug!")
-	else:
-		print("no wirebox attached to plug")
 
 
 func get_other_plug(plug: Plug) -> Plug:

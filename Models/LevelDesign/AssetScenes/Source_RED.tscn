@@ -2,15 +2,49 @@
 
 [ext_resource type="PackedScene" uid="uid://qafq3t74o6ny" path="res://Models/LevelDesign/SourceMeshes/Source_Base_Parts01.fbx" id="1_7pldf"]
 [ext_resource type="Material" uid="uid://dxyrbivllnmkn" path="res://Materials/ImportedMats/RedSource.tres" id="2_3jiaj"]
+[ext_resource type="Script" uid="uid://upjyjscna7el" path="res://Code/tower_source.gd" id="2_xrplv"]
 [ext_resource type="Material" uid="uid://c23o2qjo4kfl7" path="res://Materials/ImportedMats/Tower_Glow_RED.tres" id="3_uqoga"]
 [ext_resource type="PackedScene" uid="uid://dj1cik5hc3i7y" path="res://Models/LevelDesign/AssetScenes/Source_RED_tile_3x3_01.tscn" id="4_3jiaj"]
+[ext_resource type="Script" uid="uid://cgrxa438kg0n6" path="res://Code/wirebox.gd" id="5_sj6q0"]
+[ext_resource type="PackedScene" uid="uid://c0wtlkyd55ar7" path="res://Models/WireBits/plug_female_01.tscn" id="6_xrplv"]
 
-[node name="Source_Base_Parts01" unique_id=393019212 instance=ExtResource("1_7pldf")]
+[sub_resource type="BoxShape3D" id="BoxShape3D_ee0a7"]
+size = Vector3(3, 1, 3)
 
-[node name="Source_BaseCircle" parent="." index="0" unique_id=870890670]
+[node name="TowerSource_RED" unique_id=393019212 node_paths=PackedStringArray("wirebox") instance=ExtResource("1_7pldf")]
+script = ExtResource("2_xrplv")
+wirebox = NodePath("Recepticals/Wirebox")
+
+[node name="Source_BaseCircle" parent="." index="0" unique_id=867288449]
 transform = Transform3D(-296.39352, 2.5911542e-05, 1.1326295e-12, 0, -1.2955771e-05, 296.3935, 2.5911544e-05, 296.3935, 1.2955771e-05, 0, 0, 4.7683716e-07)
 surface_material_override/0 = ExtResource("2_3jiaj")
 surface_material_override/1 = ExtResource("3_uqoga")
 
 [node name="Tile_Base3x3_01" parent="." index="1" unique_id=811469491 instance=ExtResource("4_3jiaj")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 3)
+
+[node name="Recepticals" type="Node3D" parent="." index="2" unique_id=1468585048]
+
+[node name="Wirebox" type="Node3D" parent="Recepticals" index="0" unique_id=242847116 node_paths=PackedStringArray("wirebox_owner", "jack_positions")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.5, 0, 3)
+script = ExtResource("5_sj6q0")
+wirebox_owner = NodePath("../..")
+jack_count = 1
+jack_positions = [NodePath("JackPositionA")]
+
+[node name="ClickableBody" type="StaticBody3D" parent="Recepticals/Wirebox" index="0" unique_id=1532120204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)
+collision_layer = 16
+collision_mask = 16
+input_capture_on_drag = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Recepticals/Wirebox/ClickableBody" index="0" unique_id=1547613390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.0000006, 0, -1.5000007)
+shape = SubResource("BoxShape3D_ee0a7")
+
+[node name="JackPositionA" type="Node3D" parent="Recepticals/Wirebox" index="1" unique_id=1300491265]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 0.50000024, 0.581, 2.3841858e-07)
+
+[node name="PlugFemale_01" parent="Recepticals" index="1" unique_id=2098565446 instance=ExtResource("6_xrplv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.581, 2.5)

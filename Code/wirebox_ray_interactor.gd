@@ -23,10 +23,14 @@ var _drag_wirebox: Wirebox = null
 var _drag_wirebox_slot: int = -1
 var _drag_basis := Basis.IDENTITY
 
+var _sources: Array[TowerSource] = []
+var _towers: Array[Tower] = []
+var _connections: ConnectionGraphManager
+
 func _ready() -> void:
-	drag_begin.connect(_drag_begin)
-	drag_end.connect(_drag_end)
 	hover.connect(_hover)
+	_connections = ConnectionGraphManager.new()
+
 
 func _physics_process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
@@ -76,7 +80,7 @@ func _input(event: InputEvent) -> void:
 				if _current_wirebox != null and _current_wirebox.has_empty_slot():
 					if not _drag_active:
 						_drag_active = true
-						drag_begin.emit(_current_wirebox, _hit_position)
+						_drag_begin(_current_wirebox, _hit_position)
 					else:
 						_drag_active = false
 						drag_end.emit(_current_wirebox, _hit_position)
@@ -93,9 +97,6 @@ func _input(event: InputEvent) -> void:
 						_handle_wirebox_hit(other_box, _hit_position)
 						drag_begin.emit(other_box, _hit_position)
 						_handle_wirebox_hit(this_box, _hit_position)
-						print("started new drag")
-					else:
-						print("no other end")
 			elif (mbe.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 				if _drag_active:
 					_drag_active = false
@@ -160,7 +161,6 @@ func _handle_no_hit(hit_position: Vector3 = Vector3.INF) -> void:
 	
 
 func _drag_begin(wirebox: Wirebox, hit_position: Vector3) -> void:
-	print("Begin drag at " + str(wirebox) + " " + str(hit_position))
 	_drag_wirebox = _current_wirebox
 	_drag_wirebox_slot = _drag_wirebox.find_empty_slot()
 	_drag_wirebox.selected = true
@@ -169,28 +169,76 @@ func _drag_begin(wirebox: Wirebox, hit_position: Vector3) -> void:
 	_drag_wirebox.claim_slot(_drag_wirebox_slot, wire.plug_a)
 	_drag_basis = Basis.IDENTITY
 	wire.plug_a.transform = _drag_wirebox.get_slot_transform(_drag_wirebox_slot)
+	
+	drag_begin.emit(wirebox, hit_position)
 
 
 func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
-	print("End drag at " + str(wirebox) + " " + str(hit_position))
 	_drag_wirebox.selected = false
 	wire.visible = false
 	
-	if wirebox == null:
-		_drag_wirebox.release_slot(_drag_wirebox_slot, wire.plug_a)
-		_drag_wirebox = null
-		_drag_wirebox_slot = -1
-	else:
+	if wirebox != null:
 		var slot := wirebox.find_empty_slot()
-		wirebox.claim_slot(slot, wire.plug_b)
 		
+		# Add a new connection
+		wirebox.claim_slot(slot, wire.plug_b)
 		wire.plug_b.transform = wirebox.get_slot_transform(slot)
+		var box_a := wire.plug_a.wirebox
+		var box_b := wire.plug_b.wirebox
+		_ensure_tracking(box_a)
+		_ensure_tracking(box_b)
+		
+		if box_a == box_b:
+			# Can't wire a box to itself
+			wire.disconnect_plugs()
+			return
+		
+		if _connections.is_connected_including_indirectly(box_a, box_b):
+			print("Already connected.")
+			_connections.connect_items(box_a, box_b)
+		else:
+			_connections.connect_items(box_a, box_b)
+			var connected_sources : Array[TowerSource] = []
+			for source in _sources:
+				if _connections.is_connected_including_indirectly(source.wirebox, box_a) or \
+					_connections.is_connected_including_indirectly(source.wirebox, box_b):
+						connected_sources.append(source)
+						print("New wire connected to source " + str(source))
+			if connected_sources.size() > 1:
+				print("Too many connect sources!")
+				_connections.disconnect_items(box_a, box_b)
+				wire.disconnect_plugs()
+				return
 		
 		var new_wire := WIRE.instantiate() as Wire
 		self.add_child(new_wire)
 		new_wire._replace_existing_connections(wire)
-		
 		wire.disconnect_plugs()
+		
+		drag_end.emit(wirebox, hit_position)
+	else:
+		# Wirebox was null or completion was cancelled
+		_drag_wirebox.release_slot(_drag_wirebox_slot, wire.plug_a)
+		_drag_wirebox = null
+		_drag_wirebox_slot = -1
+		wire.disconnect_plugs()
+	
+
+
+func _ensure_tracking(box: Wirebox) -> void:
+	if box.wirebox_owner is TowerSource:
+		var source := box.wirebox_owner as TowerSource
+		if not _sources.has(source):
+			print("Identified new source " + str(source))
+			_sources.append(source)
+	if box.wirebox_owner is Tower:
+		var tower := box.wirebox_owner as Tower
+		if not _towers.has(tower):
+			print("Identified new tower " + str(tower))
+			_towers.append(tower)
+	if not _connections.has_item(box):
+		_connections.add_item(box)
+	
 
 
 func _hover(hit_position: Vector3) -> void:

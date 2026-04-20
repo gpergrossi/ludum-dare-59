@@ -190,12 +190,19 @@ visible = false
 
 [node name="Tower" parent="ExistingTowers" unique_id=945097428 instance=ExtResource("3_51j0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, -2)
+tower_idle_animation = &""
+tower_attack_animation = &""
 
 [node name="Instrument" parent="ExistingTowers/Tower" index="2" unique_id=914717014]
 part = ExtResource("4_n8mod")
 
+[node name="LaserEmitPosition" parent="ExistingTowers/Tower" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
+
 [node name="Tower2" parent="ExistingTowers" unique_id=1918667656 instance=ExtResource("3_51j0e")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -2, 0, 4)
+tower_idle_animation = &""
+tower_attack_animation = &""
 
 [node name="MaxRangeIndicator" parent="ExistingTowers/Tower2" index="1" unique_id=1761813199]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.6448146, 0.5)
@@ -203,11 +210,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 0.6448146, 0.5)
 [node name="Instrument" parent="ExistingTowers/Tower2" index="2" unique_id=914717014]
 part = ExtResource("16_0l2a3")
 
+[node name="LaserEmitPosition" parent="ExistingTowers/Tower2" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
+
 [node name="Tower3" parent="ExistingTowers" unique_id=144730068 instance=ExtResource("3_51j0e")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, -1)
+tower_idle_animation = &""
+tower_attack_animation = &""
 
 [node name="Instrument" parent="ExistingTowers/Tower3" index="2" unique_id=914717014]
 part = ExtResource("17_umsk2")
+
+[node name="LaserEmitPosition" parent="ExistingTowers/Tower3" index="4" unique_id=312950146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.0238081, 0.5)
 
 [node name="MaxRangeIndicator2" parent="ExistingTowers/Tower3" unique_id=1387911917 instance=ExtResource("14_b5yrm")]
 unique_name_in_owner = true

@@ -28,6 +28,8 @@ class_name Tower extends Tile
 @export var tower_idle_animation : StringName
 @export var tower_attack_animation : StringName
 
+var tower_source: TowerSource = null
+
 func refresh_range() -> void:
 	if not is_node_ready(): return
 	min_range_indicator.visible = (min_range > 0.0)
@@ -42,13 +44,15 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
 	tower_animation_player = find_child("Yellow_tower_01").find_child("AnimationPlayer")
-	tower_animation_player.play(tower_idle_animation)
+	if not tower_idle_animation.is_empty():
+		tower_animation_player.play(tower_idle_animation)
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
-	tower_animation_player.play(tower_attack_animation)
-	tower_animation_player.queue(tower_idle_animation)
-
+	if not tower_attack_animation.is_empty():
+		tower_animation_player.play(tower_attack_animation)
+	if not tower_idle_animation.is_empty():
+		tower_animation_player.queue(tower_idle_animation)
 	
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:

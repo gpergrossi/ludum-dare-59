@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://de83wwqor4dua" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_top_1x_1.tscn" id="10_x5f2w"]
 [ext_resource type="PackedScene" uid="uid://lfhg0nlp8umi" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_RED_1x_1.tscn" id="11_o8kq5"]
 [ext_resource type="PackedScene" uid="uid://b5mbb7rfu170t" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_YELLOW_1x_1.tscn" id="12_852ym"]
-[ext_resource type="PackedScene" uid="uid://b3uun3qhg2eu6" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Blue_01.tscn" id="12_x5f2w"]
+[ext_resource type="PackedScene" uid="uid://b02qtf1mcpuul" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Blue_01.tscn" id="12_x5f2w"]
 [ext_resource type="PackedScene" uid="uid://dy5013qdf58qf" path="res://Models/LevelDesign/AssetScenes/Towers/Activated_tower_Glow_BLUE_1x_1.tscn" id="13_7phyr"]
 [ext_resource type="PackedScene" uid="uid://tincc0jug8mk" path="res://Models/LevelDesign/AssetScenes/Towers/Tower_ORB_Yellow_01.tscn" id="13_apkep"]
 [ext_resource type="Script" uid="uid://cgrxa438kg0n6" path="res://Code/wirebox.gd" id="14_apkep"]
@@ -50,7 +50,6 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.34156835, 1.3672777, 0.5)
 
 [node name="DeactivatedTower" type="Node3D" parent="." unique_id=1854775108]
-visible = false
 
 [node name="Active_Tower_Base1x1" parent="DeactivatedTower" unique_id=2103241637 instance=ExtResource("6_xiwfb")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -89,6 +88,7 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.25, 0)
 
 [node name="ActiveTower_YELLOW" type="Node3D" parent="." unique_id=1636264838]
+visible = false
 
 [node name="Active_Tower_Base1x1" parent="ActiveTower_YELLOW" unique_id=1644681991 instance=ExtResource("9_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, 0)
@@ -102,10 +102,12 @@ transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0
 [node name="Yellow_tower_01" parent="ActiveTower_YELLOW" unique_id=53956850 instance=ExtResource("13_apkep")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.25, 0)
 
-[node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("jack_positions")]
+[node name="Wirebox" type="Node3D" parent="." unique_id=1574887469 node_paths=PackedStringArray("wirebox_owner", "jack_positions")]
 unique_name_in_owner = true
 script = ExtResource("14_apkep")
-jack_positions = [NodePath("JackPositionA"), NodePath("JackPositionB"), NodePath("JackPositionC")]
+wirebox_owner = NodePath("..")
+jack_count = 2
+jack_positions = [NodePath("JackPositionA"), NodePath("JackPositionB")]
 
 [node name="ClickableBody" type="StaticBody3D" parent="Wirebox" unique_id=1489930333]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0, 0.5)

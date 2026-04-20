@@ -3,6 +3,7 @@ class_name Wirebox extends Node3D
 signal hover_changed(hovered: bool)
 signal select_changed(selected: bool)
 
+@export var wirebox_owner: Node3D
 @export var jack_count: int = 3
 @export var jack_positions: Array[Node3D] = []
 @export var jack_plugs: Array[Plug] = []
