@@ -44,7 +44,6 @@ shape = SubResource("CylinderShape3D_5xppw")
 
 [node name="Selection" type="Node3D" parent="." index="2" unique_id=536367897]
 unique_name_in_owner = true
-visible = false
 
 [node name="Cone" type="MeshInstance3D" parent="Selection" index="0" unique_id=776016498]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0534494, 0)
