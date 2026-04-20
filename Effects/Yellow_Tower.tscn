@@ -39,8 +39,7 @@ transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.09926198, 0.336718, 0.3436974, 1)
-emission_enabled = true
+albedo_color = Color(1, 0.27450982, 0, 1)
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_elilf"]
 
@@ -70,8 +69,8 @@ point_count = 2
 curve = SubResource("Curve_ppusa")
 
 [sub_resource type="Gradient" id="Gradient_6vsrl"]
-offsets = PackedFloat32Array(0.34541577, 1)
-colors = PackedColorArray(0.015686275, 0, 0.87058824, 1, 0, 1, 1, 1)
+offsets = PackedFloat32Array(0.6439232, 1)
+colors = PackedColorArray(0.88235295, 0.3137255, 0, 1, 1, 0.7019608, 0, 1)
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_73pwt"]
 gradient = SubResource("Gradient_6vsrl")

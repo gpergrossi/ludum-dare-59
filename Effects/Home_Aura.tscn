@@ -26,7 +26,7 @@ transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(1, 0.15686275, 0.07058824, 1)
+albedo_color = Color(0.5019608, 0.34901962, 0.2, 1)
 
 [sub_resource type="SphereMesh" id="SphereMesh_0wten"]
 material = SubResource("StandardMaterial3D_rnygb")
@@ -51,7 +51,7 @@ transparency = 1
 blend_mode = 1
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.65882355, 0.09019608, 0, 0.43529412)
+albedo_color = Color(0.5019608, 0.34901962, 0.2, 0.78431374)
 
 [sub_resource type="TorusMesh" id="TorusMesh_svv8j"]
 material = SubResource("StandardMaterial3D_80tqf")
