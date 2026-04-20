@@ -62,7 +62,14 @@ func _physics_process(_delta: float) -> void:
 	_hit_position = result["position"]
 
 	var wirebox := _get_wirebox_from_collider(collider)
-	_current_plug = _get_plug_from_collider(collider)
+	var plug = _get_plug_from_collider(collider)
+
+	if _current_plug != plug:
+		if _current_plug != null:
+			_current_plug.selected = false
+		_current_plug = plug
+		if plug != null:
+			plug.selected = true
 
 	if wirebox == null:
 		_handle_no_hit(_hit_position)
@@ -78,10 +85,8 @@ func _input(event: InputEvent) -> void:
 			if (mbe.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
 				if _current_wirebox != null and _current_wirebox.has_empty_slot():
 					if not _drag_active:
-						_drag_active = true
 						_drag_begin(_current_wirebox, _hit_position)
 					else:
-						_drag_active = false
 						_drag_end(_current_wirebox, _hit_position)
 				elif not _drag_active and _current_plug != null and _current_plug.wire != wire:
 					var this_end := _current_plug
@@ -100,7 +105,6 @@ func _input(event: InputEvent) -> void:
 						_handle_wirebox_hit(this_box, _hit_position)
 			elif (mbe.button_mask & MOUSE_BUTTON_MASK_RIGHT) != 0:
 				if _drag_active:
-					_drag_active = false
 					_drag_end(null, _hit_position)
 
 
@@ -162,6 +166,8 @@ func _handle_no_hit(hit_position: Vector3) -> void:
 	
 
 func _drag_begin(wirebox: Wirebox, hit_position: Vector3) -> void:
+	_drag_active = true
+	
 	_drag_wirebox = _current_wirebox
 	_drag_wirebox_slot = _drag_wirebox.find_empty_slot()
 	_drag_wirebox.selected = true
@@ -182,6 +188,7 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 		_drag_wirebox_slot = -1
 		wire.disconnect_plugs()
 		wire.visible = false
+		_drag_active = false
 		return
 	
 	var slot := wirebox.find_empty_slot()
@@ -194,13 +201,11 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	_ensure_tracking(box_a)
 	_ensure_tracking(box_b)
 	
-	if box_a == box_b:
-		# Can't wire a box to itself
+	if box_a == box_b or _connections.is_connected_including_indirectly(box_a, box_b):
+		# Can't create a loop!
+		print("Already connected!")
+		wirebox.release_slot(slot, wire.plug_b)
 		return
-	
-	if _connections.is_connected_including_indirectly(box_a, box_b):
-		print("Already connected.")
-		_connections.connect_items(box_a, box_b)
 	else:
 		_connections.connect_items(box_a, box_b)
 		var connected_sources : Array[TowerSource] = []
@@ -211,8 +216,8 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 					print("New wire connected to source " + str(source))
 		if connected_sources.size() > 1:
 			print("Too many connect sources!")
+			wirebox.release_slot(slot, wire.plug_b)
 			_connections.disconnect_items(box_a, box_b)
-			wire.disconnect_plugs()
 			return
 	
 	var new_wire := WIRE.instantiate() as Wire
@@ -222,6 +227,7 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	
 	update_tower_sources()
 	
+	_drag_active = false
 	drag_end.emit(wirebox, hit_position)
 	
 

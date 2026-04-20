@@ -1,14 +1,10 @@
 @tool
 class_name TowerSource extends Node3D
 
-enum SourceColor {
-	RED, BLUE, YELLOW
-}
-
 @export var tower_part: Node3D
 @export var idle_animation: StringName
 @export var wirebox: Wirebox
-@export var color: SourceColor
+@export var color: SourceColor.Enum
 
 func _ready() -> void:
 	if not idle_animation.is_empty():

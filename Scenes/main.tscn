@@ -10,7 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="9_d1ilt"]
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_ynf5e"]
+[sub_resource type="Curve3D" id="Curve3D_ynf5e"]
+resource_local_to_scene = true
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0.1, 0, 1, 0, 0, 0, -0.1, 0, 0, 1, 0, 0.99000674, 0.3, 0.00036774483, 0, 1, 0, 0, -0.1, 0, 0.0112907095, 0.3, 0.036383882, 0, 0.1, 0, 0, 0, 0, 0.0012974739, 0, 0.036751628),
+"tilts": PackedFloat32Array(0, 0, 0, 0)
+}
+point_count = 4
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_hptm8"]
 resource_local_to_scene = true
 _surfaces = [{
 "aabb": AABB(-3.2630548, 0.7559887, -1.2640785, 2.279394, 1.0887398, 5.2640038),
@@ -55,8 +63,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0236609, 0.7594467, 3.9599
 [node name="PlugB" parent="WireboxRayInteractor/Wire" index="1" unique_id=1882151797]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.223061, 0.75598884, -1.2240846)
 
+[node name="WirePath" parent="WireboxRayInteractor/Wire" index="2" unique_id=594784255]
+curve = SubResource("Curve3D_ynf5e")
+
 [node name="WireMesh" parent="WireboxRayInteractor/Wire" index="3" unique_id=1945123879]
-mesh = SubResource("ArrayMesh_ynf5e")
+mesh = SubResource("ArrayMesh_hptm8")
 
 [node name="SneakyParticleInstancesToHideStutterOnFirstLoad" type="Node3D" parent="." unique_id=2114553475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 100, 100)

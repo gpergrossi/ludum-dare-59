@@ -5,6 +5,7 @@
 [ext_resource type="Material" uid="uid://ca8lj0lirlmdl" path="res://Materials/black_wire.material" id="3_klmu7"]
 
 [sub_resource type="Curve3D" id="Curve3D_344ge"]
+resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0.1, 0, 1, 0, 0, 0, -0.1, 0, 0, 1, 0, 0.99000674, 0.3, 0.00036774483, 0, 1, 0, 0, -0.1, 0, 0.0112907095, 0.3, 0.036383882, 0, 0.1, 0, 0, 0, 0, 0.0012974739, 0, 0.036751628),
 "tilts": PackedFloat32Array(0, 0, 0, 0)

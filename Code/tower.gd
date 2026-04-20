@@ -75,19 +75,19 @@ func update_color() -> void:
 		active_tower_yellow.visible = false
 	else:
 		match tower_source.color:
-			TowerSource.SourceColor.RED:
+			SourceColor.Enum.RED:
 				current_topper = active_tower_red
 				deactivated_tower.visible = false
 				active_tower_red.visible = true
 				active_tower_blue.visible = false
 				active_tower_yellow.visible = false
-			TowerSource.SourceColor.BLUE:
+			SourceColor.Enum.BLUE:
 				current_topper = active_tower_blue
 				deactivated_tower.visible = false
 				active_tower_red.visible = false
 				active_tower_blue.visible = true
 				active_tower_yellow.visible = false
-			TowerSource.SourceColor.YELLOW:
+			SourceColor.Enum.YELLOW:
 				current_topper = active_tower_blue
 				deactivated_tower.visible = false
 				active_tower_red.visible = false
@@ -101,9 +101,9 @@ func update_instrument() -> void:
 		instrument.part = null
 	else:
 		match tower_source.color:
-			TowerSource.SourceColor.RED: instrument.part = current_song.red_parts[0]
-			TowerSource.SourceColor.BLUE: instrument.part = current_song.blue_parts[0]
-			TowerSource.SourceColor.YELLOW: instrument.part = current_song.yellow_parts[0]
+			SourceColor.Enum.RED: instrument.part = current_song.red_parts[0]
+			SourceColor.Enum.BLUE: instrument.part = current_song.blue_parts[0]
+			SourceColor.Enum.YELLOW: instrument.part = current_song.yellow_parts[0]
 
 
 func _fire(_note : Note) -> void:

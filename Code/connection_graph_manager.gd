@@ -78,6 +78,39 @@ func _remove_connection(item1: Wirebox, item2: Wirebox):
 			_connections.erase(c); # Mutate during iteration only fine because we return immediately.
 			return;
 
+# Returns path
+func pathfind(source: Wirebox, destination: Wirebox) -> Array[Wirebox]:
+	var queue = [source];
+	var pathSteps: Dictionary[Wirebox, Wirebox] = {}
+	var success := false
+
+	pathSteps[source] = null
+	while (not queue.is_empty()):
+		var item = queue.pop_front();
+
+		var conns = _get_all_connections_from(item);
+		for c in conns:
+			var otherItem = c.get_other_item(item);
+			if (otherItem == destination): 
+				success = true
+				break;
+
+			if (pathSteps.has(otherItem)): continue;
+			pathSteps[otherItem] = item;
+
+			queue.push_back(otherItem);
+	
+	if success:
+		var result: Array[Wirebox] = []
+		var node := destination
+		while node != source and node != null:
+			result.append(node)
+			node = pathSteps[node]
+		result.reverse()
+		return result
+		
+	return [];
+
 # Returns true if any route exists from item1 to item2, using only the connections data
 func _are_connected_pathfind(source: Wirebox, destination: Wirebox) -> bool:
 	var queue = [source];
