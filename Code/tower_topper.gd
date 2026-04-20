@@ -6,6 +6,8 @@ class_name TowerTopper extends Node3D
 @export var tower_part: Node3D
 @export var idle_animation: StringName
 @export var attack_animation: StringName
+@export var fire_effect : TowerFireEffect
+@export var laser_color : Color
 
 func _ready() -> void:
 	if animation_player:
@@ -22,7 +24,7 @@ func resume() -> void:
 	else:
 		animation_player.play()
 
-func on_finished() -> void:
+func on_finished(anim_name : StringName) -> void:
 	animation_player.play(idle_animation)
 
 func attack() -> void:

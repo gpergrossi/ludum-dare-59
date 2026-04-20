@@ -1,6 +1,7 @@
 [gd_scene format=4 uid="uid://cio1q1sb1a77m"]
 
 [ext_resource type="ArrayMesh" uid="uid://b5xylqpd07rpf" path="res://Models/Blair/Bolt.tres" id="1_d5082"]
+[ext_resource type="Script" uid="uid://cr8xeiv1iglwx" path="res://Code/tower_fire_effect.gd" id="1_xu34n"]
 [ext_resource type="ArrayMesh" uid="uid://cv5eeds7s7jph" path="res://Models/Blair/Pill_Shape.tres" id="2_6glgt"]
 
 [sub_resource type="Curve" id="Curve_ajhwj"]
@@ -93,10 +94,15 @@ scale_curve = SubResource("CurveTexture_5ivhe")
 color_ramp = SubResource("GradientTexture1D_73pwt")
 alpha_curve = SubResource("CurveTexture_e8loj")
 
-[node name="Yellow_Tower" type="Node3D" unique_id=1422476025]
+[node name="Yellow_Tower" type="Node3D" unique_id=1422476025 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_xu34n")
+particles = [NodePath("Offsetter/Bolt_01"), NodePath("Offsetter/Bolt_02"), NodePath("Offsetter/Sparks")]
 
-[node name="Bolt_01" type="GPUParticles3D" parent="." unique_id=579193806]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+[node name="Offsetter" type="Node3D" parent="." unique_id=1486027204]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.61450434)
+
+[node name="Bolt_01" type="GPUParticles3D" parent="Offsetter" unique_id=579193806]
+transform = Transform3D(-4.371139e-08, -0.7071067, 0.70710677, 0, 0.70710677, 0.7071067, -1, 3.0908616e-08, -3.0908616e-08, 0, 0, 0)
 amount = 6
 lifetime = 0.3
 explosiveness = 0.7
@@ -104,8 +110,8 @@ randomness = 0.45
 process_material = SubResource("ParticleProcessMaterial_a77cq")
 draw_pass_1 = ExtResource("1_d5082")
 
-[node name="Bolt_02" type="GPUParticles3D" parent="." unique_id=1265673036]
-transform = Transform3D(1, 0, 0, 0, 0.70710677, -0.70710677, 0, 0.70710677, 0.70710677, 0, 0, 0)
+[node name="Bolt_02" type="GPUParticles3D" parent="Offsetter" unique_id=1265673036]
+transform = Transform3D(-4.371139e-08, 0.7071067, 0.70710677, 0, 0.70710677, -0.7071067, -1, -3.0908616e-08, -3.0908616e-08, 0, 0, 0)
 amount = 6
 lifetime = 0.5
 explosiveness = 0.7
@@ -113,7 +119,8 @@ randomness = 0.44
 process_material = SubResource("ParticleProcessMaterial_a77cq")
 draw_pass_1 = SubResource("ArrayMesh_wbj0a")
 
-[node name="Sparks" type="GPUParticles3D" parent="." unique_id=633043271]
+[node name="Sparks" type="GPUParticles3D" parent="Offsetter" unique_id=633043271]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 amount = 12
 lifetime = 0.5
 explosiveness = 0.8

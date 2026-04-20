@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://bp5lojg5n1kef"]
 
 [ext_resource type="ArrayMesh" uid="uid://cv5eeds7s7jph" path="res://Models/Blair/Pill_Shape.tres" id="1_iql4m"]
+[ext_resource type="Script" uid="uid://cr8xeiv1iglwx" path="res://Code/tower_fire_effect.gd" id="1_kll2o"]
 
 [sub_resource type="Curve" id="Curve_0wten"]
 _data = [Vector2(0, 1), 0.0, -0.7124417, 0, 0, Vector2(1, 0), -3.5474303, 0.0, 0, 0]
@@ -72,17 +73,23 @@ scale_curve = SubResource("CurveTexture_imjec")
 color_ramp = SubResource("GradientTexture1D_pfyhb")
 alpha_curve = SubResource("CurveTexture_hkilh")
 
-[node name="Red_Tower" type="Node3D" unique_id=2061785939]
+[node name="Red_Tower" type="Node3D" unique_id=2061785939 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_kll2o")
+particles = [NodePath("Offsetter/Rings"), NodePath("Offsetter/Sparks")]
 
-[node name="Rings" type="GPUParticles3D" parent="." unique_id=963928303]
-transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0, 0, 0)
+[node name="Offsetter" type="Node3D" parent="." unique_id=210405800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.4)
+
+[node name="Rings" type="GPUParticles3D" parent="Offsetter" unique_id=963928303]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0, 0)
 amount = 4
 lifetime = 0.5
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_ajhwj")
 draw_pass_1 = SubResource("TorusMesh_80tqf")
 
-[node name="Sparks" type="GPUParticles3D" parent="." unique_id=1854375521]
+[node name="Sparks" type="GPUParticles3D" parent="Offsetter" unique_id=1854375521]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 amount = 16
 lifetime = 0.3
 explosiveness = 1.0
