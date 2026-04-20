@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bq4u5awlg3ngs"]
 
-[ext_resource type="Script" uid="uid://cexhh36e3i3vd" path="res://Code/enemy_death_effect.gd" id="1_cg4u3"]
-[ext_resource type="Material" uid="uid://bt0ffhlipgue8" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v01.tres" id="1_i42dk"]
+[ext_resource type="Script" uid="uid://cexhh36e3i3vd" path="res://Code/enemy_death_effect.gd" id="1_o756r"]
+[ext_resource type="Material" uid="uid://bt0ffhlipgue8" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v01.tres" id="2_ver5x"]
 
 [sub_resource type="Curve" id="Curve_65s3f"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.3488653, 0.0, 0, 0]
@@ -10,12 +10,12 @@ point_count = 2
 [sub_resource type="CurveTexture" id="CurveTexture_ajhwj"]
 curve = SubResource("Curve_65s3f")
 
-[sub_resource type="Gradient" id="Gradient_cb3m2"]
-offsets = PackedFloat32Array(0, 0.6545842, 1)
-colors = PackedColorArray(0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 1)
+[sub_resource type="Gradient" id="Gradient_cg4u3"]
+offsets = PackedFloat32Array(0.46908316, 0.8507463)
+colors = PackedColorArray(0.5019608, 0.34901962, 0.2, 1, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_80tqf"]
-gradient = SubResource("Gradient_cb3m2")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_fr625"]
+gradient = SubResource("Gradient_cg4u3")
 
 [sub_resource type="Curve" id="Curve_svv8j"]
 _data = [Vector2(0, 0), 0.0, 3.261434, 0, 0, Vector2(0.49112424, 1), 0.0, 0.0, 0, 0, Vector2(0.9980277, 0.64183986), -1.8628478, 0.0, 0, 0]
@@ -29,33 +29,29 @@ direction = Vector3(0, 0.625, 0)
 flatness = 0.15
 initial_velocity_min = 12.5
 initial_velocity_max = 16.6
-angular_velocity_min = -80.90002
-angular_velocity_max = 89.359985
+angular_velocity_min = -394.38
+angular_velocity_max = 336.58
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 10.619977
 gravity = Vector3(0, -20, 0)
 tangential_accel_min = -10.000002
 tangential_accel_max = 9.999997
-scale_min = 0.5
-scale_max = 1.5
+scale_min = 2.0
+scale_max = 3.0
 scale_curve = SubResource("CurveTexture_a77cq")
-color = Color(0.3718729, 0.345951, 0.86280453, 1)
-color_ramp = SubResource("GradientTexture1D_80tqf")
+color_ramp = SubResource("GradientTexture1D_fr625")
 alpha_curve = SubResource("CurveTexture_ajhwj")
-hue_variation_min = -0.15000002
-hue_variation_max = 0.14999998
 turbulence_noise_scale = 10.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_hnl2r"]
-material = ExtResource("1_i42dk")
-size = Vector3(0.134, 0.1, 0.1)
+material = ExtResource("2_ver5x")
 
 [node name="Exploding_Enemy_v01" type="Node3D" unique_id=1303959735 node_paths=PackedStringArray("particles")]
-script = ExtResource("1_cg4u3")
+script = ExtResource("1_o756r")
 particles = [NodePath("Burst_01")]
 
 [node name="Burst_01" type="GPUParticles3D" parent="." unique_id=861896065]
-amount = 12
+amount = 16
 speed_scale = 1.5
 explosiveness = 1.0
 randomness = 0.7

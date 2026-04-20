@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://d2jnplfxn5ow6" path="res://Models/Blair/Effects/wave_V01.tscn" id="1_rnygb"]
 [ext_resource type="PackedScene" uid="uid://m4gjd6ne71iv" path="res://Effects/Home_Aura.tscn" id="2_0wten"]
-[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Models/Blair/Effects/exploding_enemy_v_01.tscn" id="2_bth6n"]
+[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Effects/Home_Base_Damage.tscn" id="2_bth6n"]
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="2_jaxfx"]
 [ext_resource type="PackedScene" uid="uid://cugwjnx11ydku" path="res://Effects/Blue_Tower.tscn" id="5_0wten"]
 [ext_resource type="PackedScene" uid="uid://bp5lojg5n1kef" path="res://Effects/Red_Tower.tscn" id="6_6b7rc"]

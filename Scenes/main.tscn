@@ -8,7 +8,7 @@
 [ext_resource type="Script" uid="uid://dljcwksvcacnc" path="res://Code/wirebox_ray_interactor.gd" id="4_jjvhh"]
 [ext_resource type="Script" uid="uid://dygfthcffwoso" path="res://Code/every_ui.gd" id="5_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cxryvqj7s6ok1" path="res://Scenes/Wiring/wire.tscn" id="6_21xkr"]
-[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Models/Blair/Effects/exploding_enemy_v_01.tscn" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Effects/Home_Base_Damage.tscn" id="7_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="9_d1ilt"]
 
