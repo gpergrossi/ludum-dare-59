@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bo4gonjkh7aoh"]
+
+[ext_resource type="PackedScene" uid="uid://ea2xq2hsgqdb" path="res://Models/LevelDesign/SourceMeshes/red_tower_01.glb" id="1_yoyei"]
+[ext_resource type="Material" uid="uid://d25cv12kpc5ro" path="res://Materials/ImportedMats/RedSource_Emissive.tres" id="2_cga26"]
+
+[node name="red_tower_01" unique_id=1063376847 instance=ExtResource("1_yoyei")]
+
+[node name="red_center" parent="redtower/Skeleton3D/Bone_001" parent_id_path=PackedInt32Array(1640315690) index="0" unique_id=1054973210]
+surface_material_override/0 = ExtResource("2_cga26")
+
+[node name="red_torus" parent="redtower/Skeleton3D/Bone_002" parent_id_path=PackedInt32Array(720710917) index="0" unique_id=879007928]
+surface_material_override/0 = ExtResource("2_cga26")
