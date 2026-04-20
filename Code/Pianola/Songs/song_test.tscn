@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="6_00xhu"]
 [ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="7_5ak60"]
 [ext_resource type="Script" uid="uid://6ew2r47t6bru" path="res://Code/Pianola/Songs/song2.gd" id="9_8edr7"]
+[ext_resource type="Script" uid="uid://cisibvv02nubf" path="res://Code/Pianola/Songs/song_loader.gd" id="10_0yiqn"]
+[ext_resource type="Script" uid="uid://cmcx1uh6ogujs" path="res://Code/Pianola/Songs/csv_loader.gd" id="11_00xhu"]
 
 [node name="SongTest" type="Node3D" unique_id=525543952]
 script = ExtResource("1_epi8r")
@@ -52,3 +54,9 @@ script = ExtResource("7_5ak60")
 
 [node name="Song2 Generator" type="Node" parent="." unique_id=1603786032]
 script = ExtResource("9_8edr7")
+
+[node name="Song Loader" type="Node" parent="." unique_id=2038984424]
+script = ExtResource("10_0yiqn")
+
+[node name="CSV Loader" type="Node" parent="." unique_id=1395146418]
+script = ExtResource("11_00xhu")
