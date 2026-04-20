@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://u6qt80cdu6pm" path="res://Code/enemy_base.gd" id="1_j6dty"]
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_qar88"]
+[ext_resource type="Material" uid="uid://bcswjwcfdjo3j" path="res://Materials/Darkness/darkness.tres" id="3_wcs5p"]
+[ext_resource type="PackedScene" uid="uid://cy31c6i7d5qq2" path="res://Models/LevelDesign/AssetScenes/EnemySpawn_Tube_01.tscn" id="4_juc5d"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jkdf5"]
 material = ExtResource("1_qar88")
@@ -10,11 +12,14 @@ size = Vector3(1, 0.2, 1)
 [sub_resource type="BoxShape3D" id="BoxShape3D_nelge"]
 size = Vector3(1, 0.2, 1)
 
+[sub_resource type="CylinderMesh" id="CylinderMesh_kr5sp"]
+
 [node name="EnemyBase" type="Node3D" unique_id=119988933]
 script = ExtResource("1_j6dty")
 
 [node name="EnemyBase" type="MeshInstance3D" parent="." unique_id=430080185]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.1, 0.5)
+visible = false
 mesh = SubResource("BoxMesh_jkdf5")
 
 [node name="ClickableBody" type="StaticBody3D" parent="." unique_id=1851142055]
@@ -26,3 +31,11 @@ input_capture_on_drag = true
 [node name="CollisionShape3D" type="CollisionShape3D" parent="ClickableBody" unique_id=1884836907]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
 shape = SubResource("BoxShape3D_nelge")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="." unique_id=1522832432]
+transform = Transform3D(2.5, 0, 0, 0, -4.371139e-08, 2.5, 0, -1, -1.09278474e-07, 2, 1.75, 1.4)
+mesh = SubResource("CylinderMesh_kr5sp")
+material = ExtResource("3_wcs5p")
+
+[node name="SpawnPoint_01" parent="." unique_id=425512584 instance=ExtResource("4_juc5d")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 2, 0, -1)
