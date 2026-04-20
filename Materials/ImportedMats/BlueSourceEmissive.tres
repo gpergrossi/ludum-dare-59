@@ -2,9 +2,12 @@
 
 [resource]
 resource_name = "Tile_Base"
+transparency = 1
+cull_mode = 1
 vertex_color_use_as_albedo = true
 albedo_color = Color(0.28399998, 0.40469995, 0.71, 1)
 metallic = 0.8
-roughness = 0.4
+metallic_specular = 0.7
+roughness = 0.25
 emission = Color(1, 1, 1, 1)
 emission_energy_multiplier = 0.0
