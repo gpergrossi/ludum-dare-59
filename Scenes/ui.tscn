@@ -59,9 +59,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdvrb")
-text = "you lose :(((((
-
-thank you for trying anyways."
+text = "placeholder text!"
 label_settings = SubResource("LabelSettings_wviqb")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -88,4 +86,4 @@ theme_override_constants/margin_bottom = 40
 unique_name_in_owner = true
 visible = false
 layout_mode = 2
-text = "I want to try again!"
+text = "placeholder text!"

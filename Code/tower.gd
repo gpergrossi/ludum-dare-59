@@ -55,7 +55,7 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
 	update_color()
-	level.song_changed.connect(on_song_changed)
+	Pianola.INSTANCE.song_changed.connect(on_song_changed)
 	update_instrument()
 
 
