@@ -18,10 +18,10 @@
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
 
-[node name="Tower" type="Node3D" unique_id=1918667656 node_paths=PackedStringArray("tower_animation_player")]
+[node name="Tower" type="Node3D" unique_id=1918667656]
 script = ExtResource("2_d6h38")
 max_range = 5.0
-tower_animation_player = NodePath("ActiveTower_YELLOW/Yellow_tower_01/AnimationPlayer")
+tower_animation_find_keys = Array[String](["Yellow_tower_01", "AnimationPlayer"])
 tower_idle_animation = &"Yellow_node"
 tower_attack_animation = &"Yellow_Attack"
 
