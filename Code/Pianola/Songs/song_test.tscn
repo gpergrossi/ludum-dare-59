@@ -2,11 +2,14 @@
 
 [ext_resource type="Script" uid="uid://yw304dqugcvr" path="res://Code/Pianola/Songs/song_test.gd" id="1_epi8r"]
 [ext_resource type="Script" uid="uid://cui06kk8rhakp" path="res://Code/Pianola/instrument.gd" id="2_hbsty"]
-[ext_resource type="Resource" uid="uid://cirmgcdn0gf23" path="res://Code/Pianola/Songs/kicks_resource.tres" id="3_lam7s"]
-[ext_resource type="Resource" uid="uid://dcm6hp2fegf1y" path="res://Code/Pianola/Songs/hihats_resource.tres" id="4_8edr7"]
+[ext_resource type="Resource" uid="uid://coyixbck5i4h" path="res://Code/Pianola/Songs/drums_resource.tres" id="3_lam7s"]
+[ext_resource type="AudioStream" uid="uid://csdjcna8ei7tf" path="res://Audio/Drums/kick_drum_1.ogg" id="4_0yiqn"]
+[ext_resource type="AudioStream" uid="uid://7rqocfvai06w" path="res://Audio/Drums/hihat_1.ogg" id="5_00xhu"]
 [ext_resource type="Resource" uid="uid://buutl6rh7kdp0" path="res://Code/Pianola/Songs/synth_resource.tres" id="5_0yiqn"]
 [ext_resource type="Resource" uid="uid://dk7lm6xbahsdy" path="res://Code/Pianola/Songs/marimba_resource.tres" id="5_lam7s"]
 [ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="6_00xhu"]
+[ext_resource type="AudioStream" uid="uid://7auudrsd4dlp" path="res://Audio/Drums/hihat_4.ogg" id="6_5ak60"]
+[ext_resource type="AudioStream" uid="uid://rvw8wetdfvbx" path="res://Audio/Synth0/A5.wav" id="6_8edr7"]
 [ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="7_5ak60"]
 [ext_resource type="Script" uid="uid://6ew2r47t6bru" path="res://Code/Pianola/Songs/song2.gd" id="9_8edr7"]
 
@@ -15,32 +18,37 @@ script = ExtResource("1_epi8r")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=101434336]
 
-[node name="Kickstrument" type="AudioStreamPlayer3D" parent="." unique_id=1771322554]
+[node name="Drumstrument" type="AudioStreamPlayer3D" parent="." unique_id=1964019263]
 unique_name_in_owner = true
+attenuation_model = 3
 script = ExtResource("2_hbsty")
 part = ExtResource("3_lam7s")
 disable_autoregister = true
-metadata/_custom_type_script = "uid://cui06kk8rhakp"
-
-[node name="Hihatstrument" type="AudioStreamPlayer3D" parent="." unique_id=1964019263]
-unique_name_in_owner = true
-script = ExtResource("2_hbsty")
-part = ExtResource("4_8edr7")
-disable_autoregister = true
+samples_folder = "res://Audio/Drums"
+manual_sample_override = Dictionary[int, AudioStream]({
+35: ExtResource("4_0yiqn"),
+42: ExtResource("5_00xhu"),
+44: ExtResource("6_5ak60")
+})
 metadata/_custom_type_script = "uid://cui06kk8rhakp"
 
 [node name="Marimbastrument" type="AudioStreamPlayer3D" parent="." unique_id=1791699737]
 unique_name_in_owner = true
+attenuation_model = 3
 script = ExtResource("2_hbsty")
 part = ExtResource("5_lam7s")
 disable_autoregister = true
+samples_folder = "res://Audio/Marimba0"
 metadata/_custom_type_script = "uid://cui06kk8rhakp"
 
 [node name="Synthstrument" type="AudioStreamPlayer3D" parent="." unique_id=1968078358]
 unique_name_in_owner = true
+stream = ExtResource("6_8edr7")
+attenuation_model = 3
 script = ExtResource("2_hbsty")
 part = ExtResource("5_0yiqn")
 disable_autoregister = true
+samples_folder = "res://Audio/Synth0"
 metadata/_custom_type_script = "uid://cui06kk8rhakp"
 
 [node name="Pianola Test Instance" type="Node" parent="." unique_id=1813119474]

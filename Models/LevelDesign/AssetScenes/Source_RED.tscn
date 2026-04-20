@@ -19,7 +19,7 @@ tower_part = NodePath("red_tower_02")
 idle_animation = &"Red_idle"
 wirebox = NodePath("Recepticals/Wirebox")
 
-[node name="Source_BaseCircle" parent="." index="0" unique_id=870890670]
+[node name="Source_BaseCircle" parent="." index="0" unique_id=867288449]
 transform = Transform3D(-296.39352, 2.5911542e-05, 1.1326295e-12, 0, -1.2955771e-05, 296.3935, 2.5911544e-05, 296.3935, 1.2955771e-05, 0, 0, 4.7683716e-07)
 surface_material_override/0 = ExtResource("2_3jiaj")
 surface_material_override/1 = ExtResource("3_uqoga")

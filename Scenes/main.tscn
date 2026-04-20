@@ -40,6 +40,10 @@ _surfaces = [{
 [node name="Main" type="Node3D" unique_id=1096836237]
 script = ExtResource("1_jjgbg")
 
+[node name="Ui" parent="." unique_id=435459739 instance=ExtResource("3_8gbba")]
+unique_name_in_owner = true
+script = ExtResource("5_hptm8")
+
 [node name="Level" parent="." unique_id=1504116293 node_paths=PackedStringArray("ui") instance=ExtResource("2_ynf5e")]
 transform = Transform3D(1, 2.9802322e-08, 0, 2.9802322e-08, 1, -2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0)
 ui = NodePath("../Ui")
@@ -57,10 +61,6 @@ transform = Transform3D(0.7071068, 0.5416752, -0.4545195, 0, 0.64278764, 0.76604
 fov = 50.0
 script = ExtResource("3_kry3j")
 cam_bounds = NodePath("../CameraBounds")
-
-[node name="Ui" parent="." unique_id=435459739 instance=ExtResource("3_8gbba")]
-unique_name_in_owner = true
-script = ExtResource("5_hptm8")
 
 [node name="WireboxRayInteractor" type="Node3D" parent="." unique_id=379869970]
 script = ExtResource("4_jjvhh")

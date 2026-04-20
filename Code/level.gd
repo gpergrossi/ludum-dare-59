@@ -4,10 +4,12 @@ class_name Level extends Node3D
 const GRID_SIZE = 1.0
 
 @export var lanes: Array[Lane] = []
-@export var ui: EveryUi
+@export var songs: Array[Song] = []
 
 @export var max_health : float = 100.0
 @export var current_health : float
+
+@export var ui: EveryUi
 
 signal song_changed(song: Song)
 

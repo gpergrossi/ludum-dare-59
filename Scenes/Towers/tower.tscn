@@ -24,6 +24,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_x5f2w"]
 
 [node name="Tower" type="Node3D" unique_id=1918667656]
+process_mode = 4
 script = ExtResource("2_d6h38")
 max_range = 5.0
 

@@ -1,5 +1,6 @@
 # @author Vivian
 
+@tool
 class_name Song1 extends SongGenerator
 
 const PARTS: Dictionary[String, Part] = {
@@ -74,7 +75,7 @@ const spawnBall := EnemyType.Enum.Ball
 const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
-	var song = Song.new();
+	song = Song.new();
 	song.blue_parts.append_array([ PARTS.kick ])
 	song.red_parts.append_array([ PARTS.hihat ])
 	song.yellow_parts.append_array([ PARTS.synth ])
@@ -141,5 +142,7 @@ static func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyTy
 	note.part = part;
 	note.audio_stream = audio;
 	note.spawn_enemy = enemy;
+	note.volume_scale = 0.01
+	note.duration = 0.0
 	
 	return note;

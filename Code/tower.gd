@@ -55,6 +55,10 @@ func _ready() -> void:
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
 	update_color()
+	if level == null:
+		push_error("Level is null")
+		process_mode = Node.PROCESS_MODE_DISABLED
+		return
 	level.song_changed.connect(on_song_changed)
 	update_instrument()
 

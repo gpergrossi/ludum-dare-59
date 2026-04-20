@@ -1,5 +1,6 @@
 # @author Vivian
 
+@tool
 class_name Song2 extends SongGenerator
 
 const PARTS: Dictionary[String, Resource] = {
@@ -10,6 +11,7 @@ const PARTS: Dictionary[String, Resource] = {
 	"spawn1": preload("uid://c25sck87yn44s"),
 	"spawn2": preload("uid://tf55e001gar5"),
 	"spawn3": preload("uid://ctvecbluw3187"),
+	"drums": preload("uid://coyixbck5i4h")
 }
 
 const kick: AudioStream = preload("res://Audio/Drums/kick_drum_1.ogg");
@@ -144,6 +146,142 @@ const m93: AudioStream = preload("res://Audio/Marimba0/note_093_A6.wav");
 const m94: AudioStream = preload("res://Audio/Marimba0/note_094_A#6.wav");
 const m95: AudioStream = preload("res://Audio/Marimba0/note_095_B6.wav");
 
+static func get_note(stream: AudioStream) -> Note.NoteName:
+	if lookup_notes.is_empty(): make_notes_lookup()
+	if not lookup_notes.has(stream): return Note.NoteName.No_Note
+	return lookup_notes[stream]
+
+static var lookup_notes: Dictionary[AudioStream, Note.NoteName] = {}
+static func make_notes_lookup() -> void:
+	lookup_notes = {
+		hihat1: Note.NoteName.Perc_Hihat_1,
+		hihat2: Note.NoteName.Perc_Hihat_2,
+		hihat3: Note.NoteName.Perc_Hihat_1,
+		hihat4: Note.NoteName.Perc_Hihat_2,
+		kick: Note.NoteName.Perc_Bass_Drum_1,
+		s1: Note.NoteName.C2,
+		s1s: Note.NoteName.Cs2,
+		s2: Note.NoteName.D2,
+		s2s: Note.NoteName.Ds2,
+		s3: Note.NoteName.E2,
+		s4: Note.NoteName.F2,
+		s4s: Note.NoteName.Fs2,
+		s5: Note.NoteName.G2,
+		s5s: Note.NoteName.Gs2,
+		s6: Note.NoteName.A2,
+		s6s: Note.NoteName.As2,
+		s7: Note.NoteName.B2,
+		s8: Note.NoteName.C3,
+		s8s: Note.NoteName.Cs3,
+		s9: Note.NoteName.D3,
+		s9s: Note.NoteName.Ds3,
+		s10: Note.NoteName.E3,
+		s11: Note.NoteName.F3,
+		s11s: Note.NoteName.Fs3,
+		s12: Note.NoteName.G3,
+		s12s: Note.NoteName.Gs3,
+		s13: Note.NoteName.A3,
+		s13s: Note.NoteName.As3,
+		s14: Note.NoteName.B3,
+		s15: Note.NoteName.C4,
+		s15s: Note.NoteName.Cs4,
+		s16: Note.NoteName.D4,
+		s16s: Note.NoteName.Ds4,
+		s17: Note.NoteName.E4,
+		s18: Note.NoteName.F4,
+		s18s: Note.NoteName.Fs4,
+		s19: Note.NoteName.G4,
+		s19s: Note.NoteName.Gs4,
+		s20: Note.NoteName.A4,
+		s20s: Note.NoteName.As4,
+		s21: Note.NoteName.B4,
+		s22: Note.NoteName.C5,
+		s22s: Note.NoteName.Cs5,
+		s23: Note.NoteName.D5,
+		s23s: Note.NoteName.Ds5,
+		s24: Note.NoteName.E5,
+		s25: Note.NoteName.F5,
+		s25s: Note.NoteName.Fs5,
+		s26: Note.NoteName.G5,
+		s26s: Note.NoteName.Gs5,
+		s27: Note.NoteName.A5,
+		s27s: Note.NoteName.As5,
+		s28: Note.NoteName.B5,
+		s29: Note.NoteName.C6,
+		m24: Note.NoteName.C1,
+		m25: Note.NoteName.Cs1,
+		m26: Note.NoteName.D1,
+		m27: Note.NoteName.Ds1,
+		m28: Note.NoteName.E1,
+		m29: Note.NoteName.F1,
+		m30: Note.NoteName.Fs1,
+		m31: Note.NoteName.G1,
+		m32: Note.NoteName.Gs1,
+		m33: Note.NoteName.A1,
+		m34: Note.NoteName.As1,
+		m35: Note.NoteName.B1,
+		m36: Note.NoteName.C2,
+		m37: Note.NoteName.Cs2,
+		m38: Note.NoteName.D2,
+		m39: Note.NoteName.Ds2,
+		m40: Note.NoteName.E2,
+		m41: Note.NoteName.F2,
+		m42: Note.NoteName.Fs2,
+		m43: Note.NoteName.G2,
+		m44: Note.NoteName.Gs2,
+		m45: Note.NoteName.A2,
+		m46: Note.NoteName.As2,
+		m47: Note.NoteName.B2,
+		m48: Note.NoteName.C3,
+		m49: Note.NoteName.Cs3,
+		m50: Note.NoteName.D3,
+		m51: Note.NoteName.Ds3,
+		m52: Note.NoteName.E3,
+		m53: Note.NoteName.F3,
+		m54: Note.NoteName.Fs3,
+		m55: Note.NoteName.G3,
+		m56: Note.NoteName.Gs3,
+		m57: Note.NoteName.A3,
+		m58: Note.NoteName.As3,
+		m59: Note.NoteName.B3,
+		m60: Note.NoteName.C4,
+		m61: Note.NoteName.Cs4,
+		m62: Note.NoteName.D4,
+		m63: Note.NoteName.Ds4,
+		m64: Note.NoteName.E4,
+		m65: Note.NoteName.F4,
+		m66: Note.NoteName.Fs4,
+		m67: Note.NoteName.G4,
+		m68: Note.NoteName.Gs4,
+		m69: Note.NoteName.A4,
+		m70: Note.NoteName.As4,
+		m71: Note.NoteName.B4,
+		m72: Note.NoteName.C5,
+		m73: Note.NoteName.Cs5,
+		m74: Note.NoteName.D5,
+		m75: Note.NoteName.Ds5,
+		m76: Note.NoteName.E5,
+		m77: Note.NoteName.F5,
+		m78: Note.NoteName.Fs5,
+		m79: Note.NoteName.G5,
+		m80: Note.NoteName.Gs5,
+		m81: Note.NoteName.A5,
+		m82: Note.NoteName.As5,
+		m83: Note.NoteName.B5,
+		m84: Note.NoteName.C6,
+		m85: Note.NoteName.Cs6,
+		m86: Note.NoteName.D6,
+		m87: Note.NoteName.Ds6,
+		m88: Note.NoteName.E6,
+		m89: Note.NoteName.F6,
+		m90: Note.NoteName.Fs6,
+		m91: Note.NoteName.G6,
+		m92: Note.NoteName.Gs6,
+		m93: Note.NoteName.A6,
+		m94: Note.NoteName.As6,
+		m95: Note.NoteName.B6,
+	}
+
 # Rest. 3-char abbreviation so that it lines up visually with the 3-character sound codes.
 const rst := null;
 
@@ -153,17 +291,17 @@ const spawnBall := EnemyType.Enum.Ball
 const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
-	var song = Song.new();
-	song.blue_parts.append_array([ PARTS.kick ])
-	song.red_parts.append_array([ PARTS.hihat ])
+	song = Song.new();
+	song.blue_parts.append_array([ PARTS.drums ])
+	song.red_parts.append_array([ PARTS.drums ])
 	song.yellow_parts.append_array([ PARTS.marimba ])
-	addPattern(song, PARTS.kick,  0, 120, [
+	addPattern(song, PARTS.drums,  0, 120, [
 		kick, null, null, null,
 		null, null, null, null,
 		kick, kick, null, null,
 		kick, kick, null, null,
 	], 2.0);
-	addPattern(song, PARTS.hihat, 0, 120, [
+	addPattern(song, PARTS.drums, 0, 120, [
 		hihat1, hihat2, null, null,
 		hihat3, hihat4, null, null,
 	], 2.0);
@@ -347,5 +485,8 @@ static func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyTy
 	note.part = part;
 	note.audio_stream = audio;
 	note.spawn_enemy = enemy;
+	note.volume_scale = 1.0
+	note.duration = 0.0
+	note.note = get_note(audio)
 	
 	return note;

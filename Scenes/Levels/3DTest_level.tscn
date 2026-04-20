@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dxw36oi8fcue5" path="res://Code/level.gd" id="1_51b2r"]
 [ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="2_2sxju"]
+[ext_resource type="Script" uid="uid://bs6smf13o4cct" path="res://Code/Pianola/song.gd" id="2_ertfi"]
 [ext_resource type="Environment" uid="uid://twvtitxyyrv5" path="res://Models/LevelDesign/WorldEnvironment_T01.tres" id="2_jtpw3"]
 [ext_resource type="PackedScene" uid="uid://dv0do0uo2yue7" path="res://Scenes/Towers/tower.tscn" id="3_51j0e"]
 [ext_resource type="PackedScene" uid="uid://bfvnp8232ue17" path="res://Scenes/Tiles/home_base.tscn" id="7_kkkvx"]
@@ -71,9 +72,15 @@ _data = {
 }
 point_count = 47
 
+[sub_resource type="PlaneMesh" id="PlaneMesh_ertfi"]
+size = Vector2(11, 8)
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_kkkvx"]
+
 [node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_51b2r")
 lanes = [NodePath("Lanes/Lane1")]
+songs = Array[ExtResource("2_ertfi")]([null])
 current_health = 100.0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=274476349]
@@ -2021,3 +2028,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
 [node name="Lane_2" parent="." unique_id=244853731 instance=ExtResource("20_ertfi")]
 
 [node name="Lane_3" parent="." unique_id=1010502129 instance=ExtResource("21_kkkvx")]
+
+[node name="Under Plane" type="Node3D" parent="." unique_id=121042178]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Under Plane" unique_id=246409781]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+visible = false
+mesh = SubResource("PlaneMesh_ertfi")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Under Plane" unique_id=596106725]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Under Plane/StaticBody3D" unique_id=1837373870]
+shape = SubResource("WorldBoundaryShape3D_kkkvx")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." unique_id=258940658]
