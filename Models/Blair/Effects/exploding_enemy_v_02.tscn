@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://i1kv84ownrhc"]
 
 [ext_resource type="Material" uid="uid://dvsu0v71on80" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v02.tres" id="1_2y0a3"]
+[ext_resource type="Script" uid="uid://cexhh36e3i3vd" path="res://Code/enemy_death_effect.gd" id="1_g1r82"]
 
 [sub_resource type="Curve" id="Curve_ajhwj"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -3.3488653, 0.0, 0, 0]
@@ -41,8 +42,12 @@ hue_variation_max = 0.14999998
 
 [sub_resource type="SphereMesh" id="SphereMesh_daftk"]
 material = ExtResource("1_2y0a3")
+radius = 0.05
+height = 0.1
 
-[node name="Exploding_Enemy_v02" type="Node3D" unique_id=233097901]
+[node name="Exploding_Enemy_v02" type="Node3D" unique_id=233097901 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_g1r82")
+particles = [NodePath("Burst_02")]
 
 [node name="Burst_02" type="GPUParticles3D" parent="." unique_id=287924255]
 amount = 12

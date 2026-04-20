@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_613su"]
 [ext_resource type="Script" uid="uid://c1mxb1d1jjfhe" path="res://Code/enemy.gd" id="1_roq2e"]
+[ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="2_yy3eo"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_d1ilt"]
 material = ExtResource("1_613su")
@@ -9,6 +10,7 @@ size = Vector3(0.5, 0.5, 0.5)
 
 [node name="Enemy" type="Node3D" unique_id=2052101982 groups=["Enemies"]]
 script = ExtResource("1_roq2e")
+death_effect = ExtResource("2_yy3eo")
 
 [node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

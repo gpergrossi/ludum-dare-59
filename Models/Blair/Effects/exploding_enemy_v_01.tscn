@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://bq4u5awlg3ngs"]
 
+[ext_resource type="Script" uid="uid://cexhh36e3i3vd" path="res://Code/enemy_death_effect.gd" id="1_cg4u3"]
 [ext_resource type="Material" uid="uid://bt0ffhlipgue8" path="res://Models/Blair/Particle_Mats/Exploding_Enemy_Mat_v01.tres" id="1_i42dk"]
 
 [sub_resource type="Curve" id="Curve_65s3f"]
@@ -28,8 +29,8 @@ direction = Vector3(0, 0.625, 0)
 flatness = 0.15
 initial_velocity_min = 12.5
 initial_velocity_max = 16.6
-angular_velocity_min = -331.33002
-angular_velocity_max = 351.71997
+angular_velocity_min = -80.90002
+angular_velocity_max = 89.359985
 radial_velocity_min = -2.2351742e-05
 radial_velocity_max = 10.619977
 gravity = Vector3(0, -20, 0)
@@ -47,9 +48,11 @@ turbulence_noise_scale = 10.0
 
 [sub_resource type="BoxMesh" id="BoxMesh_hnl2r"]
 material = ExtResource("1_i42dk")
-size = Vector3(1.34, 1, 1)
+size = Vector3(0.134, 0.1, 0.1)
 
-[node name="Exploding_Enemy_v01" type="Node3D" unique_id=1303959735]
+[node name="Exploding_Enemy_v01" type="Node3D" unique_id=1303959735 node_paths=PackedStringArray("particles")]
+script = ExtResource("1_cg4u3")
+particles = [NodePath("Burst_01")]
 
 [node name="Burst_01" type="GPUParticles3D" parent="." unique_id=861896065]
 amount = 12

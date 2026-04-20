@@ -13,6 +13,9 @@ class_name Enemy extends Node3D
 # How much damage this deals to the player.
 @export var damage := 10.0
 
+# Should be a EnemyDeathEffect
+@export var death_effect : PackedScene
+
 # Fired when the enemy reaches the end of the curve.
 signal on_reach_end()
 
@@ -37,5 +40,7 @@ func _process(delta: float) -> void:
 func take_damage(taken : float):
 	health -= taken
 	if health < 0.0:
+		var effect : EnemyDeathEffect = death_effect.instantiate()
+		get_parent().add_child(effect)
+		effect.global_transform = global_transform
 		queue_free()
-		# TODO some animation

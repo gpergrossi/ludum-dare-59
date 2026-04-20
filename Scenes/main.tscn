@@ -6,6 +6,9 @@
 [ext_resource type="Script" uid="uid://dwwi6ih3a5sv6" path="res://Code/camera_controller.gd" id="3_kry3j"]
 [ext_resource type="Script" uid="uid://dljcwksvcacnc" path="res://Code/wirebox_ray_interactor.gd" id="4_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://cxryvqj7s6ok1" path="res://Scenes/Wiring/wire.tscn" id="6_21xkr"]
+[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Models/Blair/Effects/exploding_enemy_v_01.tscn" id="7_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
+[ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="9_d1ilt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_344ge"]
 sky_top_color = Color(0.28346398, 0.5040741, 0.39693835, 1)
@@ -20,7 +23,7 @@ sky_material = SubResource("ProceduralSkyMaterial_344ge")
 background_mode = 2
 sky = SubResource("Sky_ynf5e")
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_21xkr"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_6iyac"]
 resource_local_to_scene = true
 _surfaces = [{
 "aabb": AABB(-3.2630548, 0.7559887, -1.2640785, 2.279394, 1.0887398, 5.2640038),
@@ -68,6 +71,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0236609, 0.7594467, 3.9599
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.223061, 0.75598884, -1.2240846)
 
 [node name="WireMesh" parent="WireboxRayInteractor/Wire" index="3" unique_id=1945123879]
-mesh = SubResource("ArrayMesh_21xkr")
+mesh = SubResource("ArrayMesh_6iyac")
+
+[node name="SneakyParticleInstancesToHideStutterOnFirstLoad" type="Node3D" parent="." unique_id=2114553475]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 100, 100)
+
+[node name="Exploding_Enemy_v01" parent="SneakyParticleInstancesToHideStutterOnFirstLoad" unique_id=1303959735 instance=ExtResource("7_ynf5e")]
+
+[node name="Exploding_Enemy_v02" parent="SneakyParticleInstancesToHideStutterOnFirstLoad" unique_id=233097901 instance=ExtResource("8_hptm8")]
+
+[node name="Exploding_Enemy_v03" parent="SneakyParticleInstancesToHideStutterOnFirstLoad" unique_id=1183475875 instance=ExtResource("9_d1ilt")]
 
 [editable path="WireboxRayInteractor/Wire"]
