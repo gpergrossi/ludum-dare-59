@@ -16,12 +16,19 @@ class_name Enemy extends Node3D
 # Should be a EnemyDeathEffect
 @export var death_effect : PackedScene
 
+@export var enemy_part: Node3D
+@export var idle_animation: StringName
+
 # Fired when the enemy reaches the end of the curve.
 signal on_reach_end()
 
 func _ready() -> void:
 	assert(is_in_group(&"Enemies"))
 	global_position = path.curve.sample_baked(0.0)
+	if not idle_animation.is_empty():
+		var anims := enemy_part.find_child("AnimationPlayer", false, true) as AnimationPlayer
+		if anims:
+			anims.play(idle_animation)
 
 func _process(delta: float) -> void:
 	offset_on_curve += velocity * delta

@@ -10,9 +10,11 @@ material = ExtResource("1_fknkv")
 radius = 0.25
 height = 0.5
 
-[node name="Enemy" type="Node3D" unique_id=2052101982 groups=["Enemies"]]
+[node name="Enemy" type="Node3D" unique_id=2052101982 node_paths=PackedStringArray("enemy_part") groups=["Enemies"]]
 script = ExtResource("1_s8yyn")
 death_effect = ExtResource("3_r323k")
+enemy_part = NodePath("Blue_eni_01")
+idle_animation = &"Blue_eni_ani"
 
 [node name="Enemy" type="MeshInstance3D" parent="." unique_id=3273144]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)

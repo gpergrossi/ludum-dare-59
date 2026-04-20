@@ -4,5 +4,11 @@
 
 [node name="Yellow_eni_01" unique_id=1571918081 instance=ExtResource("1_e5m1x")]
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=1242747236]
+[node name="Skeleton3D" parent="Yellow_eni_armature" parent_id_path=PackedInt32Array(192433079) index="0" unique_id=703583115]
+bones/1/rotation = Quaternion(0, 0, 0.2688201, 0.9631904)
+
+[node name="Body" parent="Yellow_eni_armature/Skeleton3D" index="0" unique_id=958658511]
+transform = Transform3D(0.85547173, -0.51785004, 0, 0.51785004, 0.85547173, 0, 0, 0, 1.0000002, 0, 1.414732, 0)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=159983466]
 autoplay = &"Yellow_eni"
