@@ -29,6 +29,13 @@ script = ExtResource("1_51b2r")
 lanes = [NodePath("Lanes/Lane1")]
 current_health = 100.0
 
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=274476349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+size = Vector3(80, 50, 80)
+origin_offset = Vector3(39.99, 0, 0)
+box_projection = true
+enable_shadows = true
+
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1475946136]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 9, 0)
 shadow_enabled = true
@@ -419,6 +426,9 @@ transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 8.999992, 0, 4)
 [node name="Tile_Base3x3_12" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=2030789842 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -9)
 
+[node name="Tile_Base3x3_15" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=1966156825 instance=ExtResource("21_jtpw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -6)
+
 [node name="Tile_Base3x3_13" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=1283405467 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
@@ -476,9 +486,6 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 19.720545, 0, 0.0771
 
 [node name="Source_Base_Parts01" parent="Lanes/Lane1/L1_Sources" unique_id=393019212 instance=ExtResource("22_ertfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
-
-[node name="Source_Base_Parts02" parent="Lanes/Lane1/L1_Sources" unique_id=2072150439 instance=ExtResource("25_364mw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -9)
 
 [node name="Lane2" type="Node3D" parent="Lanes" unique_id=1500140263 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
 script = ExtResource("12_66wev")
@@ -1235,6 +1242,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17)
 [node name="SpawnPoint03" parent="Lanes/Lane2/L2_Sources" unique_id=1502891282 instance=ExtResource("25_wh1ob")]
 transform = Transform3D(-3.2783543e-08, 0.0013089963, 0.74999887, 0, 0.74999887, -0.0013089963, -0.75000006, -5.7218046e-11, -3.2783493e-08, -4.97116, -0.056545496, -25.761007)
 
+[node name="Source_Base_Parts02" parent="Lanes/Lane2/L2_Sources" unique_id=2072150439 instance=ExtResource("25_364mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -4)
+
 [node name="Lane3" type="Node3D" parent="Lanes" unique_id=1284645031 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
 script = ExtResource("12_66wev")
 path = NodePath("L3Path")
@@ -1815,9 +1825,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -1)
 
 [node name="Tile_Base3x3_20" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=722924633 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
-
-[node name="Tile_Base3x3_21" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=1034701342 instance=ExtResource("21_jtpw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, -1)
 
 [node name="Tile_Base3x3_22" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=768060482 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 4)
