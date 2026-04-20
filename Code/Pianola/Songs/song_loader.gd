@@ -186,6 +186,8 @@ func makeSong() -> Song:
 	var song = Song.new();
 	song.bps = 1;
 
+	var last_note = 0;
+
 	for datum in data:
 		if (not datum.track in trackMap): continue;
 
@@ -195,11 +197,15 @@ func makeSong() -> Song:
 		var beat = int(datum.start) / 1000.0;
 		var part = PARTS[track];
 
+		if (beat > last_note): last_note = beat;
+
 		var note = Note.new();
 		note.audio_stream = sound;
 		note.beat = beat;
 		note.part = part;
 		song.notes.append(note);
+
+	add_spawns(song, last_note);
 
 	return song;
 
@@ -210,6 +216,35 @@ func getSound(trackMapping: Dictionary, noteId: int) -> AudioStream:
 	var soundIndex = posmod(noteId - startIndex, sounds.size());
 	
 	return sounds[soundIndex];
+
+const spawnNone := EnemyType.Enum.None;
+const spawnBox := EnemyType.Enum.Box;
+const spawnBall := EnemyType.Enum.Ball;
+const spawnCone := EnemyType.Enum.Cone;
+
+func add_spawns(song: Song, last_note: float):
+	addPatternSpawns(song, PARTS.spawn1, 0, int(last_note * 0.9), [
+		spawnBox, spawnBall, spawnCone, spawnNone, spawnBox, spawnBall, spawnCone, spawnNone, spawnNone, spawnNone,
+	], 0.5);
+
+static func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[EnemyType.Enum], rate: float = 1, offset: float = 0):
+	var length := (endBeat - startBeat) * rate;
+	for beat in range(0, length):
+		var position := beat % pattern.size();
+		var enemy_type: EnemyType.Enum = pattern[position];
+		if (enemy_type == EnemyType.Enum.None): continue;
+		var note := makeNote(beat/rate + offset, part, null, enemy_type);
+		song.notes.push_back(note);
+
+static func makeNote(beat: float, part: Part, audio: AudioStream, enemy: EnemyType.Enum) -> Note:
+	var note := Note.new();
+	
+	note.beat = beat;
+	note.part = part;
+	note.audio_stream = audio;
+	note.spawn_enemy = enemy;
+	
+	return note;
 
 func analyzeSongCsv(file: String = "res://SongCsvs/7nation.min.csv"):
 	var data = CsvLoader.load(file);
