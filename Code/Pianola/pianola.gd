@@ -2,6 +2,8 @@ class_name Pianola extends Node
 
 static var INSTANCE: Pianola
 
+signal song_changed(song: Song)
+
 var _current_time : float = 0.0
 
 var _instruments : Array[Instrument] = []
@@ -16,6 +18,7 @@ var song : Song :
 		_song_start_time = _current_time
 		song.sort_notes()
 		_next_note_idx = 0
+		song_changed.emit(song)
 		print("Song starting with " + str(_instruments.size()) + " instruments")
 
 func _ready() -> void:

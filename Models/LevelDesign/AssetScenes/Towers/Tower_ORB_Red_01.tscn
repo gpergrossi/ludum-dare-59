@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://duc0m0512kw4i"]
+
+[ext_resource type="PackedScene" uid="uid://ea2xq2hsgqdb" path="res://Models/LevelDesign/SourceMeshes/red_tower_01.glb" id="1_l5kea"]
+
+[node name="red_tower_01" unique_id=1486404359 instance=ExtResource("1_l5kea")]
+
+[node name="Skeleton3D" parent="redtower" parent_id_path=PackedInt32Array(1811638724) index="0" unique_id=626404695]
+bones/2/rotation = Quaternion(-1.0619975e-07, 5.4152217e-08, -0.8908683, 0.45426178)
+
+[node name="Bone_002" parent="redtower/Skeleton3D" index="1" unique_id=1465949715]
+transform = Transform3D(-0.58729243, 0.8093747, 2.3841852e-07, -0.80937475, -0.5872924, -1.4210855e-14, 1.400214e-07, -1.9296992e-07, 1, -0.24112064, 1.2948585, -0.49311733)

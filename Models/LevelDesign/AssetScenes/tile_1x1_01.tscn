@@ -3,7 +3,16 @@
 [ext_resource type="PackedScene" uid="uid://pgmm6awkk5wu" path="res://Models/LevelDesign/SourceMeshes/Tile_Base1x1_01.fbx" id="1_m4yio"]
 [ext_resource type="Material" uid="uid://c6gqmtuwmc2qq" path="res://Materials/ImportedMats/Uninitialized.tres" id="2_on58y"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_m4yio"]
+size = Vector3(0.01, 0.01, 0.01)
+
 [node name="Tile_Base1x1_01" unique_id=1506716099 instance=ExtResource("1_m4yio")]
 
-[node name="Tile_Base" parent="." index="0" unique_id=1215165042]
+[node name="Tile_Base" parent="." index="0" unique_id=1872803505]
 surface_material_override/0 = ExtResource("2_on58y")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1" unique_id=2038340743]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0" unique_id=1021508180]
+transform = Transform3D(100, 0, 0, 0, -1.1920929e-05, 99.99999, 0, -99.99999, -1.1920929e-05, -0.5, -5.9604645e-08, -0.49999994)
+shape = SubResource("BoxShape3D_m4yio")

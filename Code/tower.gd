@@ -7,10 +7,11 @@ class_name Tower extends Tile
 @onready var laser_emit_position := %LaserEmitPosition
 @onready var instrument := %Instrument
 @onready var wirebox := %Wirebox
+
 @onready var deactivated_tower: Node3D = %DeactivatedTower
-@onready var active_tower_red: Node3D = %ActiveTower_RED
-@onready var active_tower_blue: Node3D = %ActiveTower_BLUE
-@onready var active_tower_yellow: Node3D = %ActiveTower_YELLOW
+@onready var active_tower_red: TowerTopper = %ActiveTower_RED
+@onready var active_tower_blue: TowerTopper = %ActiveTower_BLUE
+@onready var active_tower_yellow: TowerTopper = %ActiveTower_YELLOW
 
 @export var min_range := 0.0:
 	set(mr):
@@ -29,17 +30,16 @@ class_name Tower extends Tile
 # Damage dealt per tower firing.
 @export var damage := 10.0 # Probably needs editing per-tower, and depending on pitch/enemy type, etc.
 
-@export var tower_animation_find_keys : Array[String] = []
-var _tower_animation_player : AnimationPlayer
-@export var tower_idle_animation : StringName
-@export var tower_attack_animation : StringName
-
 var tower_source: TowerSource = null:
 	set(s):
 		if tower_source != s:
 			tower_source = s
 			update_color()
-			
+			update_instrument()
+
+var current_topper: TowerTopper = null
+var current_part: Part = null
+var current_song: Song = null
 
 func refresh_range() -> void:
 	if not is_node_ready(): return
@@ -51,34 +51,64 @@ func refresh_range() -> void:
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	refresh_range()
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
 	update_color()
-	
-	# Find animation player. This is messy, but it's to pull something from
-	# a subscene.
-	if tower_animation_find_keys != null and not tower_animation_find_keys.is_empty():
-		var next_look : Node = self
-		for n in tower_animation_find_keys:
-			next_look = next_look.find_child(n)
-		_tower_animation_player = next_look
-	
-	if not tower_idle_animation.is_empty():
-		_tower_animation_player.play(tower_idle_animation)
+	level.song_changed.connect(on_song_changed)
+	update_instrument()
+
+
+func on_song_changed(song: Song) -> void:
+	current_song = song
+	update_instrument()
+
 
 func update_color() -> void:
-	deactivated_tower.visible = (tower_source == null)
-	active_tower_red.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.RED)
-	active_tower_blue.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.BLUE)
-	active_tower_yellow.visible = (tower_source != null and tower_source.color == TowerSource.SourceColor.YELLOW)
+	if current_topper != null: current_topper.pause()
+	if tower_source == null:
+		current_topper = null
+		deactivated_tower.visible = true
+		active_tower_red.visible = false
+		active_tower_blue.visible = false
+		active_tower_yellow.visible = false
+	else:
+		match tower_source.color:
+			TowerSource.SourceColor.RED:
+				current_topper = active_tower_red
+				deactivated_tower.visible = false
+				active_tower_red.visible = true
+				active_tower_blue.visible = false
+				active_tower_yellow.visible = false
+			TowerSource.SourceColor.BLUE:
+				current_topper = active_tower_blue
+				deactivated_tower.visible = false
+				active_tower_red.visible = false
+				active_tower_blue.visible = true
+				active_tower_yellow.visible = false
+			TowerSource.SourceColor.YELLOW:
+				current_topper = active_tower_blue
+				deactivated_tower.visible = false
+				active_tower_red.visible = false
+				active_tower_blue.visible = false
+				active_tower_yellow.visible = true
+	if current_topper != null: current_topper.resume()
+
+
+func update_instrument() -> void:
+	if tower_source == null:
+		instrument.part = null
+	else:
+		match tower_source.color:
+			TowerSource.SourceColor.RED: instrument.part = current_song.red_parts[0]
+			TowerSource.SourceColor.BLUE: instrument.part = current_song.blue_parts[0]
+			TowerSource.SourceColor.YELLOW: instrument.part = current_song.yellow_parts[0]
+
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
-	if not tower_attack_animation.is_empty():
-		_tower_animation_player.play(tower_attack_animation)
-	if not tower_idle_animation.is_empty():
-		_tower_animation_player.queue(tower_idle_animation)
+	current_topper.attack()
 	
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:

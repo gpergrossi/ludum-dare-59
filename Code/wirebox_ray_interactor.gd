@@ -55,8 +55,7 @@ func _physics_process(_delta: float) -> void:
 	var result := space_state.intersect_ray(query)
 
 	if result.is_empty():
-		_hit_position = Vector3.INF
-		_handle_no_hit()
+		_handle_no_hit(_hit_position)
 		return
 
 	var collider: Object = result["collider"]
@@ -151,7 +150,7 @@ func _handle_wirebox_hit(wirebox: Wirebox, hit_position: Vector3) -> void:
 	hover.emit(hit_position)
 
 
-func _handle_no_hit(hit_position: Vector3 = Vector3.INF) -> void:
+func _handle_no_hit(hit_position: Vector3) -> void:
 	if _current_wirebox != null:
 		_current_wirebox.hovered = false
 		wirebox_exit.emit(_current_wirebox)

@@ -9,8 +9,8 @@ func _ready() -> void:
 	if not disable_autoregister: 
 		register()
 
-func register(registration_target = null) -> void:
-	if (registration_target == null): registration_target = get_tree().current_scene.find_child("Pianola");
+func register(registration_target: Pianola = null) -> void:
+	if (registration_target == null): registration_target = get_tree().current_scene.find_child("Pianola") as Pianola;
 	registration_target.register_instrument(self);
 
 func play_note(note : Note) -> void:

@@ -5,12 +5,15 @@ const GRID_SIZE = 1.0
 
 @export var lanes: Array[Lane] = []
 
-@export var towers: Array[Tower] = []
-
 @export var max_health : float = 100.0
 @export var current_health : float
 @onready var _health_bar : ProgressBar = get_tree().get_first_node_in_group("HealthBar")
 @onready var _announce_text : Label = get_tree().get_first_node_in_group("AnnounceText")
+
+signal song_changed(song: Song)
+
+var song: Song:
+	get(): return null if not is_node_ready() else %Pianola.song
 
 enum LevelState {
 	PLAYING,
@@ -24,6 +27,7 @@ func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
 
+	%Pianola.song_changed.connect(func(song: Song): song_changed.emit(song))
 	%Pianola.song = %SongGenerator.makeSong()
 	
 	current_health = max_health

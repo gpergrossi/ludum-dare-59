@@ -2,7 +2,7 @@
 
 class_name Song1 extends SongGenerator
 
-const PARTS: Dictionary[String, Resource] = {
+const PARTS: Dictionary[String, Part] = {
 	"kick": preload("res://Code/Pianola/Songs/kicks_resource.tres"),
 	"hihat": preload("res://Code/Pianola/Songs/hihats_resource.tres"),
 	"synth": preload("res://Code/Pianola/Songs/synth_resource.tres"),
@@ -75,6 +75,9 @@ const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
 	var song = Song.new();
+	song.blue_parts.append_array([ PARTS.kick ])
+	song.red_parts.append_array([ PARTS.hihat ])
+	song.yellow_parts.append_array([ PARTS.synth ])
 	addPattern(song, PARTS.kick,  0, 120, [
 		kick, null, null, null,
 		null, null, null, null,

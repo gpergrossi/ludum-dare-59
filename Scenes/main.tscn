@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://2jvdbcfox71t"]
 
 [ext_resource type="Script" uid="uid://cdexlvgjxmmyv" path="res://Code/main.gd" id="1_jjgbg"]
-[ext_resource type="PackedScene" uid="uid://ckc08wsniw05u" path="res://Scenes/Levels/example_level.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://dgxojo74rrf4h" path="res://Scenes/Levels/3DTest_level.tscn" id="2_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://ch3mn3087kwra" path="res://Scenes/ui.tscn" id="3_8gbba"]
 [ext_resource type="Script" uid="uid://dwwi6ih3a5sv6" path="res://Code/camera_controller.gd" id="3_kry3j"]
 [ext_resource type="Script" uid="uid://dljcwksvcacnc" path="res://Code/wirebox_ray_interactor.gd" id="4_jjvhh"]
@@ -10,20 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="9_d1ilt"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_344ge"]
-sky_top_color = Color(0.28346398, 0.5040741, 0.39693835, 1)
-sky_horizon_color = Color(0.68882906, 0.65414774, 0.5486239, 1)
-ground_bottom_color = Color(0.10559999, 0.10559999, 0.16, 1)
-ground_horizon_color = Color(0.43839562, 0.43907267, 0.58032006, 1)
-
-[sub_resource type="Sky" id="Sky_ynf5e"]
-sky_material = SubResource("ProceduralSkyMaterial_344ge")
-
-[sub_resource type="Environment" id="Environment_hptm8"]
-background_mode = 2
-sky = SubResource("Sky_ynf5e")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_6iyac"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_ynf5e"]
 resource_local_to_scene = true
 _surfaces = [{
 "aabb": AABB(-3.2630548, 0.7559887, -1.2640785, 2.279394, 1.0887398, 5.2640038),
@@ -40,10 +27,8 @@ _surfaces = [{
 [node name="Main" type="Node3D" unique_id=1096836237]
 script = ExtResource("1_jjgbg")
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1410501586]
-environment = SubResource("Environment_hptm8")
-
-[node name="Level" parent="." unique_id=1504116293 instance=ExtResource("2_bo1nx")]
+[node name="Level" parent="." unique_id=1504116293 instance=ExtResource("2_ynf5e")]
+transform = Transform3D(1, 2.9802322e-08, 0, 2.9802322e-08, 1, -2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1081716402]
 transform = Transform3D(0.7071068, 0.5416752, -0.4545195, 0, 0.64278764, 0.76604444, 0.7071068, -0.5416752, 0.4545195, -4.0829115, 2.9687347, 1.9681754)
@@ -71,7 +56,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0236609, 0.7594467, 3.9599
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.223061, 0.75598884, -1.2240846)
 
 [node name="WireMesh" parent="WireboxRayInteractor/Wire" index="3" unique_id=1945123879]
-mesh = SubResource("ArrayMesh_6iyac")
+mesh = SubResource("ArrayMesh_ynf5e")
 
 [node name="SneakyParticleInstancesToHideStutterOnFirstLoad" type="Node3D" parent="." unique_id=2114553475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 100, 100)
