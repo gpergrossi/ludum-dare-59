@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Effects/Home_Base_Damage.tscn" id="7_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
 [ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="9_d1ilt"]
+[ext_resource type="Script" uid="uid://b0yi0y43su4ie" path="res://Code/Pianola/pianola.gd" id="12_6iyac"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_hptm8"]
 size = Vector3(50.59893, 12.376831, 43.336945)
@@ -40,9 +41,15 @@ _surfaces = [{
 [node name="Main" type="Node3D" unique_id=1096836237]
 script = ExtResource("1_jjgbg")
 
-[node name="Level" parent="." unique_id=1504116293 node_paths=PackedStringArray("ui") instance=ExtResource("2_ynf5e")]
+[node name="Pianola" type="Node" parent="." unique_id=651875452]
+unique_name_in_owner = true
+script = ExtResource("12_6iyac")
+metadata/_custom_type_script = "uid://b0yi0y43su4ie"
+
+[node name="Level" parent="." unique_id=1504116293 node_paths=PackedStringArray("ui", "wirebox") instance=ExtResource("2_ynf5e")]
 transform = Transform3D(1, 2.9802322e-08, 0, 2.9802322e-08, 1, -2.9802322e-08, 0, -2.9802322e-08, 1, 0, 0, 0)
 ui = NodePath("../Ui")
+wirebox = NodePath("../WireboxRayInteractor")
 
 [node name="CameraBounds" type="Area3D" parent="." unique_id=1098736688]
 script = ExtResource("3_d1ilt")
