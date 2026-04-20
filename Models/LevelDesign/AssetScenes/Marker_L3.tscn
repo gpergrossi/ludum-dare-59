@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://6rxke204ywmc"]
+
+[ext_resource type="PackedScene" uid="uid://bjctq7pc185ou" path="res://Models/LevelDesign/SourceMeshes/Lane_3.fbx" id="1_w6x7v"]
+
+[node name="Lane_3" unique_id=1010502129 instance=ExtResource("1_w6x7v")]
