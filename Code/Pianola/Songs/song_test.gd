@@ -14,5 +14,5 @@ func _ready() -> void:
 	synthstrument.register(Pianola.INSTANCE);
 
 	print("Generating song");
-	var song = SongLoader.new().test();
+	var song = SongLoader.new(SongLoader.SONG_GRAVITY_FALLS).makeSong();
 	Pianola.INSTANCE.song = song;

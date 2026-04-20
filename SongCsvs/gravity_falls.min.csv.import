@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://k08wkoh8d0vl"
+
+[deps]
+
+files=["res://SongCsvs/gravity_falls.min.note.translation", "res://SongCsvs/gravity_falls.min.volume.translation", "res://SongCsvs/gravity_falls.min.start.translation", "res://SongCsvs/gravity_falls.min.duration.translation"]
+
+source_file="res://SongCsvs/gravity_falls.min.csv"
+dest_files=["res://SongCsvs/gravity_falls.min.note.translation", "res://SongCsvs/gravity_falls.min.volume.translation", "res://SongCsvs/gravity_falls.min.start.translation", "res://SongCsvs/gravity_falls.min.duration.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true
