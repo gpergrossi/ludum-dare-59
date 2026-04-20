@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://6rxke204ywmc"]
 
 [ext_resource type="PackedScene" uid="uid://bjctq7pc185ou" path="res://Models/LevelDesign/SourceMeshes/Lane_3.fbx" id="1_w6x7v"]
+[ext_resource type="Material" uid="uid://beesdedmvx6e3" path="res://Materials/ImportedMats/L3_Glow.tres" id="2_xhqv1"]
 
 [node name="Lane_3" unique_id=1010502129 instance=ExtResource("1_w6x7v")]
+
+[node name="LANE_3" parent="." index="0" unique_id=1070756453]
+surface_material_override/0 = ExtResource("2_xhqv1")
