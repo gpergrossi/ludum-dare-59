@@ -1,9 +1,9 @@
-[gd_resource type="StandardMaterial3D" format=3 uid="uid://dxc7p0ttvyx5k"]
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://cwaksc4ahl0rr"]
 
 [resource]
 resource_name = "Tile_Base"
 cull_mode = 2
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.5, 0.3, 0.33333337, 1)
+albedo_color = Color(0.5, 0.35, 0.19999999, 1)
 emission = Color(0.85, 0, 0.85, 1)
 emission_energy_multiplier = 0.5
