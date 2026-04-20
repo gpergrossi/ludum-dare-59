@@ -38,7 +38,6 @@ func _process(delta: float) -> void:
 		offset_on_curve = curve.get_baked_length()
 		on_reach_end.emit()
 		queue_free()
-		# TODO some animation?
 		
 	var sampled_transform := curve.sample_baked_with_rotation(offset_on_curve)
 	global_position = path.to_global(sampled_transform.origin)

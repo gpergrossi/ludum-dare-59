@@ -2,7 +2,7 @@
 
 [ext_resource type="Material" uid="uid://soc8enekn2ea" path="res://Materials/red_color.material" id="1_fknkv"]
 [ext_resource type="Script" uid="uid://c1mxb1d1jjfhe" path="res://Code/enemy.gd" id="1_s8yyn"]
-[ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Effects/Home_Base_Damage.tscn" id="3_r323k"]
+[ext_resource type="PackedScene" uid="uid://56mn6y3we564" path="res://Models/Blair/Effects/exploding_enemy_v_03.tscn" id="2_c2t3b"]
 [ext_resource type="PackedScene" uid="uid://bya4wu8ugv32g" path="res://Models/Enemies/Source_Meshes/Blue_eni_01.glb" id="4_c2t3b"]
 
 [sub_resource type="SphereMesh" id="SphereMesh_fknkv"]
@@ -12,7 +12,7 @@ height = 0.5
 
 [node name="Enemy" type="Node3D" unique_id=2052101982 node_paths=PackedStringArray("enemy_part") groups=["Enemies"]]
 script = ExtResource("1_s8yyn")
-death_effect = ExtResource("3_r323k")
+death_effect = ExtResource("2_c2t3b")
 enemy_part = NodePath("Blue_eni_01")
 idle_animation = &"Blue_eni_ani"
 
