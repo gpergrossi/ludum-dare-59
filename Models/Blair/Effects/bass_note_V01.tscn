@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://bp5lojg5n1kef"]
 
+[ext_resource type="ArrayMesh" uid="uid://cv5eeds7s7jph" path="res://Models/Blair/Pill_Shape.tres" id="1_iql4m"]
+
 [sub_resource type="Curve" id="Curve_0wten"]
 _data = [Vector2(0, 1), 0.0, -0.7124417, 0, 0, Vector2(1, 0), -3.5474303, 0.0, 0, 0]
 point_count = 2
@@ -37,6 +39,36 @@ material = SubResource("StandardMaterial3D_cb3m2")
 inner_radius = 1.5
 outer_radius = 2.2
 
+[sub_resource type="Curve" id="Curve_iql4m"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.622463, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_hkilh"]
+curve = SubResource("Curve_iql4m")
+
+[sub_resource type="Gradient" id="Gradient_kk15t"]
+colors = PackedColorArray(1, 0, 0, 1, 0.5796402, 0, 0.22234061, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_pfyhb"]
+gradient = SubResource("Gradient_kk15t")
+
+[sub_resource type="Curve" id="Curve_e115k"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.61932945, 0.82091993), -0.91677547, -0.91677547, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_imjec"]
+curve = SubResource("Curve_e115k")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_hkilh"]
+spread = 90.0
+initial_velocity_min = 10.0
+initial_velocity_max = 10.0
+gravity = Vector3(0, 0, 0)
+scale_max = 3.0
+scale_curve = SubResource("CurveTexture_imjec")
+color_ramp = SubResource("GradientTexture1D_pfyhb")
+alpha_curve = SubResource("CurveTexture_hkilh")
+
 [node name="Bass_Note" type="Node3D" unique_id=2061785939]
 
 [node name="Bass" type="GPUParticles3D" parent="." unique_id=963928303]
@@ -46,3 +78,11 @@ lifetime = 0.5
 explosiveness = 0.5
 process_material = SubResource("ParticleProcessMaterial_ajhwj")
 draw_pass_1 = SubResource("TorusMesh_80tqf")
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="." unique_id=1854375521]
+amount = 16
+lifetime = 0.41000000000000003
+explosiveness = 1.0
+transform_align = 2
+process_material = SubResource("ParticleProcessMaterial_hkilh")
+draw_pass_1 = ExtResource("1_iql4m")
