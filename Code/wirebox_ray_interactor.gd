@@ -48,7 +48,8 @@ func reset() -> void:
 	_towers.clear()
 	_connections = ConnectionGraphManager.new()
 	for wire in _wires:
-		wire.queue_free()
+		if is_instance_valid(wire):
+			wire.queue_free()
 	_wires.clear()
 
 func _physics_process(_delta: float) -> void:
