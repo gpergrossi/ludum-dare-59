@@ -24,7 +24,8 @@ class_name Tower extends Tile
 # Damage dealt per tower firing.
 @export var damage := 10.0 # Probably needs editing per-tower, and depending on pitch/enemy type, etc.
 
-@export var tower_animation_player : AnimationPlayer
+@export var tower_animation_find_keys : Array[String] = []
+var _tower_animation_player : AnimationPlayer
 @export var tower_idle_animation : StringName
 @export var tower_attack_animation : StringName
 
@@ -43,16 +44,24 @@ func _ready() -> void:
 	refresh_range()
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
-	tower_animation_player = find_child("Yellow_tower_01").find_child("AnimationPlayer")
+	
+	# Find animation player. This is messy, but it's to pull something from
+	# a subscene.
+	if tower_animation_find_keys != null and not tower_animation_find_keys.is_empty():
+		var next_look : Node = self
+		for n in tower_animation_find_keys:
+			next_look = next_look.find_child(n)
+		_tower_animation_player = next_look
+	
 	if not tower_idle_animation.is_empty():
-		tower_animation_player.play(tower_idle_animation)
+		_tower_animation_player.play(tower_idle_animation)
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
 	if not tower_attack_animation.is_empty():
-		tower_animation_player.play(tower_attack_animation)
+		_tower_animation_player.play(tower_attack_animation)
 	if not tower_idle_animation.is_empty():
-		tower_animation_player.queue(tower_idle_animation)
+		_tower_animation_player.queue(tower_idle_animation)
 	
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:
