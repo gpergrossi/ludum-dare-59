@@ -1,5 +1,9 @@
 [gd_scene format=3 uid="uid://tincc0jug8mk"]
 
 [ext_resource type="PackedScene" uid="uid://d2fdnir0npfrh" path="res://Models/LevelDesign/SourceMeshes/Yellow_tower_01.glb" id="1_yflap"]
+[ext_resource type="Material" uid="uid://vf3k2g4i02tr" path="res://Materials/ImportedMats/YellowSourceEmissive.tres" id="2_12an4"]
 
 [node name="Yellow_tower_01" unique_id=53956850 instance=ExtResource("1_yflap")]
+
+[node name="Icosphere_006" parent="Yellow_NODE/Skeleton3D/Node_bone" parent_id_path=PackedInt32Array(1709175297) index="0" unique_id=223943547]
+surface_material_override/0 = ExtResource("2_12an4")

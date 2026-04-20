@@ -9,9 +9,14 @@
 [ext_resource type="Resource" uid="uid://c25sck87yn44s" path="res://Data/Instruments/lane1_spawn_instrument.tres" id="9_wh1ob"]
 [ext_resource type="Script" uid="uid://w1k8rp32fvu4" path="res://Code/lane.gd" id="12_66wev"]
 [ext_resource type="Script" uid="uid://d3fwkxp4gauwr" path="res://Code/Pianola/Songs/song1.gd" id="15_mmfe2"]
+[ext_resource type="Script" uid="uid://4aqv2yncjm7v" path="res://Scenes/Levels/path_tools.gd" id="16_51b2r"]
+[ext_resource type="PackedScene" uid="uid://c0c8eiiw7md1q" path="res://Models/LevelDesign/AssetScenes/Towers/active_tower_base_1x_1.tscn" id="18_2sxju"]
+[ext_resource type="PackedScene" uid="uid://djthqytem86ct" path="res://Models/LevelDesign/AssetScenes/Marker_L1.tscn" id="19_b5yrm"]
 [ext_resource type="PackedScene" uid="uid://qxftaapvr2xj" path="res://Models/LevelDesign/AssetScenes/RoadTileBase.tscn" id="19_ertfi"]
+[ext_resource type="PackedScene" uid="uid://g63gad45nyfh" path="res://Models/LevelDesign/AssetScenes/Marker_L2.tscn" id="20_ertfi"]
 [ext_resource type="PackedScene" uid="uid://73rw06ofy088" path="res://Models/LevelDesign/AssetScenes/tile_1x1_01.tscn" id="20_kkkvx"]
 [ext_resource type="PackedScene" uid="uid://coihmcca0ktrs" path="res://Models/LevelDesign/AssetScenes/tile_3x3_01.tscn" id="21_jtpw3"]
+[ext_resource type="PackedScene" uid="uid://6rxke204ywmc" path="res://Models/LevelDesign/AssetScenes/Marker_L3.tscn" id="21_kkkvx"]
 [ext_resource type="PackedScene" uid="uid://v3wd1frjlos7" path="res://Models/LevelDesign/AssetScenes/Source_RED.tscn" id="22_ertfi"]
 [ext_resource type="PackedScene" uid="uid://c86716jm6tck8" path="res://Models/LevelDesign/AssetScenes/Source_BLUE.tscn" id="25_364mw"]
 [ext_resource type="PackedScene" uid="uid://bkoqn0c5gxrjg" path="res://Models/LevelDesign/AssetScenes/SpawnPoint_02.tscn" id="25_wh1ob"]
@@ -24,10 +29,59 @@ _data = {
 }
 point_count = 41
 
+[sub_resource type="Curve3D" id="Curve3D_2sxju"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 0, -27, 0, 0, 0, 0, 0, 0, -5, 0, -22, 0, 0, 0, 0, 0, 0, -13, 0, -22, 0, 0, 0, 0, 0, 0, -13, 0, -12, 0, 0, 0, 0, 0, 0, -6, 0, -12, 0, 0, 0, 0, 0, 0, -6, 0, -17, 0, 0, 0, 0, 0, 0, 11, 0, -17, 0, 0, 0, 0, 0, 0, 11, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, -10, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 10
+
+[sub_resource type="Curve3D" id="Curve3D_51j0e"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -5, 0, -27, 0, 0, 0, 0, 0, 0, -5, 0, -22.5, 0, 0, 0, 0, 0, 0, -5.0096073, 0, -22.402454, 0, 0, 0, 0, 0, 0, -5.03806, 0, -22.308659, 0, 0, 0, 0, 0, 0, -5.084265, 0, -22.222216, 0, 0, 0, 0, 0, 0, -5.1464467, 0, -22.146446, 0, 0, 0, 0, 0, 0, -5.2222147, 0, -22.084265, 0, 0, 0, 0, 0, 0, -5.308658, 0, -22.038061, 0, 0, 0, 0, 0, 0, -5.402455, 0, -22.009607, 0, 0, 0, 0, 0, 0, -5.5, 0, -22, 0, 0, 0, 0, 0, 0, -12.5, 0, -22, 0, 0, 0, 0, 0, 0, -12.597546, 0, -21.990393, 0, 0, 0, 0, 0, 0, -12.691341, 0, -21.961939, 0, 0, 0, 0, 0, 0, -12.777785, 0, -21.915735, 0, 0, 0, 0, 0, 0, -12.853554, 0, -21.853554, 0, 0, 0, 0, 0, 0, -12.915735, 0, -21.777784, 0, 0, 0, 0, 0, 0, -12.96194, 0, -21.691341, 0, 0, 0, 0, 0, 0, -12.990393, 0, -21.597546, 0, 0, 0, 0, 0, 0, -13, 0, -21.5, 0, 0, 0, 0, 0, 0, -13, 0, -12.5, 0, 0, 0, 0, 0, 0, -12.990393, 0, -12.402454, 0, 0, 0, 0, 0, 0, -12.96194, 0, -12.308659, 0, 0, 0, 0, 0, 0, -12.915735, 0, -12.222215, 0, 0, 0, 0, 0, 0, -12.853554, 0, -12.146446, 0, 0, 0, 0, 0, 0, -12.777785, 0, -12.084265, 0, 0, 0, 0, 0, 0, -12.691341, 0, -12.03806, 0, 0, 0, 0, 0, 0, -12.597546, 0, -12.009607, 0, 0, 0, 0, 0, 0, -12.5, 0, -12, 0, 0, 0, 0, 0, 0, -6.5, 0, -12, 0, 0, 0, 0, 0, 0, -6.402455, 0, -12.009607, 0, 0, 0, 0, 0, 0, -6.308658, 0, -12.03806, 0, 0, 0, 0, 0, 0, -6.2222147, 0, -12.084265, 0, 0, 0, 0, 0, 0, -6.1464467, 0, -12.146446, 0, 0, 0, 0, 0, 0, -6.084265, 0, -12.222215, 0, 0, 0, 0, 0, 0, -6.03806, 0, -12.308659, 0, 0, 0, 0, 0, 0, -6.0096073, 0, -12.402454, 0, 0, 0, 0, 0, 0, -6, 0, -12.5, 0, 0, 0, 0, 0, 0, -6, 0, -16.5, 0, 0, 0, 0, 0, 0, -5.9903927, 0, -16.597546, 0, 0, 0, 0, 0, 0, -5.96194, 0, -16.691341, 0, 0, 0, 0, 0, 0, -5.915735, 0, -16.777784, 0, 0, 0, 0, 0, 0, -5.8535533, 0, -16.853554, 0, 0, 0, 0, 0, 0, -5.7777853, 0, -16.915735, 0, 0, 0, 0, 0, 0, -5.691342, 0, -16.961939, 0, 0, 0, 0, 0, 0, -5.597545, 0, -16.990393, 0, 0, 0, 0, 0, 0, -5.5, 0, -17, 0, 0, 0, 0, 0, 0, 10.5, 0, -17, 0, 0, 0, 0, 0, 0, 10.597546, 0, -16.990393, 0, 0, 0, 0, 0, 0, 10.691341, 0, -16.961939, 0, 0, 0, 0, 0, 0, 10.777785, 0, -16.915735, 0, 0, 0, 0, 0, 0, 10.853554, 0, -16.853554, 0, 0, 0, 0, 0, 0, 10.915735, 0, -16.777784, 0, 0, 0, 0, 0, 0, 10.96194, 0, -16.691341, 0, 0, 0, 0, 0, 0, 10.990393, 0, -16.597546, 0, 0, 0, 0, 0, 0, 11, 0, -16.5, 0, 0, 0, 0, 0, 0, 11, 0, -10.5, 0, 0, 0, 0, 0, 0, 10.990393, 0, -10.402454, 0, 0, 0, 0, 0, 0, 10.96194, 0, -10.308659, 0, 0, 0, 0, 0, 0, 10.915735, 0, -10.222215, 0, 0, 0, 0, 0, 0, 10.853554, 0, -10.146446, 0, 0, 0, 0, 0, 0, 10.777785, 0, -10.084265, 0, 0, 0, 0, 0, 0, 10.691341, 0, -10.03806, 0, 0, 0, 0, 0, 0, 10.597546, 0, -10.009607, 0, 0, 0, 0, 0, 0, 10.5, 0, -10, 0, 0, 0, 0, 0, 0, 0.49999997, 0, -10, 0, 0, 0, 0, 0, 0, 0.40245482, 0, -9.990393, 0, 0, 0, 0, 0, 0, 0.30865824, 0, -9.96194, 0, 0, 0, 0, 0, 0, 0.22221485, 0, -9.915735, 0, 0, 0, 0, 0, 0, 0.14644659, 0, -9.853554, 0, 0, 0, 0, 0, 0, 0.08426517, 0, -9.777785, 0, 0, 0, 0, 0, 0, 0.038060218, 0, -9.691341, 0, 0, 0, 0, 0, 0, 0.009607345, 0, -9.597546, 0, 0, 0, 0, 0, 0, -2.9802322e-08, 0, -9.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 74
+
+[sub_resource type="Curve3D" id="Curve3D_n8mod"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26, 0, -6, 0, 0, 0, 0, 0, 0, -20, 0, -6, 0, 0, 0, 0, 0, 0, -20, 0, 6, 0, 0, 0, 0, 0, 0, -13, 0, 6, 0, 0, 0, 0, 0, 0, -13, 0, -6, 0, 0, 0, 0, 0, 0, -6, 0, -6, 0, 0, 0, 0, 0, 0, -6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 8
+
+[sub_resource type="Curve3D" id="Curve3D_b5yrm"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, -26, 0, -6, 0, 0, 0, 0, 0, 0, -20.5, 0, -6, 0, 0, 0, 0, 0, 0, -20.402454, 0, -5.9903927, 0, 0, 0, 0, 0, 0, -20.308659, 0, -5.96194, 0, 0, 0, 0, 0, 0, -20.222216, 0, -5.915735, 0, 0, 0, 0, 0, 0, -20.146446, 0, -5.8535533, 0, 0, 0, 0, 0, 0, -20.084265, 0, -5.7777853, 0, 0, 0, 0, 0, 0, -20.038061, 0, -5.691342, 0, 0, 0, 0, 0, 0, -20.009607, 0, -5.597545, 0, 0, 0, 0, 0, 0, -20, 0, -5.5, 0, 0, 0, 0, 0, 0, -20, 0, 5.5, 0, 0, 0, 0, 0, 0, -19.990393, 0, 5.597545, 0, 0, 0, 0, 0, 0, -19.961939, 0, 5.691342, 0, 0, 0, 0, 0, 0, -19.915735, 0, 5.7777853, 0, 0, 0, 0, 0, 0, -19.853554, 0, 5.8535533, 0, 0, 0, 0, 0, 0, -19.777784, 0, 5.915735, 0, 0, 0, 0, 0, 0, -19.691341, 0, 5.96194, 0, 0, 0, 0, 0, 0, -19.597546, 0, 5.9903927, 0, 0, 0, 0, 0, 0, -19.5, 0, 6, 0, 0, 0, 0, 0, 0, -13.5, 0, 6, 0, 0, 0, 0, 0, 0, -13.402454, 0, 5.9903927, 0, 0, 0, 0, 0, 0, -13.308659, 0, 5.96194, 0, 0, 0, 0, 0, 0, -13.222215, 0, 5.915735, 0, 0, 0, 0, 0, 0, -13.146446, 0, 5.8535533, 0, 0, 0, 0, 0, 0, -13.084265, 0, 5.7777853, 0, 0, 0, 0, 0, 0, -13.03806, 0, 5.691342, 0, 0, 0, 0, 0, 0, -13.009607, 0, 5.597545, 0, 0, 0, 0, 0, 0, -13, 0, 5.5, 0, 0, 0, 0, 0, 0, -13, 0, -5.5, 0, 0, 0, 0, 0, 0, -12.990393, 0, -5.597545, 0, 0, 0, 0, 0, 0, -12.96194, 0, -5.691342, 0, 0, 0, 0, 0, 0, -12.915735, 0, -5.7777853, 0, 0, 0, 0, 0, 0, -12.853554, 0, -5.8535533, 0, 0, 0, 0, 0, 0, -12.777785, 0, -5.915735, 0, 0, 0, 0, 0, 0, -12.691341, 0, -5.96194, 0, 0, 0, 0, 0, 0, -12.597546, 0, -5.9903927, 0, 0, 0, 0, 0, 0, -12.5, 0, -6, 0, 0, 0, 0, 0, 0, -6.5, 0, -6, 0, 0, 0, 0, 0, 0, -6.402455, 0, -5.9903927, 0, 0, 0, 0, 0, 0, -6.308658, 0, -5.96194, 0, 0, 0, 0, 0, 0, -6.2222147, 0, -5.915735, 0, 0, 0, 0, 0, 0, -6.1464467, 0, -5.8535533, 0, 0, 0, 0, 0, 0, -6.084265, 0, -5.7777853, 0, 0, 0, 0, 0, 0, -6.03806, 0, -5.691342, 0, 0, 0, 0, 0, 0, -6.0096073, 0, -5.597545, 0, 0, 0, 0, 0, 0, -6, 0, -5.5, 0, 0, 0, 0, 0, 0, -6, 0, -0.49999997, 0, 0, 0, 0, 0, 0, -5.9903927, 0, -0.40245482, 0, 0, 0, 0, 0, 0, -5.96194, 0, -0.30865824, 0, 0, 0, 0, 0, 0, -5.915735, 0, -0.22221485, 0, 0, 0, 0, 0, 0, -5.8535533, 0, -0.14644659, 0, 0, 0, 0, 0, 0, -5.7777853, 0, -0.08426517, 0, 0, 0, 0, 0, 0, -5.691342, 0, -0.038060218, 0, 0, 0, 0, 0, 0, -5.597545, 0, -0.009607345, 0, 0, 0, 0, 0, 0, -5.5, 0, 2.9802322e-08, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 56
+
+[sub_resource type="Curve3D" id="Curve3D_ertfi"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 0, 0, 0, 0, 0, 1, 0, 6, 0, 0, 0, 0, 0, 0, -13, 0, 6, 0, 0, 0, 0, 0, 0, -13, 0, -6, 0, 0, 0, 0, 0, 0, -6, 0, -6, 0, 0, 0, 0, 0, 0, -6, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 7
+
+[sub_resource type="Curve3D" id="Curve3D_kkkvx"]
+_data = {
+"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 1, 0, 13, 0, 0, 0, 0, 0, 0, 1, 0, 6.5, 0, 0, 0, 0, 0, 0, 0.9903927, 0, 6.402455, 0, 0, 0, 0, 0, 0, 0.9619398, 0, 6.308658, 0, 0, 0, 0, 0, 0, 0.91573477, 0, 6.2222147, 0, 0, 0, 0, 0, 0, 0.8535534, 0, 6.1464467, 0, 0, 0, 0, 0, 0, 0.7777851, 0, 6.084265, 0, 0, 0, 0, 0, 0, 0.6913417, 0, 6.03806, 0, 0, 0, 0, 0, 0, 0.59754515, 0, 6.0096073, 0, 0, 0, 0, 0, 0, 0.50000006, 0, 6, 0, 0, 0, 0, 0, 0, -12.5, 0, 6, 0, 0, 0, 0, 0, 0, -12.597546, 0, 5.9903927, 0, 0, 0, 0, 0, 0, -12.691341, 0, 5.96194, 0, 0, 0, 0, 0, 0, -12.777785, 0, 5.915735, 0, 0, 0, 0, 0, 0, -12.853554, 0, 5.8535533, 0, 0, 0, 0, 0, 0, -12.915735, 0, 5.7777853, 0, 0, 0, 0, 0, 0, -12.96194, 0, 5.691342, 0, 0, 0, 0, 0, 0, -12.990393, 0, 5.597545, 0, 0, 0, 0, 0, 0, -13, 0, 5.5, 0, 0, 0, 0, 0, 0, -13, 0, -5.5, 0, 0, 0, 0, 0, 0, -12.990393, 0, -5.597545, 0, 0, 0, 0, 0, 0, -12.96194, 0, -5.691342, 0, 0, 0, 0, 0, 0, -12.915735, 0, -5.7777853, 0, 0, 0, 0, 0, 0, -12.853554, 0, -5.8535533, 0, 0, 0, 0, 0, 0, -12.777785, 0, -5.915735, 0, 0, 0, 0, 0, 0, -12.691341, 0, -5.96194, 0, 0, 0, 0, 0, 0, -12.597546, 0, -5.9903927, 0, 0, 0, 0, 0, 0, -12.5, 0, -6, 0, 0, 0, 0, 0, 0, -6.5, 0, -6, 0, 0, 0, 0, 0, 0, -6.402455, 0, -5.9903927, 0, 0, 0, 0, 0, 0, -6.308658, 0, -5.96194, 0, 0, 0, 0, 0, 0, -6.2222147, 0, -5.915735, 0, 0, 0, 0, 0, 0, -6.1464467, 0, -5.8535533, 0, 0, 0, 0, 0, 0, -6.084265, 0, -5.7777853, 0, 0, 0, 0, 0, 0, -6.03806, 0, -5.691342, 0, 0, 0, 0, 0, 0, -6.0096073, 0, -5.597545, 0, 0, 0, 0, 0, 0, -6, 0, -5.5, 0, 0, 0, 0, 0, 0, -6, 0, -0.49999997, 0, 0, 0, 0, 0, 0, -5.9903927, 0, -0.40245482, 0, 0, 0, 0, 0, 0, -5.96194, 0, -0.30865824, 0, 0, 0, 0, 0, 0, -5.915735, 0, -0.22221485, 0, 0, 0, 0, 0, 0, -5.8535533, 0, -0.14644659, 0, 0, 0, 0, 0, 0, -5.7777853, 0, -0.08426517, 0, 0, 0, 0, 0, 0, -5.691342, 0, -0.038060218, 0, 0, 0, 0, 0, 0, -5.597545, 0, -0.009607345, 0, 0, 0, 0, 0, 0, -5.5, 0, 2.9802322e-08, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0)
+}
+point_count = 47
+
 [node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_51b2r")
 lanes = [NodePath("Lanes/Lane1")]
 current_health = 100.0
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=274476349]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 16, 0)
+size = Vector3(80, 50, 80)
+origin_offset = Vector3(39.99, 0, 0)
+box_projection = true
+enable_shadows = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1475946136]
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 9, 0)
@@ -145,12 +199,12 @@ lane = NodePath("../Lanes/Lane1")
 
 [node name="Lane1" type="Node3D" parent="Lanes" unique_id=1335911491 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
 script = ExtResource("12_66wev")
-path = NodePath("LanePath")
+path = NodePath("Lane1Path")
 enemy_base = NodePath("L1_Sources/SpawnPoint02")
 home_base = NodePath("L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
 
-[node name="LanePath" type="Path3D" parent="Lanes/Lane1" unique_id=1687726747]
+[node name="Lane1Path" type="Path3D" parent="Lanes/Lane1" unique_id=1687726747]
 curve = SubResource("Curve3D_63b7y")
 
 [node name="Lane1_Geo" type="Node3D" parent="Lanes/Lane1" unique_id=198689919]
@@ -419,6 +473,9 @@ transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 8.999992, 0, 4)
 [node name="Tile_Base3x3_12" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=2030789842 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -9)
 
+[node name="Tile_Base3x3_15" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=1966156825 instance=ExtResource("21_jtpw3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -6)
+
 [node name="Tile_Base3x3_13" parent="Lanes/Lane1/Lane1_Geo/Filler" unique_id=1283405467 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -12)
 
@@ -477,19 +534,11 @@ transform = Transform3D(0.75, 0, 0, 0, 0.75, 0, 0, 0, 0.75, 19.720545, 0, 0.0771
 [node name="Source_Base_Parts01" parent="Lanes/Lane1/L1_Sources" unique_id=393019212 instance=ExtResource("22_ertfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
 
-[node name="Source_Base_Parts02" parent="Lanes/Lane1/L1_Sources" unique_id=2072150439 instance=ExtResource("25_364mw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -4)
-
-[node name="Lane2" type="Node3D" parent="Lanes" unique_id=1500140263 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+[node name="Lane2" type="Node3D" parent="Lanes" unique_id=1500140263 node_paths=PackedStringArray("enemy_base", "home_base")]
 script = ExtResource("12_66wev")
-path = NodePath("L2Path")
 enemy_base = NodePath("../Lane1/L1_Sources/SpawnPoint02")
 home_base = NodePath("../Lane1/L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
-
-[node name="L2Path" type="Path3D" parent="Lanes/Lane2" unique_id=167292519]
-visible = false
-curve = SubResource("Curve3D_63b7y")
 
 [node name="L2_Geo" type="Node3D" parent="Lanes/Lane2" unique_id=413801851]
 
@@ -1235,20 +1284,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17)
 [node name="SpawnPoint03" parent="Lanes/Lane2/L2_Sources" unique_id=1502891282 instance=ExtResource("25_wh1ob")]
 transform = Transform3D(-3.2783543e-08, 0.0013089963, 0.74999887, 0, 0.74999887, -0.0013089963, -0.75000006, -5.7218046e-11, -3.2783493e-08, -4.97116, -0.056545496, -25.761007)
 
-[node name="Lane3" type="Node3D" parent="Lanes" unique_id=1284645031 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+[node name="Lane2Path" type="Path3D" parent="Lanes/Lane2" unique_id=1446918511]
+curve = SubResource("Curve3D_2sxju")
+script = ExtResource("16_51b2r")
+
+[node name="Lane" type="Path3D" parent="Lanes/Lane2/Lane2Path" unique_id=171016177]
+curve = SubResource("Curve3D_51j0e")
+
+[node name="Lane3" type="Node3D" parent="Lanes" unique_id=1284645031 node_paths=PackedStringArray("enemy_base", "home_base")]
 script = ExtResource("12_66wev")
-path = NodePath("L3Path")
 enemy_base = NodePath("../Lane1/L1_Sources/SpawnPoint02")
 home_base = NodePath("../Lane1/L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
-
-[node name="L3Path" type="Path3D" parent="Lanes/Lane3" unique_id=855823974]
-visible = false
-curve = SubResource("Curve3D_63b7y")
-
-[node name="L3Path2" type="Path3D" parent="Lanes/Lane3" unique_id=1126812714]
-visible = false
-curve = SubResource("Curve3D_63b7y")
 
 [node name="L3_Geo" type="Node3D" parent="Lanes/Lane3" unique_id=885575552]
 
@@ -1816,9 +1863,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0, -1)
 [node name="Tile_Base3x3_20" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=722924633 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8, 0, 2)
 
-[node name="Tile_Base3x3_21" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=1034701342 instance=ExtResource("21_jtpw3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -6)
-
 [node name="Tile_Base3x3_22" parent="Lanes/Lane3/L3_Geo/Filler" unique_id=768060482 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15, 0, 4)
 
@@ -1951,3 +1995,29 @@ transform = Transform3D(-0.75000006, -1.1443609e-10, -6.556699e-08, 0, 0.7499988
 
 [node name="SpawnPoint05" parent="Lanes/Lane3/L3_Sources" unique_id=942015027 instance=ExtResource("25_wh1ob")]
 transform = Transform3D(-3.2783543e-08, -0.0013089963, -0.74999887, 0, 0.74999887, -0.0013089963, 0.75000006, -5.7218046e-11, -3.2783493e-08, 0.94101596, 0.003289938, 11.748745)
+
+[node name="Source_Base_Parts02" parent="Lanes/Lane3/L3_Sources" unique_id=2072150439 instance=ExtResource("25_364mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -4)
+
+[node name="Lane3Path2" type="Path3D" parent="Lanes/Lane3" unique_id=1581878218]
+curve = SubResource("Curve3D_n8mod")
+script = ExtResource("16_51b2r")
+
+[node name="Lane" type="Path3D" parent="Lanes/Lane3/Lane3Path2" unique_id=1255261680]
+curve = SubResource("Curve3D_b5yrm")
+
+[node name="Lane3Path1" type="Path3D" parent="Lanes/Lane3" unique_id=1548196545]
+curve = SubResource("Curve3D_ertfi")
+script = ExtResource("16_51b2r")
+
+[node name="Lane" type="Path3D" parent="Lanes/Lane3/Lane3Path1" unique_id=851164624]
+curve = SubResource("Curve3D_kkkvx")
+
+[node name="Active_Tower_Base1x1" parent="." unique_id=2103241637 instance=ExtResource("18_2sxju")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 1, 0)
+
+[node name="Lane_1" parent="." unique_id=998660870 instance=ExtResource("19_b5yrm")]
+
+[node name="Lane_2" parent="." unique_id=244853731 instance=ExtResource("20_ertfi")]
+
+[node name="Lane_3" parent="." unique_id=1010502129 instance=ExtResource("21_kkkvx")]

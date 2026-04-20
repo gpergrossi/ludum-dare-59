@@ -3,9 +3,8 @@
 [resource]
 transparency = 1
 blend_mode = 1
-cull_mode = 2
+cull_mode = 1
 vertex_color_use_as_albedo = true
-albedo_color = Color(0.10321132, 0.5217625, 0.99999994, 1)
 billboard_mode = 3
 particles_anim_h_frames = 1
 particles_anim_v_frames = 1

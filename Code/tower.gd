@@ -4,7 +4,6 @@ class_name Tower extends Tile
 @onready var min_range_indicator: RangeIndicator = %MinRangeIndicator
 @onready var max_range_indicator: RangeIndicator = %MaxRangeIndicator
 @onready var laser_beam := %LaserBeam
-@onready var laser_emit_position := %LaserEmitPosition
 @onready var instrument := %Instrument
 @onready var wirebox := %Wirebox
 
@@ -88,12 +87,14 @@ func update_color() -> void:
 				active_tower_blue.visible = true
 				active_tower_yellow.visible = false
 			SourceColor.Enum.YELLOW:
-				current_topper = active_tower_blue
+				current_topper = active_tower_yellow
 				deactivated_tower.visible = false
 				active_tower_red.visible = false
 				active_tower_blue.visible = false
 				active_tower_yellow.visible = true
-	if current_topper != null: current_topper.resume()
+	if current_topper != null: 
+		current_topper.resume()
+		laser_beam.set_laser_color(current_topper.laser_color)
 
 
 func update_instrument() -> void:
@@ -114,7 +115,9 @@ func _fire(_note : Note) -> void:
 	if enemy == null:
 		instrument.stop()
 		return
-	laser_beam.fire(laser_emit_position.global_position, enemy.hit_target_position.global_position)
+	current_topper.fire_effect.look_at(enemy.hit_target_position.global_position)
+	current_topper.fire_effect.fire()
+	laser_beam.fire(current_topper.fire_effect.global_position, enemy.hit_target_position.global_position)
 	enemy.take_damage(damage)
 	
 func _closest_in_range_enemy() -> Enemy:

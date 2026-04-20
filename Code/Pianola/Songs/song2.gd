@@ -212,13 +212,13 @@ func makeSong() -> Song:
 
 		# 7th movement, shift to treble clef, increasingly discordant
 		m59, m61, [m62, m54], m64, m66, m62, [m66, m54], rst,
-		m65, m61, [m65, m54], rst, m64, m60, [m60, m54], rst,
+		m65, m61, [m65, m54], rst, m64, m60, [m64, m54], rst,
 		m59, m61, [m62, m54], m64, m66, m62, m66, m71,
 		m69, m66, [m62, m57], m66, m69, rst, [m62, m57], rst,
-		
+
 		# 8th movement, higher
 		m71, m73, m74, m76, m78, m74, m78, rst,
-		m77, m73, m77, rst, m76, m72, m77, rst,
+		m77, m73, m77, rst, m76, m72, m76, rst,
 		m71, m73, m74, m76, m78, m74, m78, m83,
 		m81, m78, [m74, m69], m78, m81, rst, [m74, m69], rst,
 
@@ -236,13 +236,13 @@ func makeSong() -> Song:
 
 		# 11th movement, duplicate of #7
 		m59, m61, [m62, m54], m64, m66, m62, [m66, m54], rst,
-		m65, m61, [m65, m54], rst, m64, m60, [m60, m54], rst,
+		m65, m61, [m65, m54], rst, m64, m60, [m64, m54], rst,
 		m59, m61, [m62, m54], m64, m66, m62, m66, m71,
 		m69, m66, [m62, m57], m66, m69, rst, [m62, m57], rst,
 
 		# 12th movement, near-dupe of #8
 		m71, m73, m74, m76, m78, m74, m78, rst,
-		m77, m73, m77, rst, m76, m72, m77, rst,
+		m77, m73, m77, rst, m76, m72, m76, rst,
 		m71, m73, m74, m76, m78, m74, [m78, m74, m71], m83,
 		m78, m74, [m78, m74, m71], m83, m71, rst, rst, rst,
 
