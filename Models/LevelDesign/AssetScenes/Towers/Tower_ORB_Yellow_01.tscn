@@ -4,9 +4,9 @@
 
 [node name="Yellow_tower_01" unique_id=53956850 instance=ExtResource("1_yflap")]
 
-[node name="Skeleton3D" parent="Yellow_NODE" parent_id_path=PackedInt32Array(1486546948) index="0" unique_id=1732941240]
-bones/1/position = Vector3(-0.34892693, 1.6880763, -0.4931172)
-bones/1/rotation = Quaternion(0, 0.9742075, 0, 0.22565435)
+[node name="Skeleton3D" parent="Yellow_NODE" parent_id_path=PackedInt32Array(2124721524) index="0" unique_id=1477596852]
+bones/1/position = Vector3(-0.34892693, 1.680647, -0.4931172)
+bones/1/rotation = Quaternion(0, 0.93744767, 0, 0.34812647)
 
-[node name="Node_bone" parent="Yellow_NODE/Skeleton3D" index="0" unique_id=186350650]
-transform = Transform3D(-0.89816034, 0, 0.43966827, 0, 1, 0, -0.43966827, 0, -0.89816034, -0.34892693, 1.6880763, -0.4931172)
+[node name="Node_bone" parent="Yellow_NODE/Skeleton3D" index="0" unique_id=1709175297]
+transform = Transform3D(-0.7576158, 0, 0.65270054, 0, 1, 0, -0.65270054, 0, -0.7576158, -0.34892693, 1.680647, -0.4931172)

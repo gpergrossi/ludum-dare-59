@@ -21,3 +21,7 @@ mesh = SubResource("CylinderMesh_tvkrt")
 
 [node name="Yellow_eni_01" parent="." unique_id=1571918081 instance=ExtResource("3_7564p")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="HitTargetPosition" type="Node3D" parent="." unique_id=1069912757]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.24187899, 0)

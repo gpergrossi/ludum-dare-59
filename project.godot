@@ -23,6 +23,7 @@ buses/default_bus_layout="uid://clu1nde471ioy"
 
 Enemies=""
 HealthBar=""
+AnnounceText="singleton for the announcement text"
 
 [input]
 

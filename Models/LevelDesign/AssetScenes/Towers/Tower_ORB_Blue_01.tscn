@@ -1,0 +1,5 @@
+[gd_scene format=3 uid="uid://b3uun3qhg2eu6"]
+
+[ext_resource type="PackedScene" uid="uid://ctd37igrvetjv" path="res://Models/LevelDesign/SourceMeshes/Blue_tower_01.glb" id="1_hwrew"]
+
+[node name="Blue_tower_01" unique_id=741819122 instance=ExtResource("1_hwrew")]

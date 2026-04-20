@@ -24,6 +24,10 @@ class_name Tower extends Tile
 # Damage dealt per tower firing.
 @export var damage := 10.0 # Probably needs editing per-tower, and depending on pitch/enemy type, etc.
 
+@export var tower_animation_player : AnimationPlayer
+@export var tower_idle_animation : StringName
+@export var tower_attack_animation : StringName
+
 func refresh_range() -> void:
 	if not is_node_ready(): return
 	min_range_indicator.visible = (min_range > 0.0)
@@ -37,14 +41,20 @@ func _ready() -> void:
 	refresh_range()
 	if not Engine.is_editor_hint():
 		instrument.on_play_note.connect(_fire)
+	tower_animation_player = find_child("Yellow_tower_01").find_child("AnimationPlayer")
+	tower_animation_player.play(tower_idle_animation)
 
 func _fire(_note : Note) -> void:
 	if Engine.is_editor_hint(): return
+	tower_animation_player.play(tower_attack_animation)
+	tower_animation_player.queue(tower_idle_animation)
+
+	
 	var enemy := _closest_in_range_enemy()
 	if enemy == null:
 		instrument.stop()
 		return
-	laser_beam.fire(laser_emit_position.global_position, enemy.global_position)
+	laser_beam.fire(laser_emit_position.global_position, enemy.hit_target_position.global_position)
 	enemy.take_damage(damage)
 	
 func _closest_in_range_enemy() -> Enemy:

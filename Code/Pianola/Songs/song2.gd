@@ -120,6 +120,7 @@ const m81: AudioStream = preload("res://Audio/Marimba0/note_081_A5.wav");
 const m82: AudioStream = preload("res://Audio/Marimba0/note_082_A#5.wav");
 const m83: AudioStream = preload("res://Audio/Marimba0/note_083_B5.wav");
 const m84: AudioStream = preload("res://Audio/Marimba0/note_084_C6.wav");
+const rst := null;
 
 const spawnNone := EnemyType.Enum.None
 const spawnBox := EnemyType.Enum.Box
@@ -128,20 +129,44 @@ const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
 	var song = Song.new();
-	#addPattern(song, PARTS.kick,  0, 120, [
-		#kick, null, null, null,
-		#null, null, null, null,
-		#kick, kick, null, null,
-		#kick, kick, null, null,
-	#], 2.0);
-	#addPattern(song, PARTS.hihat, 0, 120, [
-		#hihat1, hihat2, null, null,
-		#hihat3, hihat4, null, null,
-	#], 2.0);
+	addPattern(song, PARTS.kick,  0, 120, [
+		kick, null, null, null,
+		null, null, null, null,
+		kick, kick, null, null,
+		kick, kick, null, null,
+	], 2.0);
+	addPattern(song, PARTS.hihat, 0, 120, [
+		hihat1, hihat2, null, null,
+		hihat3, hihat4, null, null,
+	], 2.0);
 	addPattern(song, PARTS.marimba, 0, 999, [
 		# F and C sharp
-		#[m66, m54], null, null, null, null, null, null, null, null, null, null, null, null, null, null, null,
-		m35,         null, m37,  null, m38,  null, m40,  null, m42,  null, m38,  null, m42,  null, null, null,
+		[m66, m54], rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+
+		#m35, rst, m37, rst, m38, rst, m40, rst, m42, rst, m38, rst, m42, rst, rst, rst,
+		#m41, rst, m37, rst, m41, rst, rst, rst, m40, rst, m36, rst, m40, rst, rst, rst,
+		#m35, rst, m37, rst, m38, rst, m40, rst, m42, rst, m38, rst, m42, rst, m47, rst,
+		#m45, rst, m42, rst, m38, rst, m42, rst, m45, rst, rst, rst, rst, rst, rst, rst,
+
+		m47, rst, m49, rst, m50, rst, m52, rst, m54, rst, m50, rst, m54, rst, rst, rst,
+		m53, rst, m49, rst, m53, rst, rst, rst, m52, rst, m48, rst, m52, rst, rst, rst,
+		m47, rst, m49, rst, m50, rst, m52, rst, m54, rst, m50, rst, m54, rst, m59, rst,
+		m57, rst, m54, rst, m50, rst, m54, rst, [m57, m45], rst, rst, rst, rst, rst, rst, rst,
+
+		m42, rst, m44, rst, m46, rst, m47, rst, m49, rst, m45, rst, m49, rst, rst, rst,
+		m50, rst, m46, rst, m50, rst, rst, rst, m49, rst, m45, rst, m49, rst, rst, rst,
+		m42, rst, m44, rst, m46, rst, m47, rst, m49, rst, m45, rst, m49, rst, rst, rst,
+		m50, rst, m46, rst, m50, rst, rst, rst, m49, rst, rst, rst, rst, rst, rst, rst,
+
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
+		rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst, rst,
 		
 	], 4.0);
 	

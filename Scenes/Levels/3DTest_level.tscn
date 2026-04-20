@@ -710,6 +710,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, -8)
 [node name="Tile_Base1x1_74" parent="Environment/1xTiles" unique_id=2112791797 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 0, -8)
 
+[node name="Tile_Base1x1_85" parent="Environment/1xTiles" unique_id=2023795089 instance=ExtResource("20_kkkvx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12, 0, -8)
+
 [node name="Tile_Base1x1_96" parent="Environment/1xTiles" unique_id=481994121 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -9)
 
@@ -820,9 +823,6 @@ transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70
 
 [node name="Tile_Base1x1_52" parent="Environment/1xTiles" unique_id=1429662273 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 16, 0, -1)
-
-[node name="Tile_Base1x1_88" parent="Environment/1xTiles" unique_id=70027933 instance=ExtResource("20_kkkvx")]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 21.194641, 1, -1.5437889)
 
 [node name="Tile_Base1x1_79" parent="Environment/1xTiles" unique_id=482388745 instance=ExtResource("20_kkkvx")]
 transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, 18.194641, 1, -1.5437889)
@@ -939,6 +939,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 0, 7)
 [node name="Source_Base_Parts01" parent="Environment/Sources" unique_id=393019212 instance=ExtResource("22_ertfi")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0, -5)
 
+[node name="Source_Base_Parts02" parent="Environment/Sources" unique_id=1579505544 instance=ExtResource("25_364mw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -9)
+
+[node name="Source_Base_Parts03" parent="Environment/Sources" unique_id=1360297277 instance=ExtResource("26_e7q1b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17)
+
 [node name="6x6Tiles" type="Node3D" parent="Environment" unique_id=646071203]
 
 [node name="Tile_Base3x3_25" parent="Environment/6x6Tiles" unique_id=853426591 instance=ExtResource("21_jtpw3")]
@@ -962,127 +968,124 @@ transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 21, 0, 17)
 [node name="Tile_Base3x3_28" parent="Environment/6x6Tiles" unique_id=1481318416 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 27, 0, 17)
 
-[node name="4xTiles" type="Node3D" parent="." unique_id=195684730]
+[node name="4xTiles" type="Node3D" parent="Environment" unique_id=195684730]
 transform = Transform3D(1.33, 0, 0, 0, 1, 0, 0, 0, 1.33, 28, 0, 2)
 
-[node name="Tile_Base4x7" parent="4xTiles" unique_id=1241419126 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x7" parent="Environment/4xTiles" unique_id=1241419126 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.045116, 0, 6.766917)
 
-[node name="Tile_Base4x11" parent="4xTiles" unique_id=1775967801 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x11" parent="Environment/4xTiles" unique_id=1775967801 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.037597, 0, 6.766917)
 
-[node name="Tile_Base4x16" parent="4xTiles" unique_id=1225936411 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x16" parent="Environment/4xTiles" unique_id=1225936411 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -12.030078, 0, 6.766917)
 
-[node name="Tile_Base4x17" parent="4xTiles" unique_id=1894265242 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x17" parent="Environment/4xTiles" unique_id=1894265242 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.022559, 0, 6.766917)
 
-[node name="Tile_Base4x18" parent="4xTiles" unique_id=871903670 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x18" parent="Environment/4xTiles" unique_id=871903670 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0150404, 0, 6.766917)
 
-[node name="Tile_Base4x19" parent="4xTiles" unique_id=191856159 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x19" parent="Environment/4xTiles" unique_id=191856159 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0075226, 0, 6.766917)
 
-[node name="Tile_Base4x23" parent="4xTiles" unique_id=1464208311 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x23" parent="Environment/4xTiles" unique_id=1464208311 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.067675, 0, 6.766917)
 
-[node name="Tile_Base4x24" parent="4xTiles" unique_id=1252836905 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x24" parent="Environment/4xTiles" unique_id=1252836905 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.060156, 0, 6.766917)
 
-[node name="Tile_Base4x25" parent="4xTiles" unique_id=966817038 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x25" parent="Environment/4xTiles" unique_id=966817038 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.052635, 0, 6.766917)
 
-[node name="Tile_Base4x14" parent="4xTiles" unique_id=559228160 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x14" parent="Environment/4xTiles" unique_id=559228160 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0150433, 0, -9.022556)
 
-[node name="Tile_Base4x15" parent="4xTiles" unique_id=1972568815 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x15" parent="Environment/4xTiles" unique_id=1972568815 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0150433, 0, -12.030075)
 
-[node name="Tile_Base4x8" parent="4xTiles" unique_id=2043893591 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x8" parent="Environment/4xTiles" unique_id=2043893591 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.541357, -5, -6.0150375)
 
-[node name="Tile_Base4x9" parent="4xTiles" unique_id=1201230292 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x9" parent="Environment/4xTiles" unique_id=1201230292 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.533838, -5, -6.0150375)
 
-[node name="Tile_Base4x12" parent="4xTiles" unique_id=534285923 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x12" parent="Environment/4xTiles" unique_id=534285923 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.0150433, 0, -6.0150375)
 
-[node name="2xTiles" type="Node3D" parent="." unique_id=1849047177]
+[node name="2xTiles" type="Node3D" parent="Environment" unique_id=1849047177]
 
-[node name="Tile_Base4x16" parent="2xTiles" unique_id=1806749549 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x16" parent="Environment/2xTiles" unique_id=1806749549 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 21.999992, 0, -14)
 
-[node name="Tile_Base4x17" parent="2xTiles" unique_id=1456793839 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x17" parent="Environment/2xTiles" unique_id=1456793839 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 21.999992, 0, -16)
 
-[node name="Tile_Base4x21" parent="2xTiles" unique_id=823862910 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x21" parent="Environment/2xTiles" unique_id=823862910 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 6.9999924, 0, -6)
 
-[node name="Tile_Base4x23" parent="2xTiles" unique_id=163191877 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x23" parent="Environment/2xTiles" unique_id=163191877 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -2.0000076, 0, -2)
 
-[node name="Tile_Base4x26" parent="2xTiles" unique_id=702868469 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x26" parent="Environment/2xTiles" unique_id=702868469 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -2.0000076, 0, -4)
 
-[node name="Tile_Base4x27" parent="2xTiles" unique_id=1420376316 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x27" parent="Environment/2xTiles" unique_id=1420376316 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -2.0000076, 0, -6)
 
-[node name="Tile_Base4x28" parent="2xTiles" unique_id=1366044858 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x28" parent="Environment/2xTiles" unique_id=1366044858 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -12.000008, 0, -8)
 
-[node name="Tile_Base4x29" parent="2xTiles" unique_id=276161724 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x29" parent="Environment/2xTiles" unique_id=276161724 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -10.000008, 0, -8)
 
-[node name="Tile_Base4x30" parent="2xTiles" unique_id=2010894426 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x30" parent="Environment/2xTiles" unique_id=2010894426 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -8.000008, 0, -8)
 
-[node name="Tile_Base4x31" parent="2xTiles" unique_id=1784928525 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x31" parent="Environment/2xTiles" unique_id=1784928525 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, -6.0000076, 0, -8)
 
-[node name="Tile_Base4x22" parent="2xTiles" unique_id=1568848484 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x22" parent="Environment/2xTiles" unique_id=1568848484 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 8.999992, 0, -6)
 
-[node name="Tile_Base4x24" parent="2xTiles" unique_id=119826922 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x24" parent="Environment/2xTiles" unique_id=119826922 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 10.999992, 0, -6)
 
-[node name="Tile_Base4x25" parent="2xTiles" unique_id=1573412045 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x25" parent="Environment/2xTiles" unique_id=1573412045 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 12.999992, 0, -6)
 
-[node name="Tile_Base4x32" parent="2xTiles" unique_id=1960766053 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x32" parent="Environment/2xTiles" unique_id=1960766053 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 13.999992, 0, 4)
 
-[node name="Tile_Base4x33" parent="2xTiles" unique_id=1192952188 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x33" parent="Environment/2xTiles" unique_id=1192952188 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 15.999992, 0, 4)
 
-[node name="Tile_Base4x34" parent="2xTiles" unique_id=1488971106 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x34" parent="Environment/2xTiles" unique_id=1488971106 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 17.999992, 0, 4)
 
-[node name="Tile_Base4x35" parent="2xTiles" unique_id=480502026 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x35" parent="Environment/2xTiles" unique_id=480502026 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 19.999992, 0, 4)
 
-[node name="Tile_Base4x36" parent="2xTiles" unique_id=1313046838 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x36" parent="Environment/2xTiles" unique_id=1313046838 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 21.999992, 0, 4)
 
-[node name="Tile_Base4x37" parent="2xTiles" unique_id=2127598439 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x37" parent="Environment/2xTiles" unique_id=2127598439 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 23.999992, 0, 4)
 
-[node name="Tile_Base4x39" parent="2xTiles" unique_id=1017264457 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x39" parent="Environment/2xTiles" unique_id=1017264457 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 2.9999924, 0, 4)
 
-[node name="Tile_Base4x40" parent="2xTiles" unique_id=922158297 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x40" parent="Environment/2xTiles" unique_id=922158297 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 4.9999924, 0, 4)
 
-[node name="Tile_Base4x41" parent="2xTiles" unique_id=1225962152 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x41" parent="Environment/2xTiles" unique_id=1225962152 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 6.9999924, 0, 4)
 
-[node name="Tile_Base4x42" parent="2xTiles" unique_id=950640995 instance=ExtResource("21_jtpw3")]
+[node name="Tile_Base4x42" parent="Environment/2xTiles" unique_id=950640995 instance=ExtResource("21_jtpw3")]
 transform = Transform3D(0.665, 0, 0, 0, 1, 0, 0, 0, 0.665, 8.999992, 0, 4)
 
-[node name="Source_Base_Parts01" parent="." unique_id=1579505544 instance=ExtResource("25_364mw")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13, 0, -9)
-
-[node name="Source_Base_Parts02" parent="." unique_id=1360297277 instance=ExtResource("26_e7q1b")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11, 0, -17)
+[node name="EnemyBase" parent="." unique_id=119988933 instance=ExtResource("5_b5yrm")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 20, 0, 2)
 
 [editable path="ExistingTowers/Tower"]
 [editable path="ExistingTowers/Tower2"]
