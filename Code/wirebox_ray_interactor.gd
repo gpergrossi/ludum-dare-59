@@ -1,5 +1,8 @@
 class_name WireboxRayInteractor extends Node3D
 
+const MAX_DISTANCE := 5.0
+const MAX_DISTANCE_FUDGE := 1.0
+
 signal wirebox_enter(wirebox: Wirebox)
 signal wirebox_exit(wirebox: Wirebox)
 signal hover(hit_position: Vector3)
@@ -194,6 +197,8 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	var slot := wirebox.find_empty_slot()
 	
 	# Add a new connection
+	var old_plug_b_xform := wire.plug_b.transform 
+	
 	wirebox.claim_slot(slot, wire.plug_b)
 	wire.plug_b.transform = wirebox.get_slot_transform(slot)
 	var box_a := wire.plug_a.wirebox
@@ -201,10 +206,13 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	_ensure_tracking(box_a)
 	_ensure_tracking(box_b)
 	
-	if box_a == box_b or _connections.is_connected_including_indirectly(box_a, box_b):
-		# Can't create a loop!
-		print("Already connected!")
+	var self_connected := (box_a == box_b or _connections.is_connected_including_indirectly(box_a, box_b))
+	var too_far_away := wire.plug_a.global_position.distance_to(wire.plug_b.global_position) > (MAX_DISTANCE + MAX_DISTANCE_FUDGE)
+	
+	if self_connected or too_far_away:
+		# Cancel this drag_end
 		wirebox.release_slot(slot, wire.plug_b)
+		wire.plug_b.transform = old_plug_b_xform
 		return
 	else:
 		_connections.connect_items(box_a, box_b)
@@ -217,6 +225,7 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 		if connected_sources.size() > 1:
 			print("Too many connect sources!")
 			wirebox.release_slot(slot, wire.plug_b)
+			wire.plug_b.transform = old_plug_b_xform
 			_connections.disconnect_items(box_a, box_b)
 			return
 	
@@ -229,7 +238,49 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	
 	_drag_active = false
 	drag_end.emit(wirebox, hit_position)
-	
+
+
+func _hover(hit_position: Vector3) -> void:
+	if _drag_active:
+		var pull := (hit_position - wire.plug_b.position)
+		var up := Vector3(-pull); up.y = 1.0; up = up.normalized()
+		
+		var axis := Vector3.UP.cross(up)
+		if axis.length() > 0:
+			axis = axis.normalized()
+			var angle := Vector3.UP.signed_angle_to(up, axis)
+			_drag_basis = Basis(Quaternion(axis, angle)) * _drag_basis
+			
+			var axis2 :=  _drag_basis.y.cross(Vector3.UP)
+			if axis2.length() > 0:
+				axis2 = axis2.normalized()
+				var angle2 := _drag_basis.y.signed_angle_to(Vector3.UP, axis2)
+				angle2 -= PI * 0.5
+				if angle2 > 0:
+					_drag_basis = Basis(Quaternion(axis2, angle2)) * _drag_basis
+		
+		if _drag_basis.y.angle_to(Vector3.UP) > PI * 0.25:
+			_drag_basis = _drag_basis.slerp(Quaternion.IDENTITY, 0.01)
+		
+		if _current_wirebox != null and _current_wirebox.find_empty_slot() != -1:
+			var xform := _current_wirebox.get_slot_transform(_current_wirebox.find_empty_slot())
+			var socket_position := xform.origin + xform.basis.y * 0.1
+			if (wire.plug_a.position.distance_to(socket_position) < MAX_DISTANCE + MAX_DISTANCE_FUDGE):
+				wire.plug_b.position = socket_position
+				wire.plug_b.basis = xform.basis
+				return
+		
+		wire.plug_b.position = hit_position + Vector3.UP * 0.75
+		
+		var a := wire.plug_a.position
+		var b := wire.plug_b.position
+		if (a.distance_to(b) > MAX_DISTANCE):
+			var dir_ab := (b - a).normalized()
+			wire.plug_b.position = a + dir_ab * MAX_DISTANCE
+			_drag_basis = Basis.looking_at(dir_ab, Vector3.UP)
+			_drag_basis = _drag_basis.rotated(_drag_basis.x, 0.5 * PI)
+		
+		wire.plug_b.basis = _drag_basis
 
 
 func update_tower_sources() -> void:
@@ -261,35 +312,3 @@ func _ensure_tracking(box: Wirebox) -> void:
 			_towers.append(tower)
 	if not _connections.has_item(box):
 		_connections.add_item(box)
-	
-
-
-func _hover(hit_position: Vector3) -> void:
-	if _drag_active:
-		var pull := (hit_position - wire.plug_b.position)
-		var up := Vector3(-pull); up.y = 1.0; up = up.normalized()
-		
-		var axis := Vector3.UP.cross(up)
-		if axis.length() > 0:
-			axis = axis.normalized()
-			var angle := Vector3.UP.signed_angle_to(up, axis)
-			_drag_basis = Basis(Quaternion(axis, angle)) * _drag_basis
-			
-			var axis2 :=  _drag_basis.y.cross(Vector3.UP)
-			if axis2.length() > 0:
-				axis2 = axis2.normalized()
-				var angle2 := _drag_basis.y.signed_angle_to(Vector3.UP, axis2)
-				angle2 -= PI * 0.5
-				if angle2 > 0:
-					_drag_basis = Basis(Quaternion(axis2, angle2)) * _drag_basis
-		
-		if _drag_basis.y.angle_to(Vector3.UP) > PI * 0.25:
-			_drag_basis = _drag_basis.slerp(Quaternion.IDENTITY, 0.01)
-		
-		if _current_wirebox == null or _current_wirebox.find_empty_slot() == -1:
-			wire.plug_b.position = hit_position + Vector3.UP * 0.75
-			wire.plug_b.basis = _drag_basis
-		else:
-			var xform := _current_wirebox.get_slot_transform(_current_wirebox.find_empty_slot())
-			wire.plug_b.position = xform.origin + xform.basis.y * 0.1
-			wire.plug_b.basis = xform.basis

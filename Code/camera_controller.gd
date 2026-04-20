@@ -2,6 +2,8 @@ class_name CameraController
 extends Camera3D
 
 # --- CONFIG ---
+@export var cam_bounds: CameraBounds
+
 @export var edge_margin_ratio: float = 0.04
 
 @export var pan_min_speed: float = 10.0
@@ -26,7 +28,7 @@ var origin: Vector3 = Vector3.ZERO
 
 var yaw: float = 45.0
 var pitch: float
-var zoom_tick := 0
+var zoom_tick := zoom_ticks / 2
 var zoom_dist_mult := 1.0
 
 var pan_horizontal: int = 0  # -1, 0, 1
@@ -116,6 +118,12 @@ func _apply_pan(delta: float) -> void:
 
 	var move := (right * speed_x + forward * speed_y) * delta
 	origin += move
+	
+	if cam_bounds:
+		if origin.x < cam_bounds.min_x: origin.x = cam_bounds.min_x
+		if origin.x > cam_bounds.max_x: origin.x = cam_bounds.max_x
+		if origin.z < cam_bounds.min_z: origin.z = cam_bounds.min_z
+		if origin.z > cam_bounds.max_z: origin.z = cam_bounds.max_z
 
 func _handle_rotation(delta: float) -> void:
 	var yaw_input := 0.0
