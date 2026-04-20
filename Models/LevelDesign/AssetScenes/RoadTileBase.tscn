@@ -6,7 +6,7 @@
 
 [node name="Tile_Base2x2_01" unique_id=972465454 instance=ExtResource("1_ilgrj")]
 
-[node name="Cube" parent="." index="0" unique_id=1079173478]
+[node name="Cube" parent="." index="0" unique_id=52453857]
 visible = false
 surface_material_override/0 = ExtResource("2_5f2wr")
 
