@@ -36,6 +36,7 @@ func _ready() -> void:
 		for generator : SongGenerator in _song_generators.get_children():
 			_song_queue.push_back(generator.makeSong())
 			
+	print("Starting from song: ", _song_queue.front().song_name)
 	Pianola.INSTANCE.song = _song_queue.front()
 	Pianola.INSTANCE.song_finished.connect(_on_song_finished)
 	
@@ -82,16 +83,19 @@ func _on_song_finished(song : Song):
 	_level_state = LevelState.BETWEEN_SONGS
 	_song_queue.pop_front()
 	
-	await get_tree().create_timer(2.0).timeout
+	print("Finished song ", song.song_name)
+	
+	await get_tree().create_timer(1.0).timeout
 
 	if _song_queue.is_empty():
-		await ui.show_popover_screen("""congratulations - you won!
+		await ui.show_popover_screen("""you've beaten the game!
 		
 		thank you for playing!
 		""", "now hit repeat")
 		_reset()
 		return
 	
+	print("Moving on to song ", song.song_name)
 	Pianola.INSTANCE.song = _song_queue.front()
 	current_health = max_health
 	ui.set_health(current_health, max_health)

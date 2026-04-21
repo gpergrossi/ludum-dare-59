@@ -1,5 +1,7 @@
 class_name Song extends Resource
 
+@export var song_name : String = "untitled"
+
 @export var bps : float = 2
 
 # sort me by start_beat before use!

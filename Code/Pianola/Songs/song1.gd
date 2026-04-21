@@ -75,6 +75,7 @@ const spawnCone := EnemyType.Enum.Cone
 
 func makeSong() -> Song:
 	var song = Song.new();
+	song.song_name = "FirstSong"
 	song.blue_parts.append_array([ PARTS.kick ])
 	song.red_parts.append_array([ PARTS.hihat ])
 	song.yellow_parts.append_array([ PARTS.synth ])
@@ -110,7 +111,7 @@ func makeSong() -> Song:
 		null, null, s4s, null, s5, null, s6, null,
 	], 4.0);
 	
-	addPatternSpawns(song, PARTS.spawn1, 0, 80, [
+	addPatternSpawns(song, PARTS.spawn1, 0, 100, [
 		spawnBox, spawnBall, spawnCone, spawnNone, spawnBox, spawnBall, spawnCone, spawnNone, spawnNone, spawnNone,
 	], 0.5);
 	
