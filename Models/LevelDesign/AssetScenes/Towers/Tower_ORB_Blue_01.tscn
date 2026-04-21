@@ -1,8 +1,33 @@
 [gd_scene format=3 uid="uid://b02qtf1mcpuul"]
 
 [ext_resource type="PackedScene" uid="uid://ctd37igrvetjv" path="res://Models/LevelDesign/SourceMeshes/Blue_tower_01.glb" id="1_hwrew"]
+[ext_resource type="Material" uid="uid://dde8rbbkdgie8" path="res://Materials/ImportedMats/BlueSourceEmissive.tres" id="2_nvu24"]
 
 [node name="Blue_tower_01" unique_id=676472211 instance=ExtResource("1_hwrew")]
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=2133878913]
+[node name="Skeleton3D" parent="Blue tower_armature" parent_id_path=PackedInt32Array(1365796131) index="0" unique_id=2011341974]
+bones/6/position = Vector3(-0.07260089, 1.7534778, -0.4931172)
+
+[node name="plane_1" parent="Blue tower_armature/Skeleton3D/Bone_001" parent_id_path=PackedInt32Array(2032682032) index="0" unique_id=819691468]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="plane_2" parent="Blue tower_armature/Skeleton3D/Bone_002" parent_id_path=PackedInt32Array(285271790) index="0" unique_id=921022267]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="plane_3" parent="Blue tower_armature/Skeleton3D/Bone_003" parent_id_path=PackedInt32Array(1338377486) index="0" unique_id=978952103]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="plane_4" parent="Blue tower_armature/Skeleton3D/Bone_004" parent_id_path=PackedInt32Array(460195117) index="0" unique_id=377340692]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="plane_5" parent="Blue tower_armature/Skeleton3D/Bone_005" parent_id_path=PackedInt32Array(1244773752) index="0" unique_id=502961015]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="Bone_006" parent="Blue tower_armature/Skeleton3D" index="5" unique_id=252493178]
+transform = Transform3D(1, -1.7257914e-08, 1.7257914e-08, 1.7257914e-08, 1, 2.978356e-16, -1.7257914e-08, 0, 1, -0.07260089, 1.7534778, -0.4931172)
+
+[node name="plane_6" parent="Blue tower_armature/Skeleton3D/Bone_006" index="0" unique_id=542199108]
+surface_material_override/0 = ExtResource("2_nvu24")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=69168124]
 autoplay = &"Blue_idle"

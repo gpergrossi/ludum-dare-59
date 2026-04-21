@@ -104,6 +104,8 @@ func update_color() -> void:
 func update_instrument() -> void:
 	if tower_source == null:
 		instrument.part = null
+	elif current_song == null:
+		instrument.part = null
 	else:
 		match tower_source.color:
 			SourceColor.Enum.RED: instrument.part = current_song.red_parts[0]

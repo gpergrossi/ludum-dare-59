@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://c72e6k6f5alu5"]
+
+[ext_resource type="PackedScene" uid="uid://df8is2qha55jm" path="res://Models/LevelDesign/SourceMeshes/Tile_Base2x2_01.fbx" id="1_p1ytv"]
+[ext_resource type="Material" uid="uid://dm26sfmnmkm6x" path="res://Materials/ImportedMats/Tile_Active.tres" id="2_8l8tl"]
+
+[node name="Tile_Base2x2_01" unique_id=972465454 instance=ExtResource("1_p1ytv")]
+
+[node name="Cube" parent="." index="0" unique_id=1079173478]
+surface_material_override/0 = ExtResource("2_8l8tl")

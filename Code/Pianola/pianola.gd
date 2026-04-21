@@ -4,6 +4,9 @@ static var INSTANCE: Pianola
 
 signal song_changed(song: Song)
 
+signal song_finished(song : Song)
+
+
 var _current_time : float = 0.0
 
 var _instruments : Array[Instrument] = []
@@ -16,8 +19,9 @@ var song : Song :
 	set(value):
 		song = value
 		_song_start_time = _current_time
-		song.sort_notes()
 		_next_note_idx = 0
+		if song != null:
+			song.sort_notes()
 		song_changed.emit(song)
 		print("Song starting with " + str(_instruments.size()) + " instruments")
 
@@ -53,3 +57,7 @@ func _process(delta: float) -> void:
 				continue
 			instrument.play_note(note)
 		_next_note_idx += 1
+		
+	if _next_note_idx == song.notes.size():
+		song_finished.emit(song)
+		song = null

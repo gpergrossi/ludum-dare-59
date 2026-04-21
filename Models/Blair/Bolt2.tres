@@ -1,41 +1,8 @@
-[gd_scene format=4 uid="uid://cio1q1sb1a77m"]
+[gd_resource type="ArrayMesh" format=4 uid="uid://bpol5f2kl3iys"]
 
-[ext_resource type="Script" uid="uid://cr8xeiv1iglwx" path="res://Code/tower_fire_effect.gd" id="1_xu34n"]
-[ext_resource type="ArrayMesh" uid="uid://cv5eeds7s7jph" path="res://Models/Blair/Pill_Shape.tres" id="2_6glgt"]
-[ext_resource type="ArrayMesh" uid="uid://bpol5f2kl3iys" path="res://Models/Blair/Bolt2.tres" id="2_xu34n"]
-[ext_resource type="Material" uid="uid://dha2sx650fvh2" path="res://Materials/Effects/Bolt2.tres" id="3_5xqro"]
+[ext_resource type="Material" uid="uid://b1xlgyo814mxj" path="res://Materials/Effects/Bolt.tres" id="1_648nv"]
 
-[sub_resource type="Curve" id="Curve_ajhwj"]
-_data = [Vector2(0, 0.51739436), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.5877695, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_cb3m2"]
-curve = SubResource("Curve_ajhwj")
-
-[sub_resource type="Curve" id="Curve_80tqf"]
-_data = [Vector2(0, 0.52953535), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.9315321, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_svv8j"]
-curve = SubResource("Curve_80tqf")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_a77cq"]
-emission_shape = 1
-emission_sphere_radius = 0.1
-spread = 17.667
-initial_velocity_min = 7.0
-initial_velocity_max = 7.0
-angular_velocity_min = -424.54
-angular_velocity_max = 274.55
-gravity = Vector3(0, 0, 0)
-radial_accel_min = -2.2351742e-06
-radial_accel_max = -2.2351742e-06
-scale_min = 2.5
-scale_max = 3.0
-scale_curve = SubResource("CurveTexture_svv8j")
-alpha_curve = SubResource("CurveTexture_cb3m2")
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_juki0"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_gp31l"]
 _surfaces = [{
 "aabb": AABB(-0.13017502, -0.05, -0.0050000013, 0.26035005, 0.1, 0.010000003),
 "format": 34359742465,
@@ -49,7 +16,7 @@ _surfaces = [{
 }]
 blend_shape_mode = 0
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_c7gva"]
+[resource]
 resource_name = "Mesh"
 _surfaces = [{
 "aabb": AABB(-0.13017502, -0.05, -0.0050000013, 0.26035005, 0.1, 0.010000003),
@@ -57,7 +24,7 @@ _surfaces = [{
 "format": 34359742519,
 "index_count": 108,
 "index_data": PackedByteArray("AAABAAIAAgADAAAABAAFAAYABgAHAAQACAAJAAoACgALAAgADAANAA4ADgAPAAwADQAMABAAEAARAA0AEgATABQAFAAVABIAFgASABUAFQAXABYAGAAZABoAGgAbABgAHAAYABsAGwAdABwAHgAfACAAIAAhAB4AIgAjACQAJAAlACIAJgAnACgAKAApACYAKgAmACkAKQArACoALAAtAC4ALgAvACwALQAsADAAMAAxAC0AMgAzADQANAA1ADIANgAyADUANQA3ADYAOAA5ADoAOgA7ADgA"),
-"material": ExtResource("3_5xqro"),
+"material": ExtResource("1_648nv"),
 "name": "lambert1",
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
@@ -65,71 +32,4 @@ _surfaces = [{
 "vertex_data": PackedByteArray("yB1Tvc3MTD0N16M7PS9MvAAAAAAN16M7PS9MvAAAAAAN16O7yB1Tvc3MTD0N16O7mkwFPgAAAAAN16O7mkwFPgAAAAAN16M7OJC6Pc3MTD0N16M7OJC6Pc3MTD0N16O7PS9MPArXI7EN16M7mkwFPgAAAAAN16M7mkwFPgAAAAAN16O7PS9MPArXI7EN16O7PS9MPArXI7EN16M7j+HavM3MTD0N16M7OJC6Pc3MTD0N16M7mkwFPgAAAAAN16M7PS9MvAAAAAAN16M7yB1Tvc3MTD0N16M7j+HavM3MTD0N16O7OJC6Pc3MTD0N16O7OJC6Pc3MTD0N16M7j+HavM3MTD0N16M7yB1Tvc3MTD0N16O7yB1Tvc3MTD0N16M7PS9MPArXI7EN16O7mkwFPgAAAAAN16O7OJC6Pc3MTD0N16O7j+HavM3MTD0N16O7PS9MvAAAAAAN16O7yB1Tvc3MTD0N16O7mkwFvgrXI7EN16M7OJC6vc3MTL0N16M7OJC6vc3MTL0N16O7mkwFvgrXI7EN16O7yB1TPc3MTL0N16O7yB1TPc3MTL0N16M7PS9MPArXI7EN16M7PS9MPArXI7EN16O7DfXbPM3MTL0N16M7yB1TPc3MTL0N16M7yB1TPc3MTL0N16O7DfXbPM3MTL0N16O7OJC6vc3MTL0N16M7OJC6vc3MTL0N16O7DfXbPM3MTL0N16M7PS9MvAAAAAAN16M7PS9MPArXI7EN16M7yB1TPc3MTL0N16M7OJC6vc3MTL0N16M7mkwFvgrXI7EN16M7DfXbPM3MTL0N16O7yB1TPc3MTL0N16O7PS9MPArXI7EN16O7PS9MvAAAAAAN16O7OJC6vc3MTL0N16O7mkwFvgrXI7EN16O7mkwFvgrXI7EN16O7PS9MvAAAAAAN16O7PS9MvAAAAAAN16M7mkwFvgrXI7EN16M7JzjYR9t/FsAnONhHoH7fwCc42EfCfsnAJzjYR/9//7/Xxya4oM8YbdfHJrgyzSVs18cmuNE/8BjXxya45kIkGv9/AAC1/P8//38AANYL/z//fwAAmwz/P/9/AACZ/f8//3//fy38Fr7/f/9/5/nzvP9//38O/Ye+/3//f3D+OL//f/9/P/+fv/9//3/y+Hi8/3///6v//z//f///8P//P/9///+XJP+//3////9//7//f////3//v/9/////f/+/AAD//zgA478AAP//8P8GQAAA///3/wNA//////L/+T//////8v/5P//////y//k/JzjYR/9//78nONhH/3//vyc42Ef/f/+/JzjYR/9//7/Xxya4SM/2bNfHJrg4zMNr18cmuJU18BTXxya4xzgwFv9/AADvCf8//38AAFMI/z//fwAA6v//v/9/AAD/f/+//38AAP9//7//fwAA/3//v/9//3+++l+9/3//f330Prr/f/9/VOYps/9//38Q/4e//3//fwT7gb3/f/9/wfngvAAA///8//4/AAD///z//j8AAP//SwFZv//////t/whA/////8X/HED/////sf8mQP9///8Xef+//3///4EA/7//f///XAf/v/9/////f/+/")
 }]
 blend_shape_mode = 0
-shadow_mesh = SubResource("ArrayMesh_juki0")
-
-[sub_resource type="Curve" id="Curve_ppusa"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.644669, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_e8loj"]
-curve = SubResource("Curve_ppusa")
-
-[sub_resource type="Gradient" id="Gradient_6vsrl"]
-offsets = PackedFloat32Array(0.6439232, 1)
-colors = PackedColorArray(0.88235295, 0.3137255, 0, 1, 1, 0.7019608, 0, 1)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_73pwt"]
-gradient = SubResource("Gradient_6vsrl")
-
-[sub_resource type="Curve" id="Curve_8epuf"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.8855449, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="CurveTexture" id="CurveTexture_5ivhe"]
-curve = SubResource("Curve_8epuf")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_nj3vk"]
-spread = 64.0
-initial_velocity_min = 5.0
-initial_velocity_max = 5.0
-gravity = Vector3(0, 0, 0)
-scale_min = 0.5
-scale_max = 0.5
-scale_curve = SubResource("CurveTexture_5ivhe")
-color_ramp = SubResource("GradientTexture1D_73pwt")
-alpha_curve = SubResource("CurveTexture_e8loj")
-
-[node name="Yellow_Tower" type="Node3D" unique_id=1422476025 node_paths=PackedStringArray("particles")]
-script = ExtResource("1_xu34n")
-particles = [NodePath("Offsetter/Bolt_01"), NodePath("Offsetter/Bolt_02"), NodePath("Offsetter/Sparks")]
-
-[node name="Offsetter" type="Node3D" parent="." unique_id=1486027204]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.61450434)
-
-[node name="Bolt_01" type="GPUParticles3D" parent="Offsetter" unique_id=579193806]
-transform = Transform3D(-4.371139e-08, -0.7071067, 0.70710677, 0, 0.70710677, 0.7071067, -1, 3.0908616e-08, -3.0908616e-08, 0, 0, 0)
-amount = 6
-lifetime = 0.3
-explosiveness = 0.7
-randomness = 0.45
-process_material = SubResource("ParticleProcessMaterial_a77cq")
-draw_pass_1 = ExtResource("2_xu34n")
-
-[node name="Bolt_02" type="GPUParticles3D" parent="Offsetter" unique_id=1265673036]
-transform = Transform3D(-4.371139e-08, 0.7071067, 0.70710677, 0, 0.70710677, -0.7071067, -1, -3.0908616e-08, -3.0908616e-08, 0, 0, 0)
-amount = 6
-lifetime = 0.5
-explosiveness = 0.7
-randomness = 0.44
-process_material = SubResource("ParticleProcessMaterial_a77cq")
-draw_pass_1 = SubResource("ArrayMesh_c7gva")
-
-[node name="Sparks" type="GPUParticles3D" parent="Offsetter" unique_id=633043271]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
-amount = 12
-lifetime = 0.5
-explosiveness = 0.8
-randomness = 0.5
-transform_align = 2
-process_material = SubResource("ParticleProcessMaterial_nj3vk")
-draw_pass_1 = ExtResource("2_6glgt")
+shadow_mesh = SubResource("ArrayMesh_gp31l")

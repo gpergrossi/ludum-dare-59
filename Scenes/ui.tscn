@@ -21,6 +21,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 mouse_filter = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=809013248]
@@ -40,14 +42,14 @@ theme_override_constants/margin_bottom = 40
 unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 20)
 layout_mode = 2
-size_flags_horizontal = 4
+size_flags_horizontal = 0
 mouse_filter = 2
 theme_override_styles/background = SubResource("StyleBoxFlat_wviqb")
 theme_override_styles/fill = SubResource("StyleBoxFlat_jxero")
 value = 50.0
 show_percentage = false
 
-[node name="AnnounceText" type="Label" parent="." unique_id=1856988497]
+[node name="LossText" type="Label" parent="." unique_id=1856988497]
 unique_name_in_owner = true
 visible = false
 layout_mode = 1
@@ -57,10 +59,31 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/normal = SubResource("StyleBoxFlat_qdvrb")
-text = "you lose :(((((
-
-thank you for trying anyways.
-please refresh the page to play again"
+text = "placeholder text!"
 label_settings = SubResource("LabelSettings_wviqb")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="MarginContainer2" type="MarginContainer" parent="." unique_id=1674067600]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -74.5
+offset_top = -111.0
+offset_right = 74.5
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="RestartButton" type="Button" parent="MarginContainer2" unique_id=1476396842]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+text = "placeholder text!"

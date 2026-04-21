@@ -29,11 +29,28 @@ var _drag_basis := Basis.IDENTITY
 var _sources: Array[TowerSource] = []
 var _towers: Array[Tower] = []
 var _connections: ConnectionGraphManager
+var _wires : Array[Wire] = []
 
 func _ready() -> void:
 	hover.connect(_hover)
 	_connections = ConnectionGraphManager.new()
 
+func reset() -> void:
+	_current_wirebox = null
+	_current_plug = null
+	_hit_position = Vector3.ZERO
+	_drag_active= false
+	_drag_wirebox = null
+	_drag_wirebox_slot = -1
+	_drag_basis = Basis.IDENTITY	
+	
+	_sources.clear()
+	_towers.clear()
+	_connections = ConnectionGraphManager.new()
+	for wire in _wires:
+		if is_instance_valid(wire):
+			wire.queue_free()
+	_wires.clear()
 
 func _physics_process(_delta: float) -> void:
 	var camera := get_viewport().get_camera_3d()
@@ -231,6 +248,7 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	
 	var new_wire := WIRE.instantiate() as Wire
 	self.add_child(new_wire)
+	_wires.push_back(new_wire)
 	new_wire._replace_existing_connections(wire)
 	wire.disconnect_plugs()
 	
