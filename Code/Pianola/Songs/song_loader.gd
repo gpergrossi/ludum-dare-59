@@ -184,6 +184,9 @@ func makeSong() -> Song:
 	var trackMap = trackMaps[my_song];
 	
 	var song = Song.new();
+	song.red_parts.append_array([ PARTS.marimba, PARTS.synth ]);
+	song.blue_parts.append_array([ PARTS.kick, PARTS.percussion ]);
+	song.yellow_parts.append_array([ PARTS.hihat ]);
 	song.bps = 1;
 
 	var last_note = 0;
