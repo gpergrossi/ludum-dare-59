@@ -74,7 +74,7 @@ point_count = 47
 
 [node name="Level" type="Node3D" unique_id=1504116293 node_paths=PackedStringArray("lanes")]
 script = ExtResource("1_51b2r")
-lanes = [NodePath("Lanes/Lane1")]
+lanes = [NodePath("Lanes/Lane1"), NodePath("Lanes/Lane2"), NodePath("Lanes/Lane3")]
 current_health = 100.0
 
 [node name="ReflectionProbe" type="ReflectionProbe" parent="." unique_id=274476349]
@@ -119,10 +119,9 @@ lane = NodePath("../Lanes/Lane1")
 
 [node name="Lanes" type="Node3D" parent="." unique_id=883626217]
 
-[node name="Lane1" type="Node3D" parent="Lanes" unique_id=1335911491 node_paths=PackedStringArray("path", "enemy_base", "home_base")]
+[node name="Lane1" type="Node3D" parent="Lanes" unique_id=1335911491 node_paths=PackedStringArray("paths", "home_base")]
 script = ExtResource("12_66wev")
-path = NodePath("Lane1Path")
-enemy_base = NodePath("L1_Sources/SpawnPoint02")
+paths = [NodePath("Lane1Path")]
 home_base = NodePath("L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
 
@@ -466,9 +465,9 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13, 
 
 [node name="L1_Active" parent="Lanes/Lane1" unique_id=998660870 instance=ExtResource("19_b5yrm")]
 
-[node name="Lane2" type="Node3D" parent="Lanes" unique_id=1500140263 node_paths=PackedStringArray("enemy_base", "home_base")]
+[node name="Lane2" type="Node3D" parent="Lanes" unique_id=1500140263 node_paths=PackedStringArray("paths", "home_base")]
 script = ExtResource("12_66wev")
-enemy_base = NodePath("../Lane1/L1_Sources/SpawnPoint02")
+paths = [NodePath("Lane2Path/Lane")]
 home_base = NodePath("../Lane1/L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
 
@@ -1269,9 +1268,9 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16,
 
 [node name="L2_Active" parent="Lanes/Lane2" unique_id=244853731 instance=ExtResource("20_ertfi")]
 
-[node name="Lane3" type="Node3D" parent="Lanes" unique_id=1284645031 node_paths=PackedStringArray("enemy_base", "home_base")]
+[node name="Lane3" type="Node3D" parent="Lanes" unique_id=1284645031 node_paths=PackedStringArray("paths", "home_base")]
 script = ExtResource("12_66wev")
-enemy_base = NodePath("../Lane1/L1_Sources/SpawnPoint02")
+paths = [NodePath("Lane3Path1/Lane"), NodePath("Lane3Path2/Lane")]
 home_base = NodePath("../Lane1/L1_Sources/HomeBase")
 metadata/_custom_type_script = "uid://w1k8rp32fvu4"
 
