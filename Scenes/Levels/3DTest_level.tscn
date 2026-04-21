@@ -107,10 +107,6 @@ script = ExtResource("4_b5yrm")
 script = ExtResource("5_ertfi")
 my_song = "gravity_falls"
 
-[node name="SevenNation" type="Node" parent="SongGenerators" unique_id=1455298956]
-script = ExtResource("5_ertfi")
-my_song = "7nation"
-
 [node name="Towers" type="Node3D" parent="." unique_id=1989324696]
 
 [node name="Lane1SpawnInstrument" parent="." unique_id=180430757 node_paths=PackedStringArray("lane") instance=ExtResource("8_jtpw3")]

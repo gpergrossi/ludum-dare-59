@@ -184,6 +184,7 @@ func makeSong() -> Song:
 	var trackMap = trackMaps[my_song];
 	
 	var song = Song.new();
+	song.song_name = my_song
 	song.red_parts.append_array([ PARTS.marimba, PARTS.synth ]);
 	song.blue_parts.append_array([ PARTS.kick, PARTS.percussion ]);
 	song.yellow_parts.append_array([ PARTS.hihat ]);
@@ -228,7 +229,7 @@ const spawnCone := EnemyType.Enum.Cone;
 func add_spawns(song: Song, last_note: float):
 	addPatternSpawns(song, PARTS.spawn1, 0, int(last_note * 0.9), [
 		spawnBox, spawnBall, spawnCone, spawnNone, spawnBox, spawnBall, spawnCone, spawnNone, spawnNone, spawnNone,
-	], 0.5);
+	], 2.0);
 
 static func addPatternSpawns(song: Song, part: Part, startBeat: int, endBeat: int, pattern: Array[EnemyType.Enum], rate: float = 1, offset: float = 0):
 	var length := (endBeat - startBeat) * rate;

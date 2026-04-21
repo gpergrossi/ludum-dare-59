@@ -294,6 +294,7 @@ const IN_THE_HALL = [
 
 func makeSong() -> Song:
 	var song = Song.new();
+	song.song_name = "SecondSong"
 	song.blue_parts.append_array([ PARTS.kick ])
 	song.red_parts.append_array([ PARTS.hihat ])
 	song.yellow_parts.append_array([ PARTS.marimba ])
@@ -316,9 +317,12 @@ func makeSong() -> Song:
 	
 	print(IN_THE_HALL.size());
 	
-	addPatternSpawns(song, PARTS.spawn1, 0, 80, [
+	addPatternSpawns(song, PARTS.spawn1, 0, 800, [
 		spawnBox, spawnBall, spawnCone, spawnNone, spawnBox, spawnBall, spawnCone, spawnNone, spawnNone, spawnNone,
 	], 0.5);
+	
+	song.sort_notes()
+	song.notes.resize(500)
 	
 	return song;
 

@@ -57,6 +57,7 @@ func _process(delta: float) -> void:
 				continue
 			instrument.play_note(note)
 		_next_note_idx += 1
+		#print("Playing note ", _next_note_idx - 1, " out of ", song.notes.size())
 		
 	if _next_note_idx == song.notes.size():
 		song_finished.emit(song)
