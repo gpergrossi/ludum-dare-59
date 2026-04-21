@@ -21,7 +21,7 @@ const collision_mask_plugs: int = 32
 
 const WIRE = preload("uid://cxryvqj7s6ok1")
 
-var max_wires := 4
+var max_wires := 6
 var placed_wires := 0
 
 var _current_wirebox: Wirebox = null
@@ -50,7 +50,7 @@ func reset() -> void:
 	_drag_wirebox_slot = -1
 	_drag_basis = Basis.IDENTITY	
 	
-	max_wires = 4
+	max_wires = 6
 	placed_wires = 0
 	
 	_sources.clear()
