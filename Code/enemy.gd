@@ -1,5 +1,6 @@
 class_name Enemy extends Node3D
 
+@export var level: Level
 @export var path : Path3D
 
 @onready var hit_target_position : Node3D = %HitTargetPosition
@@ -49,4 +50,5 @@ func take_damage(taken : float):
 		var effect : EnemyDeathEffect = death_effect.instantiate()
 		get_parent().add_child(effect)
 		effect.global_transform = global_transform
+		level._enemy_killed(self)
 		queue_free()

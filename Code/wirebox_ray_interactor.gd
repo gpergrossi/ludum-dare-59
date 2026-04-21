@@ -9,6 +9,9 @@ signal hover(hit_position: Vector3)
 signal drag_begin(wirebox: Wirebox, hit_position: Vector3)
 signal drag_end(wirebox: Wirebox, hit_position: Vector3)
 
+signal wire_placed()
+signal wire_removed()
+
 @export var ray_length: float = 100.0
 const collision_mask_all: int = -1
 const collision_mask_clickables: int = 16
@@ -17,6 +20,9 @@ const collision_mask_plugs: int = 32
 @onready var wire: Wire = %Wire
 
 const WIRE = preload("uid://cxryvqj7s6ok1")
+
+var max_wires := 4
+var placed_wires := 0
 
 var _current_wirebox: Wirebox = null
 var _current_plug: Plug = null
@@ -43,6 +49,9 @@ func reset() -> void:
 	_drag_wirebox = null
 	_drag_wirebox_slot = -1
 	_drag_basis = Basis.IDENTITY	
+	
+	max_wires = 4
+	placed_wires = 0
 	
 	_sources.clear()
 	_towers.clear()
@@ -105,7 +114,8 @@ func _input(event: InputEvent) -> void:
 			if (mbe.button_mask & MOUSE_BUTTON_MASK_LEFT) != 0:
 				if _current_wirebox != null and _current_wirebox.has_empty_slot():
 					if not _drag_active:
-						_drag_begin(_current_wirebox, _hit_position)
+						if placed_wires < max_wires:
+							_drag_begin(_current_wirebox, _hit_position)
 					else:
 						_drag_end(_current_wirebox, _hit_position)
 				elif not _drag_active and _current_plug != null and _current_plug.wire != wire:
@@ -114,6 +124,8 @@ func _input(event: InputEvent) -> void:
 					var other_end := _current_plug.wire.get_other_plug(_current_plug)
 					var other_box := other_end.wirebox
 					_connections.disconnect_items(this_box, other_box)
+					placed_wires -= 1
+					wire_removed.emit()
 					update_tower_sources()
 					_current_plug.wire.disconnect_plugs()
 					_current_plug.wire.queue_free()
@@ -255,6 +267,8 @@ func _drag_end(wirebox: Wirebox, hit_position: Vector3) -> void:
 	update_tower_sources()
 	
 	_drag_active = false
+	placed_wires += 1
+	wire_placed.emit()
 	drag_end.emit(wirebox, hit_position)
 
 

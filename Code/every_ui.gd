@@ -3,6 +3,10 @@ class_name EveryUi extends Control
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var loss_text: Label = %LossText
 @onready var restart_button : Button = %RestartButton
+@onready var wire_earn_progress: ProgressBar = %WireEarnProgress
+@onready var wire_earn_label: Label = %WireEarnLabel
+@onready var wire_use_label: Label = %WireUseLabel
+
 
 var health: float
 var max_health: float
@@ -41,3 +45,14 @@ func show_popover_screen(label_text : String, button_text : String) -> void:
 	hide_tween.tween_callback(func ():
 		loss_text.hide()
 		restart_button.hide())
+
+func set_wire_earn(current: int, max: int) -> void:
+	if not is_node_ready(): return
+	wire_earn_progress.max_value = max
+	wire_earn_progress.value = current
+	wire_earn_label.text = str(current) + " / " + str(max)
+	
+func set_wires_used(used: int, max: int) -> void:
+	if not is_node_ready(): return
+	wire_use_label.text = "Wires Used:    " + str(used) + " / " + str(max)
+	

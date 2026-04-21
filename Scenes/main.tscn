@@ -6,7 +6,6 @@
 [ext_resource type="Script" uid="uid://dlt60v5qnct30" path="res://Code/camera_bounds.gd" id="3_d1ilt"]
 [ext_resource type="Script" uid="uid://dwwi6ih3a5sv6" path="res://Code/camera_controller.gd" id="3_kry3j"]
 [ext_resource type="Script" uid="uid://dljcwksvcacnc" path="res://Code/wirebox_ray_interactor.gd" id="4_jjvhh"]
-[ext_resource type="Script" uid="uid://dygfthcffwoso" path="res://Code/every_ui.gd" id="5_hptm8"]
 [ext_resource type="PackedScene" uid="uid://cxryvqj7s6ok1" path="res://Scenes/Wiring/wire.tscn" id="6_21xkr"]
 [ext_resource type="PackedScene" uid="uid://bq4u5awlg3ngs" path="res://Effects/Home_Base_Damage.tscn" id="7_ynf5e"]
 [ext_resource type="PackedScene" uid="uid://i1kv84ownrhc" path="res://Models/Blair/Effects/exploding_enemy_v_02.tscn" id="8_hptm8"]
@@ -19,7 +18,7 @@
 [sub_resource type="BoxShape3D" id="BoxShape3D_hptm8"]
 size = Vector3(50.59893, 12.376831, 43.336945)
 
-[sub_resource type="Curve3D" id="Curve3D_b3802"]
+[sub_resource type="Curve3D" id="Curve3D_jkdf5"]
 resource_local_to_scene = true
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0.1, 0, 1, 0, 0, 0, -0.1, 0, 0, 1, 0, 0.99000674, 0.3, 0.00036774483, 0, 1, 0, 0, -0.1, 0, 0.0112907095, 0.3, 0.036383882, 0, 0.1, 0, 0, 0, 0, 0.0012974739, 0, 0.036751628),
@@ -27,7 +26,7 @@ _data = {
 }
 point_count = 4
 
-[sub_resource type="ArrayMesh" id="ArrayMesh_fevyy"]
+[sub_resource type="ArrayMesh" id="ArrayMesh_wsu2k"]
 resource_local_to_scene = true
 _surfaces = [{
 "aabb": AABB(-3.2630548, 0.7559887, -1.2640785, 2.279394, 1.0887398, 5.2640038),
@@ -70,7 +69,6 @@ cam_bounds = NodePath("../CameraBounds")
 
 [node name="Ui" parent="." unique_id=435459739 instance=ExtResource("3_8gbba")]
 unique_name_in_owner = true
-script = ExtResource("5_hptm8")
 
 [node name="WireboxRayInteractor" type="Node3D" parent="." unique_id=379869970]
 script = ExtResource("4_jjvhh")
@@ -88,10 +86,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0236609, 0.7594467, 3.9599
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.223061, 0.75598884, -1.2240846)
 
 [node name="WirePath" parent="WireboxRayInteractor/Wire" index="2" unique_id=594784255]
-curve = SubResource("Curve3D_b3802")
+curve = SubResource("Curve3D_jkdf5")
 
 [node name="WireMesh" parent="WireboxRayInteractor/Wire" index="3" unique_id=1945123879]
-mesh = SubResource("ArrayMesh_fevyy")
+mesh = SubResource("ArrayMesh_wsu2k")
 
 [node name="SneakyParticleInstancesToHideStutterOnFirstLoad" type="Node3D" parent="." unique_id=2114553475]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 100, 100, 100)

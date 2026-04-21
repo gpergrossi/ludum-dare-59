@@ -23,6 +23,10 @@ enum LevelState {
 
 var _level_state := LevelState.PLAYING
 
+var curr_level_earn_max := 5
+var earn_kills := 0
+
+
 func _ready() -> void:
 	if Engine.is_editor_hint():
 		return
@@ -37,9 +41,23 @@ func _ready() -> void:
 	
 	current_health = max_health
 	ui.set_health(current_health, max_health)
+	refresh_wire_ui()
+	wirebox.wire_placed.connect(refresh_wire_ui)
+	wirebox.wire_removed.connect(refresh_wire_ui)
 
 	for lane in lanes:
 		lane.on_enemy_spawned.connect(_enemy_spawned)
+
+func _enemy_killed(enemy: Enemy):
+	earn_kills += 1
+	refresh_wire_ui()
+	if earn_kills >= curr_level_earn_max:
+		while earn_kills >= curr_level_earn_max:
+			earn_kills -= curr_level_earn_max
+			curr_level_earn_max += 1
+			wirebox.max_wires += 1
+		await get_tree().create_timer(1).timeout
+		refresh_wire_ui()
 
 func _enemy_spawned(enemy : Enemy):
 	enemy.on_reach_end.connect(func():
@@ -92,6 +110,16 @@ func _reset():
 	# TODO: set unlocked stuff.
 	replacement._song_queue = _song_queue
 	
+	curr_level_earn_max = 5
+	earn_kills = 0
+	
+	refresh_wire_ui()
+	
 	get_parent_node_3d().add_child(replacement)
 	queue_free()
+
+
+func refresh_wire_ui() -> void:
+	ui.set_wire_earn(earn_kills, curr_level_earn_max)
+	ui.set_wires_used(wirebox.placed_wires, wirebox.max_wires)
 	
